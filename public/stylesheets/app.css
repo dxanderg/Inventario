@@ -1,0 +1,333 @@
+body{
+	font-family: 'Ubuntu', sans-serif;
+	background-color: #2A3948;
+	color: white;
+	font-size: 16px;
+}
+#header-container #linktitle{
+	cursor: pointer;
+	text-decoration: none;
+	transition: all .5s ease;
+}
+#header-container #linktitle:hover{
+		transform: scale(1.03);
+}
+
+#header-container h1{
+	margin: .5em 0;
+	user-select: none;
+}
+
+#header-container #logo{
+	padding: 0;
+}
+
+#header-container #usuario-login{
+	transition: all .2s ease;
+	margin: 0;
+	cursor: pointer;
+	padding: 10px;
+	user-select: none;
+}
+
+#header-container #usuario-login:hover{
+	background-color: #23303D;
+	border-left: .3rem solid #2DBD8D;
+}
+
+#header-container #usuario-login b{
+	font-size: 30px;
+	margin: 0;
+	padding: 0;
+}
+
+#header-container #usuario-login #logout{
+	list-style-type: none;
+	padding: 0 .5em;
+}
+
+#header-container #usuario-login #logout li a{
+	border: 1px solid #2DBD8D;
+	text-decoration: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	transition: all .3s ease;
+}
+#header-container #usuario-login #logout li a:hover{
+	background-color: #2DBD8D;
+}
+
+#header-container a{
+	color: white;
+}
+
+#header-container i{
+	font-size: 40px;
+	margin: 0 10px;
+}
+
+#header-container ul button{
+	color: white;
+	font-size: 35px;
+}
+.delgado{
+	padding: 0;
+}
+
+#side-menu{
+	height: 100vh;
+	padding: 0;
+	box-shadow: inset 0px 0px 2px 0px rgba(0,0,0,0.75);
+	border-top: 5px solid #E8E8E8;
+}
+
+#side-menu li i{
+	margin-right: .5em;
+}
+
+#side-menu ul li a{
+	transition: all .3s ease;
+	padding: .5em 0 .5em .5em;
+    cursor: pointer;
+	color: #67809A;
+	text-decoration: none;
+	display: block;
+	border-left: .3rem solid transparent;
+	text-transform: uppercase;
+}
+
+#side-menu ul li a:hover{
+	color: white;
+	background-color: #23303D;
+	border-left: .3rem solid #2DBD8D;
+	transform: translateX(5px);
+}
+
+#contenido{
+	padding-top: 1em;
+	background-color: #F0F4F7;
+	width: 100%;
+	color: #58738A;
+	box-shadow: inset 0px 0px 2px 0px rgba(0,0,0,0.75);
+	margin: 0 auto;
+	border-top: 5px solid #E8E8E8;
+}
+
+
+
+#contenido h6, h2{
+	font-weight: bolder;
+	font-family: 'Catamaran', sans-serif;
+}
+
+#contenido .card-blockquote{
+	color: #15A4FA;
+}
+
+#contenido hr{
+	border: 0;
+    border-bottom: 1px dashed #2EBE8D;
+    
+}
+
+#contenido .card{
+	transition: all 0.5s ease;
+	border: 1px solid #DDE4EC;
+	background-color: #FFFFFF;
+	text-align: center;
+	color: #58738A;
+	cursor: pointer;
+}
+
+#contenido .card:hover{
+	border-color: #58738A;
+	transform: scale(1.03);
+	z-index: 9999;
+}
+
+#contenido .card h2{
+	padding-top: .3em;
+	font-size: 3em;
+}
+
+#menu-escondido{
+	background-color: #428BCA;
+	text-align: center;
+	margin: 1em auto;
+}
+#menu-escondido li{
+	padding: .5em;
+	cursor: pointer;
+}
+#menu-escondido li:hover{
+	background-color: #58738A;
+}
+
+#menu-escondido li a{
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#menu-escondido li a i{
+	padding: 0 1.5em;
+}
+
+.cont-ingreso{
+	padding: 2em;
+}
+.cont-ingreso>.form-title{
+	margin-bottom: 1.5em;
+}
+.cont-ingreso>.form-group{
+	margin-bottom: .5em;
+}
+
+.button-container{
+	padding: 1.5em 0;
+}
+
+.div-button{
+	border: 1px solid #2DBD8D;
+	background-color: #2DBD8D;
+	font-size: 1.1em;
+    text-decoration: none;
+    padding: .7em 0;
+    border-radius: 5px;
+    transition: all .3s ease;
+}
+.div-button:hover{
+	background-color: white;
+	border: 1px solid #2DBD8D;
+	color: #2DBD8D;
+}
+
+.tablas{
+	padding: 0;
+	font-family: 'Catamaran';
+	transition: transform .5s;
+}
+
+.tablas table th,
+.tablas table tr{
+	text-align: center;
+	margin: 0 auto;
+}
+
+.tabla-consulta table td{
+	font-size: 17px;
+	vertical-align: middle;
+	border: 1px solid #cbd0d3;
+	padding: 5px 0;  
+}
+.tablas .big-checkbox{
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.tablas .table-head{
+	font-size: 1.2em;
+	vertical-align: middle;
+}
+
+.tablas .table-head th{
+	font-weight: normal;
+}
+
+.tablas #add_row i,
+.tablas #delete_row i{
+	font-size: 2.5em;
+}
+
+.add-container a{
+	text-align: center;
+	margin: 0 auto;	
+}
+
+.add-container a .fa-plus-circle{
+	color: #7DC146;
+	transition: all .3s ease;
+}
+.add-container a .fa-minus-circle{
+	color: red;
+	transition: all .3s ease;
+}
+.add-container a .fa-plus-circle:hover,
+.add-container a .fa-minus-circle:hover{
+	color: black;
+}
+
+.multiselect{
+	background-color: white;
+	border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    color: #55595c;
+}
+select.form-control:not([size]):not([multiple]){
+	height: 38px;
+	padding: 0 5px;
+	text-align: center;
+}
+
+#buscar_campo,
+#ticket_campo{
+	font-family: 'Catamaran';
+	margin-bottom: 1em;
+}
+
+#buscar_campo span,
+#ticket_campo span{
+	user-select: none;
+}
+
+#tabla_consultas tbody{
+	font-size: 12px;
+}
+
+#pill{
+	background-color: red;
+	color: white;
+	margin: 0 5px;
+	padding: 0 .4em 0 .3em;
+	border-radius: .5em;
+	font-weight: bold;
+}
+#pill:hover,
+#pill:focus{
+	background-color:#c9302c;
+}
+#tab_logic_filter label{
+	display: flex;
+	margin-bottom: 1em;
+}
+
+#tab_logic_filter .input-group{
+	display: flex;
+	width: 100%;
+}
+
+.table-footer{
+    display: table-header-group;
+    text-align: center;
+		margin: 0 auto;
+}
+
+.table-footer th{
+	padding: 5px;
+  vertical-align: middle;
+  border: 1px solid #cbd0d3;
+}
+
+.table-footer th input{
+	width: 100%;
+	font-weight: normal;
+}
+
+#btn_limpiar:hover{
+	background-color: #2DBD8D;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .3s ease;
+}

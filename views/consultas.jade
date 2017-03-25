@@ -1,0 +1,178 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Inventario Equipos Digitex
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    link(rel='shorcut icon', href='/images/favicon.ico')
+    link(rel='stylesheet', href='/fonts/fonts.css')
+    // Bootstrap CSS
+    link(rel='stylesheet', href='/stylesheets/bootstrap-flex.min.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+    link(rel='stylesheet', href='/stylesheets/pagination.css')
+    link(rel='stylesheet', href='/stylesheets/app.css')
+
+  body
+    #main-div.container-fluid
+      // HEADER
+      header#header-container
+        .container-fluid
+          .row.flex-items-xs-middle.flex-items-xs-between
+            a#linktitle(href='/')
+              #logo.col-xs-6.col-md-3
+                h1
+                  | Inventario 
+                  br
+                  | Digitex
+                // <img src="http://www.grupodigitex.com/catalog/view/theme/default/img/logo_digitex.png" alt="">
+            ul.nav.navbar-right.top-nav
+              a(href='#')
+                button.navbar-toggler.hidden-md-up(data-toggle='collapse', data-target='.navbar-ex1-collapse')
+                  | ☰
+                #usuario-login.row.flex-items-xs-middle.flex-items-xs-between.hidden-sm-down(data-toggle='collapse', data-target='#logout')
+                  li.text-uppercase.hidden-xs-down
+                    i.fa.fa-user-circle-o(href='#')
+                  a.text-uppercase.hidden-xs-down Usuario
+                  ul#logout.collapse
+                    li
+                      a(href='#') Salir
+                  b.text-uppercase.hidden-xs-down.fa.fa-fw.fa-caret-right
+      // HEADER
+      // Menu Escondido
+      #menu-escondido.collapse.navbar-collapse.navbar-ex1-collapse
+        ul.nav.navbar-nav.side-nav
+          li
+            a(href='/')
+              i.fa.fa-fw.fa-dashboard
+              | Inicio
+          li
+            a(href='Ingresos')
+              i.fa.fa-fw.fa-edit
+              |  Ingresos
+          li
+            a(href='Traslados')
+              i.fa.fa-fw.fa-exchange
+              |  Traslados
+          li
+            a(href='Consultas')
+              i.fa.fa-fw.fa-search
+              |  Colsultas
+          li
+            a(href='Notificaciones')
+              i.fa.fa-fw.fa-bell-o
+              |  Notificaciones
+          li
+            a(href='Usuarios')
+              i.fa.fa-fw.fa-user
+              |  Usuarios
+          li.active
+            a(href='Info')
+              i.fa.fa-fw.fa-info
+              |  Info
+      // Menu Escondido
+      section#detalle
+        .container-fluid.delgado
+          .row
+            // Lista Menu Izquierda
+            #menu-wrapper.col-md-2.delgado.hidden-sm-down
+              #side-menu.container
+                ul.nav.navbar-nav.side-nav
+                  li
+                    a(href='/')
+                      i.fa.fa-fw.fa-dashboard
+                      |  Inicio
+                  li
+                    a(href='Ingresos')
+                      i.fa.fa-fw.fa-edit
+                      |  Ingresos
+                  li
+                    a(href='Traslados')
+                      i.fa.fa-fw.fa-exchange
+                      |  Traslados
+                  li
+                    a(href='Consultas')
+                      i.fa.fa-fw.fa-search
+                      |  Colsultas
+                  li
+                    a(href='Notificaciones')
+                      i.fa.fa-fw.fa-bell-o
+                      |  Notificaciones 
+                      span#pill 1
+                  li
+                    a(href='Usuarios')
+                      i.fa.fa-fw.fa-user
+                      |  Usuarios
+                  li.active
+                    a(href='Info')
+                      i.fa.fa-fw.fa-info
+                      |  Info
+            // Lista Menu Izquierda
+            // Contenido Derecha
+            #contenido.cont-ingreso.container.col-md-10
+              .form-title
+                h2 Consulta de Activos
+              // Formulario de busqueda de registros
+              #tabla_consultas.container.tablas.tabla-consulta
+                .row.clearfix
+                  .col-md-12.column
+                    table#tab_logic.table.table-bordered.table-hover
+                      thead.table-head.thead-inverse
+                        tr
+                          th.text-center
+                            | Sede
+                          th.text-center
+                            | Ubicacion
+                          th.text-center
+                            | Puesto
+                          th.text-center
+                            | Campaña
+                          th.text-center
+                            | Fabricante
+                          th.text-center
+                            | Producto
+                          th.text-center
+                            | Modelo
+                          th.text-center
+                            | Serial
+                          th.text-center
+                            | Plaqueta
+                      tfoot.table-footer
+                        tr
+                          th
+                          th
+                          th
+                          th
+                          th
+                          th
+                          th
+                          th
+                          th
+                      tbody
+                        each item in consulta1
+                          tr#addr0
+                            td
+                              div=item.nombre_sede
+                            td
+                              div=item.nombre_bodega
+                            td
+                              div=item.posicion
+                            td
+                              div=item.nombre_campaign
+                            td
+                              div=item.nombre_fabricante
+                            td
+                              div=item.nombre_item
+                            td
+                              div=item.modelo_item
+                            td
+                              div=item.serial_art
+                            td
+                              div=item.plaqueta_art
+              // Formulario de busqueda de registros
+            // Contenido Derecha
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/tether.min.js')
+    script(src='/javascripts/bootstrap.min.js')
+    script(src='/javascripts/pagination.js')
+    script(src='/javascripts/consultas.js')

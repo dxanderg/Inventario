@@ -1,0 +1,222 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Inventario Equipos Digitex
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    link(rel='shorcut icon', href='/images/favicon.ico')
+    link(rel='stylesheet', href='/fonts/fonts.css')
+    // Bootstrap CSS
+    link(rel='stylesheet', href='/stylesheets/bootstrap-flex.min.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+    link(rel='stylesheet', href='/stylesheets/app.css')
+  body
+    #main-div.container-fluid
+      // HEADER
+      header#header-container
+        .container-fluid
+          .row.flex-items-xs-middle.flex-items-xs-between
+            a#linktitle(href='/')
+              #logo.col-xs-6.col-md-3
+                h1
+                  | Inventario 
+                  br
+                  | Digitex
+                // <img src="http://www.grupodigitex.com/catalog/view/theme/default/img/logo_digitex.png" alt="">
+            ul.nav.navbar-right.top-nav
+              a(href='#')
+                button.navbar-toggler.hidden-md-up(data-toggle='collapse', data-target='.navbar-ex1-collapse')
+                  | ☰
+                #usuario-login.row.flex-items-xs-middle.flex-items-xs-between.hidden-sm-down(data-toggle='collapse', data-target='#logout')
+                  li.text-uppercase.hidden-xs-down
+                    i.fa.fa-user-circle-o(href='#')
+                  a.text-uppercase.hidden-xs-down Usuario
+                  ul#logout.collapse
+                    li
+                      a(href='#') Salir
+                  b.text-uppercase.hidden-xs-down.fa.fa-fw.fa-caret-right
+      // HEADER
+      // Menu Escondido
+      #menu-escondido.collapse.navbar-collapse.navbar-ex1-collapse
+        ul.nav.navbar-nav.side-nav
+          li
+            a(href='/')
+              i.fa.fa-fw.fa-dashboard
+              | Inicio
+          li
+            a(href='Ingresos')
+              i.fa.fa-fw.fa-edit
+              |  Ingresos
+          li
+            a(href='Traslados')
+              i.fa.fa-fw.fa-exchange
+              |  Traslados
+          li
+            a(href='Consultas')
+              i.fa.fa-fw.fa-search
+              |  Colsultas
+          li
+            a(href='Notificaciones')
+              i.fa.fa-fw.fa-bell-o
+              |  Notificaciones
+          li
+            a(href='Usuarios')
+              i.fa.fa-fw.fa-user
+              |  Usuarios
+          li.active
+            a(href='Info')
+              i.fa.fa-fw.fa-info
+              |  Info
+      // Menu Escondido
+      section#detalle
+        .container-fluid.delgado
+          .row
+            // Lista Menu Izquierda
+            #menu-wrapper.col-md-2.delgado.hidden-sm-down
+              #side-menu.container
+                ul.nav.navbar-nav.side-nav
+                  li
+                    a(href='/')
+                      i.fa.fa-fw.fa-dashboard
+                      |  Inicio
+                  li
+                    a(href='Ingresos')
+                      i.fa.fa-fw.fa-edit
+                      |  Ingresos
+                  li
+                    a(href='Traslados')
+                      i.fa.fa-fw.fa-exchange
+                      |  Traslados
+                  li
+                    a(href='Consultas')
+                      i.fa.fa-fw.fa-search
+                      |  Colsultas
+                  li
+                    a(href='Notificaciones')
+                      i.fa.fa-fw.fa-bell-o
+                      |  Notificaciones 
+                      span#pill 1
+                  li
+                    a(href='Usuarios')
+                      i.fa.fa-fw.fa-user
+                      |  Usuarios
+                  li.active
+                    a(href='Info')
+                      i.fa.fa-fw.fa-info
+                      |  Info
+            // Lista Menu Izquierda
+            // Contenido Derecha
+            #contenido.cont-ingreso.container.col-md-10
+              .form-title
+                h2 Formulario de Ingreso de Articulos
+              .form-group.row
+                label.col-md-2.col-form-label(for='form-ing-articulo') Articulo
+                .col-md-6
+                  select.form-control
+                    option
+                    option CPU
+                    option Monitor
+                    option Hardphone
+                  // <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+                .col-md-4.form-control-feedback.hidden-xs-up Por favor, Ingresa la Informacion.
+              .form-group.row
+                label.col-md-2.col-form-label(for='form-ing-fabricante') Fabricante
+                .col-md-6
+                  select.form-control
+                    option
+                    option Lenovo
+                    option HP
+                    option Dell
+                .col-md-4.form-control-feedback.hidden-xs-up Por favor, Ingresa la Informacion.
+              .form-group.row
+                label.col-md-2.col-form-label(for='form-ing-modelo') Modelo
+                .col-md-6
+                  select.form-control
+                    option
+                    option MT - M 3157 - PR7
+                    option MT - M 7269 - F3S
+                    option MT - M 10B7 - 003TLS
+                .col-md-4.form-control-feedback.hidden-xs-up Por favor, Ingresa la Informacion.
+              .form-group.row
+                label.col-md-2.col-form-label(for='form-ing-serial') Serial
+                .col-md-6
+                  input#inputEmail3.form-control(type='email', placeholder='Serial Fabricante')
+                .col-md-4.form-control-feedback.hidden-xs-up Por favor, Ingresa la Informacion.
+              .form-group.row
+                label.col-md-2.col-form-label(for='form-ing-plaqueta') Plaqueta
+                .col-md-6
+                  input#inputEmail3.form-control(type='email', placeholder='Serial Digitex')
+                .col-md-4.form-control-feedback.hidden-xs-up Por favor, Ingresa la Informacion.
+              .form-group.row
+                label.col-md-2.col-form-label(for='form-ing-estado') Estado
+                .col-md-6
+                  select.form-control
+                    option Activo
+                    option De Baja
+                .col-md-4.form-control-feedback.hidden-xs-up Por favor, Ingresa la Informacion.
+              .form-group.row
+                label.col-md-2.col-form-label(for='form-ing-sede') Sede
+                .col-md-6
+                  select.form-control
+                    option Ibague
+                    option Manizalez
+                    option Bogota
+                    option Armenia
+                .col-md-4.form-control-feedback.hidden-xs-up Por favor, Ingresa la Informacion.
+              .form-group.row
+                label.col-md-2.col-form-label(for='form-ing-ubicacion') Ubicacion
+                .col-md-6
+                  select.form-control
+                    option Bodega 1
+                    option Bodega 2
+                    option Bodega 3
+                    option Bodega 4
+                    option Bodega 4 - Encerramiento
+                    option Administracion
+                    option Sala de Formacion 1
+                    option Sala de Formacion 2
+                    option Sala de Formacion 3
+                    option Sala de Formacion 4
+                    option Sala de Formacion 5
+                .col-md-4.form-control-feedback.hidden-xs-up Por favor, Ingresa la Informacion.
+              .form-group.row
+                label.col-md-2.col-form-label(for='form-ing-campaña') Campaña
+                .col-md-6
+                  select.form-control
+                    option Colmena Seguros
+                    option Televentas ARL
+                    option BCSC
+                    option BCSC Cobranzas
+                    option BCSC Retencion
+                    option Movistar IN
+                    option Chile Televentas
+                .col-md-4.form-control-feedback.hidden-xs-up Por favor, Ingresa la Informacion.
+              .form-group.row
+                label.col-md-2.col-form-label(for='form-ing-numpuesto') N° Puesto
+                .col-md-6
+                  input#example-number-input.form-control(type='number', value='', placeholder='Numero del Puesto')
+                .col-md-4.form-control-feedback.hidden-xs-up Por favor, Ingresa la Informacion.
+              .form-group.row
+                label.col-md-2.col-form-label(for='form-ing-fecha') Fecha
+                .col-md-6
+                  input#example-date-input.form-control(type='date', value='')
+                .col-md-4.form-control-feedback.hidden-xs-up Por favor, Ingresa la Informacion.
+              //
+                <div class="form-group row  has-danger">
+                <label for="inputHorizontalDnger" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                <input type="email" class="form-control form-control-danger" id="inputHorizontalDnger" placeholder="name@example.com">
+                <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
+                <small class="form-text text-muted">Example help text that remains unchanged.</small>
+                </div>
+                </div>
+              .button-container.form-group.row
+                .col-md-2
+                  button.div-button.btn.btn-primary.btn-block Registrar
+                .col-md-2
+                  button.div-button.btn.btn-primary.btn-block Limpiar
+            // Contenido Derecha
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/tether.min.js')
+    script(src='/javascripts/bootstrap.min.js')
