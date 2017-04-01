@@ -1,5 +1,6 @@
 var mysql = require('mysql')
 var async = require('async')
+var dateFormat = require('dateFormat')
 
 module.exports = {
 	ingresos : function(req, res, next){
@@ -54,26 +55,37 @@ module.exports = {
 		}], function(err, results) {
   		res.render('Ingresos', {consulta1 : consulta1, consulta2 : consulta2, consulta3 : consulta3, consulta4: consulta4, consulta5 : consulta5, consulta6: consulta6})
 		})
+	},
+
+	postNuevoArticulo : function(req, res, next){
+
+		var fechaActual = new Date()
+		var fecha = dateFormat(fechaActual, 'yyyy-mm-dd')
+
+		var articuloNew = {
+			articulo : req.body.articulo,
+			serial : req.body.serial,
+			plaqueta : req.body.plaqueta,
+			estado : req.body.estado,
+			sede : req.body.sede,
+			ubicacion : req.body['select-bodega'],
+			posicion : req.body['select-posicion'],
+			campaign : req.body.campaña,
+			fecha : req.body.fecha
+		}	
+		console.log(articuloNew)
+
+		// var config = require('.././database/config')
+		// var db = mysql.createConnection(config)
+		// db.connect()
+
+		// var ingreso1 = null
+
+		// db.query(`SELECT distinct nombre_item FROM items`, function(err, rows, fields){
+		// 	if(err) throw err
+		// 	consulta1 = rows
+		// 	db.end()
+		// res.render('Ingresos', {consulta1 : consulta1})
+		// })
 	}
 }
-
-
-// var mysql = require('mysql')
-
-// module.exports = {
-
-// 	ingresos : function(req, res, next){
-// 		var config = require('.././database/config')
-// 		var db = mysql.createConnection(config)
-// 		db.connect()
-
-// 		var consulta1 = null
-
-// 		db.query(`SELECT distinct nombre_item FROM items`, function(err, rows, fields){
-// 			if(err) throw err
-// 			consulta1 = rows
-// 			db.end()
-// 		res.render('Ingresos', {consulta1 : consulta1})
-// 		})
-// 	}
-// }
