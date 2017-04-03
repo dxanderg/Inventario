@@ -18,7 +18,10 @@ $(document).ready(function () {
         	},
           notEmpty: {
           	message: 'Por favor digite el numero de plaqueta'
-        	}
+        	},
+          digits: {
+            message: 'Solo puede contener numeros'
+          }
         }
       },
       fecha: {
@@ -33,9 +36,12 @@ $(document).ready(function () {
       },
       articulo: {
           validators: {
-              notEmpty: {
-                  message: 'Por favor seleccione el articulo'
-              }
+            stringLength: {
+              min: 1,
+            },
+            notEmpty: {
+                message: 'Por favor seleccione el articulo'
+            }
           }
       },
       estado: {
@@ -57,6 +63,26 @@ $(document).ready(function () {
               notEmpty: {
                   message: 'Por favor seleccione la campaña'
               }
+          }
+      },
+      bodega: {
+          validators: {
+            // stringLength: {
+            //   min: 3,
+            // },
+            notEmpty: {
+                message: 'Seleccion Ubicacion '
+            }
+          }
+      },
+      posicion: {
+          validators: {
+            // stringLength: {
+            //   min: 3,
+            // },
+            notEmpty: {
+              message: 'Seleccione Puesto '
+            }
           }
       }
     }

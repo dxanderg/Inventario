@@ -68,8 +68,8 @@ module.exports = {
 			plaqueta : req.body.plaqueta,
 			estado : req.body.estado,
 			sede : req.body.sede,
-			ubicacion : req.body['select-bodega'],
-			posicion : req.body['select-posicion'],
+			ubicacion : req.body['bodega'],
+			posicion : req.body['posicion'],
 			campaign : req.body.campaña,
 			fecha : req.body.fecha
 		}	
