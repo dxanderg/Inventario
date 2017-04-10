@@ -318,16 +318,13 @@ html(lang='en')
                       option(value=' ') Seleccione la Campaña
                       for val in consulta5
                         option(value=val.id_campaign)= val.nombre_campaign
-                .form-group.row
-                  label.col-md-2.col-form-label(for='form-ing-fecha') Fecha
-                  .col-md-6
-                    input#example-date-input.form-control(type='date', value='', name='fecha')
-                .col-md-12#mensajes
                 .button-container.form-group.row
                   .col-md-2
                     button(type='submit')#btn-registrar.div-button.btn.btn-primary.btn-block Registrar
                   .col-md-2
                     button.div-button.btn.btn-primary.btn-block Limpiar
+              //- if info != undefined
+              //-   p= info
             // Contenido Derecha
     script(src='/javascripts/jquery.min.js')
     script(src='/javascripts/tether.min.js')

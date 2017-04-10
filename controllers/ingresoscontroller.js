@@ -60,32 +60,28 @@ module.exports = {
 	postNuevoArticulo : function(req, res, next){
 
 		var fechaActual = new Date()
-		var fecha = dateFormat(fechaActual, 'yyyy-mm-dd')
+		var fechaA = dateFormat(fechaActual, 'yyyy-mm-dd')
 
 		var articuloNew = {
-			articulo : req.body.articulo,
-			serial : req.body.serial,
-			plaqueta : req.body.plaqueta,
-			estado : req.body.estado,
-			sede : req.body.sede,
-			ubicacion : req.body['bodega'],
-			posicion : req.body['posicion'],
-			campaign : req.body.campaña,
-			fecha : req.body.fecha
-		}	
-		console.log(articuloNew)
+			activo : req.body.estado,
+			serial_art : req.body.serial,
+			plaqueta_art : req.body.plaqueta,
+			fecha_creacion : fechaA,
+			fk_items : req.body.articulo,
+			fk_puesto : req.body['posicion'],
+			fk_campaign : req.body.campaña,
+			fk_bodega : req.body['bodega'],
+			fk_sede : req.body.sede
+		}
 
-		// var config = require('.././database/config')
-		// var db = mysql.createConnection(config)
-		// db.connect()
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
 
-		// var ingreso1 = null
-
-		// db.query(`SELECT distinct nombre_item FROM items`, function(err, rows, fields){
-		// 	if(err) throw err
-		// 	consulta1 = rows
-		// 	db.end()
-		// res.render('Ingresos', {consulta1 : consulta1})
-		// })
+		db.query('INSERT INTO articulos SET ?', articuloNew, function(err, rows, fields){
+			if(err) throw err
+			db.end()
+		})
+		
 	}
 }

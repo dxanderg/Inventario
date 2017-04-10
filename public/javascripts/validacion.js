@@ -24,16 +24,6 @@ $(document).ready(function () {
           }
         }
       },
-      fecha: {
-        validators: {
-          stringLength: {
-          	min: 10,
-        	},
-          notEmpty: {
-          	message: 'Por favor digite la fecha'
-        	}
-        }
-      },
       articulo: {
           validators: {
             stringLength: {
