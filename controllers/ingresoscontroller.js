@@ -82,6 +82,6 @@ module.exports = {
 			if(err) throw err
 			db.end()
 		})
-		
+		res.render('newartmodal', {title: 'Exito!', info: 'Articulo Registrado con Correctamente!'})
 	}
 }

@@ -15,8 +15,8 @@ module.exports = {
 							JOIN sedes s ON a.fk_sede = s.id_sede 
 							JOIN puestos p ON a.fk_puesto = p.id_puesto
 							JOIN campaign c ON a.fk_campaign = c.id_campaign
-							JOIN fabricante f ON a.fk_fabricante = f.id_fabricante
-							JOIN items i ON a.fk_items = i.id_item`, function(err, rows, fields){
+							JOIN items i ON a.fk_items = i.id_item
+							JOIN fabricante f ON i.fk_fabricante = f.id_fabricante`, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()
