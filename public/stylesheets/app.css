@@ -202,6 +202,21 @@ body{
 	color: #2DBD8D;
 }
 
+.div-button-danger{
+	border: 1px solid #C9302C;
+	background-color: #C9302C;
+	font-size: 1.1em;
+    text-decoration: none;
+    padding: .7em 0;
+    border-radius: 5px;
+    transition: all .3s ease;
+}
+.div-button-danger:hover{
+	background-color: white;
+	border: 1px solid #C9302C;
+	color: #C9302C;
+}
+
 .tablas{
 	padding: 0;
 	font-family: 'Catamaran';
@@ -306,6 +321,10 @@ select.form-control:not([size]):not([multiple]){
 #tab_logic_filter .input-group{
 	display: flex;
 	width: 100%;
+}
+
+#tab_logic tbody tr .fa-edit:before, .fa-pencil-square-o:before{
+	font-size: 26px;
 }
 
 .table-footer{

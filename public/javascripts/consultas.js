@@ -30,5 +30,6 @@ $(function(){
        .val('')
        .removeAttr('checked')
        .removeAttr('selected');
+       location.reload();
       });
 });

@@ -79,9 +79,14 @@ module.exports = {
 		db.connect()
 
 		db.query('INSERT INTO articulos SET ?', articuloNew, function(err, rows, fields){
-			if(err) throw err
+			if(err) {
+				res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el artiulo!', error: err})
+				console.log(err)//throw err
+			}
+			else{
+				res.render('newartmodal', {title: 'Exito!', info: 'Articulo Registrado con Correctamente!'})	
+			}
 			db.end()
 		})
-		res.render('newartmodal', {title: 'Exito!', info: 'Articulo Registrado con Correctamente!'})
 	}
 }
