@@ -57,20 +57,21 @@ $('.select-bodegas').change(function(){
 		$('select.sp' + bod).show()
 		$('select.sp' + bod).removeAttr('disabled', '')
 
-		//*******************************************************************
-		$('select.spa' + bod).show()
-		$('select.spa' + bod).removeAttr('disabled', '')
-		//*******************************************************************
-
 		$('select.select-posiciones:not(.sp' + $(this).val()).hide()
     $('select.select-posiciones:not(.sp' + $(this).val()).removeClass('active')
     $('select.select-posiciones:not(.sp' + $(this).val()).attr('disabled', '')
+})
 
-		//*******************************************************************
-		$('select.select-posicionesa:not(.spa' + $(this).val()).hide()
-    $('select.select-posicionesa:not(.spa' + $(this).val()).removeClass('active')
-    $('select.select-posicionesa:not(.spa' + $(this).val()).attr('disabled', '')
-		//*******************************************************************    
+$('.select-bodegasa').change(function(){
+		var bod = $('select.select-bodegasa :selected').val()
+		
+		$('select.spa' + bod).show()
+		$('select.spa' + bod).removeAttr('disabled', '')
+		
+		$('select.select-posiciones:not(.spa' + $(this).val()).hide()
+    $('select.select-posiciones:not(.spa' + $(this).val()).removeClass('active')
+    $('select.select-posiciones:not(.spa' + $(this).val()).attr('disabled', '')
+		
 })
 
 $('#btn-registrar').click(function(){

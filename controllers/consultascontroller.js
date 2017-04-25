@@ -109,6 +109,7 @@ module.exports = {
 			fk_bodega : req.body['bodega'],
 			fk_sede : req.body.sede
 		}
+		
 		console.log(articuloEdit)
 
 		var config = require('.././database/config')
@@ -116,11 +117,14 @@ module.exports = {
 		var respuesta = {res: false}
 		db.connect()
 
-		// db.query('UPDATE articulos SET ? WHERE ? ', [articuloEdit, {id_articulos : req.body.id_articulos}], function(err, rows, fields){
-		// 	if(err) throw err
-		// 	db.end()
-		// })
-
-		res.redirect('/Consultas')
+		db.query('UPDATE articulos SET ? WHERE ? ', [articuloEdit, {id_articulos : req.body.id_articulos}], function(err, rows, fields){
+			if(err) {
+				res.render('actuaartmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el artiulo!', error: err})
+				console.log(err)//throw err
+			}
+			else{
+				res.render('actuaartmodal', {title: 'Exito!', info: 'Articulo Actualizado Correctamente!'})	
+			}
+		})
 	}
 }

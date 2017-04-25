@@ -1,288 +1,182 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='UTF-8')
-    title Inventario Equipos Digitex
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(http-equiv='x-ua-compatible', content='ie=edge')
-    link(rel='shorcut icon', href='/images/favicon.ico')
-    link(rel='stylesheet', href='/fonts/fonts.css')
-    // Bootstrap CSS
-    link(rel='stylesheet', href='/stylesheets/bootstrap-flex.min.css')
-    link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
-    link(rel='stylesheet', href='/stylesheets/app.css')
-    link(rel='stylesheet', href='/stylesheets/multi-select.css')
-  body
-    #main-div.container-fluid
-      // HEADER
-      header#header-container
-        .container-fluid
-          .row.flex-items-xs-middle.flex-items-xs-between
-            a#linktitle(href='/')
-              #logo.col-xs-6.col-md-3
-                h1
-                  | Inventario 
-                  br
-                  | Digitex
-                // <img src="http://www.grupodigitex.com/catalog/view/theme/default/img/logo_digitex.png" alt="">
-            ul.nav.navbar-right.top-nav
-              a(href='#')
-                button.navbar-toggler.hidden-md-up(data-toggle='collapse', data-target='.navbar-ex1-collapse')
-                  | ☰
-                #usuario-login.row.flex-items-xs-middle.flex-items-xs-between.hidden-sm-down(data-toggle='collapse', data-target='#logout')
-                  li.text-uppercase.hidden-xs-down
-                    i.fa.fa-user-circle-o(href='#')
-                  a.text-uppercase.hidden-xs-down Usuario
-                  ul#logout.collapse
-                    li
-                      a(href='#') Salir
-                  b.text-uppercase.hidden-xs-down.fa.fa-fw.fa-caret-right
-      // HEADER
-      // Menu Escondido
-      #menu-escondido.collapse.navbar-collapse.navbar-ex1-collapse
-        ul.nav.navbar-nav.side-nav
-          li
-            a(href='/')
-              i.fa.fa-fw.fa-dashboard
-              | Inicio
-          li
-            a(href='Ingresos')
-              i.fa.fa-fw.fa-edit
-              |  Ingresos
-          li
-            a(href='Traslados')
-              i.fa.fa-fw.fa-exchange
-              |  Traslados
-          li
-            a(href='Consultas')
-              i.fa.fa-fw.fa-search
-              |  Colsultas
-          li
-            a(href='Notificaciones')
-              i.fa.fa-fw.fa-bell-o
-              |  Notificaciones
-          li
-            a(href='Usuarios')
-              i.fa.fa-fw.fa-user
-              |  Usuarios
-          li.active
-            a(href='Info')
-              i.fa.fa-fw.fa-info
-              |  Info
-      // Menu Escondido
-      section#detalle
-        .container-fluid.delgado
-          .row
-            // Lista Menu Izquierda
-            #menu-wrapper.col-md-2.delgado.hidden-sm-down
-              #side-menu.container
-                ul.nav.navbar-nav.side-nav
-                  li
-                    a(href='/')
-                      i.fa.fa-fw.fa-dashboard
-                      |  Inicio
-                  li
-                    a(href='Ingresos')
-                      i.fa.fa-fw.fa-edit
-                      |  Ingresos
-                  li
-                    a(href='Traslados')
-                      i.fa.fa-fw.fa-exchange
-                      |  Traslados
-                  li
-                    a(href='Consultas')
-                      i.fa.fa-fw.fa-search
-                      |  Colsultas
-                  li
-                    a(href='Notificaciones')
-                      i.fa.fa-fw.fa-bell-o
-                      |  Notificaciones 
-                      span#pill 1
-                  li
-                    a(href='Usuarios')
-                      i.fa.fa-fw.fa-user
-                      |  Usuarios
-                  li.active
-                    a(href='Info')
-                      i.fa.fa-fw.fa-info
-                      |  Info
-            // Lista Menu Izquierda
-            // Contenido Derecha
-            #contenido.cont-ingreso.container.col-md-10
-              .form-title
-                h2 Traslados de Activos
-              #ticket_campo.container
-                .row.clearfix
-                  .input-group
-                    span#sizing-addon1.input-group-addon Ticket
-                    input.form-control(type='text', placeholder='Ingrese el numero de la peticion', aria-describedby='sizing-addon1')
-              // Tabla de Registro de Movimientos
-              #tabla_traslados.container.tablas
-                .row.clearfix
-                  .col-md-12.column
-                    table#tab_logic.table.table-bordered.table-hover
-                      thead.table-head.thead-inverse
-                        tr
-                          th.text-center
-                            | N°
-                          th.text-center
-                            | Bodega
-                          th.text-center
-                            | Puesto
-                          th.text-center
-                            | Activo
-                          th.text-center
-                            i.fa.fa-arrows-h
-                          th.text-center
-                            | Bodega
-                          th.text-center
-                            | Puesto
-                          th.text-center
-                            | Activo
-                          th.text-center
-                            | VB
-                      tbody
-                        tr#addr0
-                          td
-                            | 1
-                          td
-                            // <input type="text" name='bodegai0'  placeholder='Bodega' class="form-control"/>
-                            #select-list
-                              div
-                                select.form-control
-                                  option
-                                  option Bodega 1
-                                  option Bodega 2
-                                  option Bodega 3
-                                  option Bodega 4
-                          td
-                            // <input type="text" name='puestoi0' placeholder='Puesto' class="form-control"/>
-                            #select-list
-                              div
-                                select.form-control
-                                  option
-                                  option 200
-                                  option 201
-                                  option 202
-                                  option 203
-                          td
-                            // <input type="text" name='activoi0' placeholder='Activo' class="form-control"/>
-                            #select-list
-                              div
-                                select#list-activosi1(multiple='multiple')
-                                  option(value='1') CPU
-                                  option(value='2') Monitor
-                                  option(value='3') Hardphone
-                          td
-                            i.fa.fa-arrows-h
-                          td
-                            // <input type="text" name='bodegaf0'  placeholder='Bodega' class="form-control"/>
-                            #select-list
-                              div
-                                select.form-control
-                                  option
-                                  option Bodega 1
-                                  option Bodega 2
-                                  option Bodega 3
-                                  option Bodega 4
-                          td
-                            // <input type="text" name='puestof0' placeholder='Puesto' class="form-control"/>
-                            #select-list
-                              div
-                                select.form-control
-                                  option
-                                  option 200
-                                  option 201
-                                  option 202
-                                  option 203
-                          td
-                            // <input type="text" name='activof0' placeholder='Activo' class="form-control"/>
-                            #select-list
-                              div
-                                select#list-activosf1(multiple='multiple')
-                                  option(value='1') CPU
-                                  option(value='2') Monitor
-                                  option(value='3') Hardphone
-                          td
-                            input.form-check-input.big-checkbox(type='checkbox', name='inversa')
-                        tr#addr1
-                          td
-                            | 2
-                          td
-                            // <input type="text" name='bodegai0'  placeholder='Bodega' class="form-control"/>
-                            #select-list
-                              div
-                                select.form-control
-                                  option
-                                  option Bodega 1
-                                  option Bodega 2
-                                  option Bodega 3
-                                  option Bodega 4
-                          td
-                            // <input type="text" name='puestoi0' placeholder='Puesto' class="form-control"/>
-                            #select-list
-                              div
-                                select.form-control
-                                  option
-                                  option 200
-                                  option 201
-                                  option 202
-                                  option 203
-                          td
-                            // <input type="text" name='activoi0' placeholder='Activo' class="form-control"/>
-                            #select-list
-                              div
-                                select#list-activosi2(multiple='multiple')
-                                  option(value='1') CPU
-                                  option(value='2') Monitor
-                                  option(value='3') Hardphone
-                          td
-                            i.fa.fa-arrows-h
-                          td
-                            // <input type="text" name='bodegaf0'  placeholder='Bodega' class="form-control"/>
-                            #select-list
-                              div
-                                select.form-control
-                                  option
-                                  option Bodega 1
-                                  option Bodega 2
-                                  option Bodega 3
-                                  option Bodega 4
-                          td
-                            // <input type="text" name='puestof0' placeholder='Puesto' class="form-control"/>
-                            #select-list
-                              div
-                                select.form-control
-                                  option
-                                  option 200
-                                  option 201
-                                  option 202
-                                  option 203
-                          td
-                            // <input type="text" name='activof0' placeholder='Activo' class="form-control"/>
-                            #select-list
-                              div
-                                select#list-activosf2(multiple='multiple')
-                                  option(value='1') CPU
-                                  option(value='2') Monitor
-                                  option(value='3') Hardphone
-                          td
-                            input.form-check-input.big-checkbox(type='checkbox', name='inversa')
-                        tr#addr2
-                .row.add-container
-                  .col-md-6.row
-                    a#add_row.btn.btn-default.pull-left
-                      i.fa.fa-plus-circle
-                  .col-md-6.row
-                    a#delete_row.pull-right.btn.btn-default
-                      i.fa.fa-minus-circle
-              // Tabla de Registro de Movimientos
-              .button-container.form-group.row
-                .col-md-2
-                  button.div-button.btn.btn-primary.btn-block Registrar
-                .col-md-2
-                  button.div-button-danger.btn.btn-primary.btn-block Limpiar
-            // Contenido Derecha
+extends layout
+
+block content
+  // Contenido Derecha
+  #contenido.cont-ingreso.container.col-md-10
+    .form-title
+      h2 Traslados de Activos
+    #ticket_campo.container
+      .row.clearfix
+        .input-group
+          span#sizing-addon1.input-group-addon Ticket
+          input.form-control(type='text', placeholder='Ingrese el numero de la peticion', aria-describedby='sizing-addon1')
+    // Tabla de Registro de Movimientos
+    #tabla_traslados.container.tablas
+      .row.clearfix
+        .col-md-12.column
+          table#tab_logic.table.table-bordered.table-hover
+            thead.table-head.thead-inverse
+              tr
+                th.text-center
+                  | N°
+                th.text-center
+                  | Bodega
+                th.text-center
+                  | Puesto
+                th.text-center
+                  | Activo
+                th.text-center
+                  i.fa.fa-arrows-h
+                th.text-center
+                  | Bodega
+                th.text-center
+                  | Puesto
+                th.text-center
+                  | Activo
+                th.text-center
+                  | VB
+            tbody
+              tr#addr0
+                td
+                  | 1
+                td
+                  // <input type="text" name='bodegai0'  placeholder='Bodega' class="form-control"/>
+                  #select-list
+                    div
+                      select.form-control
+                        option
+                        option Bodega 1
+                        option Bodega 2
+                        option Bodega 3
+                        option Bodega 4
+                td
+                  // <input type="text" name='puestoi0' placeholder='Puesto' class="form-control"/>
+                  #select-list
+                    div
+                      select.form-control
+                        option
+                        option 200
+                        option 201
+                        option 202
+                        option 203
+                td
+                  // <input type="text" name='activoi0' placeholder='Activo' class="form-control"/>
+                  #select-list
+                    div
+                      select#list-activosi1(multiple='multiple')
+                        option(value='1') CPU
+                        option(value='2') Monitor
+                        option(value='3') Hardphone
+                td
+                  i.fa.fa-arrows-h
+                td
+                  // <input type="text" name='bodegaf0'  placeholder='Bodega' class="form-control"/>
+                  #select-list
+                    div
+                      select.form-control
+                        option
+                        option Bodega 1
+                        option Bodega 2
+                        option Bodega 3
+                        option Bodega 4
+                td
+                  // <input type="text" name='puestof0' placeholder='Puesto' class="form-control"/>
+                  #select-list
+                    div
+                      select.form-control
+                        option
+                        option 200
+                        option 201
+                        option 202
+                        option 203
+                td
+                  // <input type="text" name='activof0' placeholder='Activo' class="form-control"/>
+                  #select-list
+                    div
+                      select#list-activosf1(multiple='multiple')
+                        option(value='1') CPU
+                        option(value='2') Monitor
+                        option(value='3') Hardphone
+                td
+                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
+              tr#addr1
+                td
+                  | 2
+                td
+                  // <input type="text" name='bodegai0'  placeholder='Bodega' class="form-control"/>
+                  #select-list
+                    div
+                      select.form-control
+                        option
+                        option Bodega 1
+                        option Bodega 2
+                        option Bodega 3
+                        option Bodega 4
+                td
+                  // <input type="text" name='puestoi0' placeholder='Puesto' class="form-control"/>
+                  #select-list
+                    div
+                      select.form-control
+                        option
+                        option 200
+                        option 201
+                        option 202
+                        option 203
+                td
+                  // <input type="text" name='activoi0' placeholder='Activo' class="form-control"/>
+                  #select-list
+                    div
+                      select#list-activosi2(multiple='multiple')
+                        option(value='1') CPU
+                        option(value='2') Monitor
+                        option(value='3') Hardphone
+                td
+                  i.fa.fa-arrows-h
+                td
+                  // <input type="text" name='bodegaf0'  placeholder='Bodega' class="form-control"/>
+                  #select-list
+                    div
+                      select.form-control
+                        option
+                        option Bodega 1
+                        option Bodega 2
+                        option Bodega 3
+                        option Bodega 4
+                td
+                  // <input type="text" name='puestof0' placeholder='Puesto' class="form-control"/>
+                  #select-list
+                    div
+                      select.form-control
+                        option
+                        option 200
+                        option 201
+                        option 202
+                        option 203
+                td
+                  // <input type="text" name='activof0' placeholder='Activo' class="form-control"/>
+                  #select-list
+                    div
+                      select#list-activosf2(multiple='multiple')
+                        option(value='1') CPU
+                        option(value='2') Monitor
+                        option(value='3') Hardphone
+                td
+                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
+              tr#addr2
+      .row.add-container
+        .col-md-6.row
+          a#add_row.btn.btn-default.pull-left
+            i.fa.fa-plus-circle
+        .col-md-6.row
+          a#delete_row.pull-right.btn.btn-default
+            i.fa.fa-minus-circle
+    // Tabla de Registro de Movimientos
+    .button-container.form-group.row
+      .col-md-2
+        button.div-button.btn.btn-primary.btn-block Registrar
+      .col-md-2
+        button.div-button-danger.btn.btn-primary.btn-block Limpiar
+  // Contenido Derecha
     script(src='/javascripts/jquery.min.js')
     script(src='/javascripts/tether.min.js')
     script(src='/javascripts/bootstrap.min.js')

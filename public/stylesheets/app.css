@@ -8,18 +8,32 @@ body{
 	cursor: pointer;
 	text-decoration: none;
 	transition: all .5s ease;
+	padding: 1em 0;
 }
 #header-container #linktitle:hover{
 		transform: scale(1.03);
 }
 
-#header-container h1{
+#header-container{
 	margin: .5em 0;
 	user-select: none;
 }
 
 #header-container #logo{
 	padding: 0;
+	display: inline-flex;
+}
+
+#header-container #linktitle #logo img{
+	margin-top: 25px;
+	padding-left: .5em;
+}
+
+#header-container #logo h1
+{
+	border-right: solid white 1px;
+	padding-right: .3em;
+	text-align: right;
 }
 
 #header-container #usuario-login{
