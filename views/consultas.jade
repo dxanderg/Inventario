@@ -1,4 +1,4 @@
-extends layout-consulta
+extends layout
 
 block content
   // Contenido Derecha
@@ -71,3 +71,8 @@ block content
                         i.fa.fa-fw.fa-edit
     // Formulario de busqueda de registros
   // Contenido Derecha
+
+append footer
+  link(rel='stylesheet', href='/stylesheets/pagination.css')
+  script(src='/javascripts/pagination.js')
+  script(src='/javascripts/consultas.js')

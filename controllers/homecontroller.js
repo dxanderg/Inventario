@@ -21,9 +21,9 @@ module.exports = {
 		res.render('ingresos')
 	},
 
-	traslados : function(req, res, next){
-		res.render('traslados')
-	},
+	// traslados : function(req, res, next){
+	// 	res.render('traslados')
+	// },
 
 	// consultas : function(req, res, next){
 	// 	res.render('consultas')

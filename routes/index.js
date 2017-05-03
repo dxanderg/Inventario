@@ -7,7 +7,7 @@ var controllers = require('.././controllers')
 router.get('/', controllers.homecontroller.index);
 router.get('/Ingresos', controllers.ingresoscontroller.ingresos);
 router.post('/CrearArticulo', controllers.ingresoscontroller.postNuevoArticulo);
-router.get('/Traslados', controllers.homecontroller.traslados);
+router.get('/Traslados', controllers.trasladoscontroller.traslados);
 router.get('/Consultas', controllers.consultascontroller.consultas);
 router.get('/ModificarArt/:id', controllers.consultascontroller.getModificarArticulo);
 router.post('/ActualizarArt', controllers.consultascontroller.postActualizaArticulo);

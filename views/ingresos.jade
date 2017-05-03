@@ -220,7 +220,13 @@ block content
         .col-md-2
           button(type='submit')#btn-registrar.div-button.btn.btn-primary.btn-block Registrar
         .col-md-2
-          button.div-button-danger.btn.btn-primary.btn-block Limpiar
+          a(href='../Ingresos', style='text-decoration: none;')
+            button(type='button').div-button-danger.btn.btn-primary.btn-block Limpiar
     //- if info != undefined
     //-   p= info
   // Contenido Derecha
+
+append footer
+  script(src='/javascripts/ingresos.js')
+  script(src='/javascripts/bootstrapvalidator.js')
+  script(src='/javascripts/validacion.js')
