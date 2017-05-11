@@ -2,6 +2,7 @@ extends layout
 
 block content
   // Contenido Derecha
+  // Contenido Derecha
   #contenido.cont-ingreso.container.col-md-10
     .form-title
       h2 Traslados de Activos
@@ -40,12 +41,32 @@ block content
                 td
                   | 1
                 td
-                  #select-list
-                    div
-                      select.form-control
-                        option(value=' ') Seleccione Bodega
-                        for val in consulta3
-                          option(value=val.id_bodega)= val.nombre_bodega
+                  section
+                    select.form-control#dropdown1(data-dropdown='{ "closeReset": false, }')
+                      optgroup(label='Bodega 1')
+                        option Puesto 1
+                        option Puesto 2
+                        option Puesto 3
+                      optgroup(label='Bodega 2')
+                        option Puesto 1
+                        option Puesto 2
+                        option Puesto 3
+                      optgroup(label='Bodega 3')
+                        option Puesto 1
+                        option Puesto 2
+                        option Puesto 3
+                      optgroup(label='Bodega 4')
+                        option Puesto 1
+                        option Puesto 2
+                        option Puesto 3
+                      optgroup(label='Bodega 5')
+                        option Puesto 1
+                        option Puesto 2
+                        option Puesto 3
+                      optgroup(label='Bodega 6')
+                        option Puesto 1
+                        option Puesto 2
+                        option Puesto 3
                 td
                   #select-list
                     div
@@ -58,7 +79,7 @@ block content
                                 if values.fk_bodega == 1
                                   option(value= values.id_puesto)= 'Puesto ' + values.posicion
                           when 2
-                            select.form-control(name='posicion').select-posiciones.sp1
+                            select.form-control(name='posicion').select-posiciones.sp2
                               option(value=' ') Puesto
                               for values in consulta5
                                 if values.fk_bodega == 2
@@ -175,7 +196,7 @@ block content
                                 if values.fk_bodega == 1
                                   option(value= values.id_puesto)= 'Puesto ' + values.posicion
                           when 2
-                            select.form-control(name='posicion').select-posiciones.sp1
+                            select.form-control(name='posicion').select-posiciones.sp2
                               option(value=' ') Puesto
                               for values in consulta5
                                 if values.fk_bodega == 2
@@ -274,62 +295,6 @@ block content
                 td
                   input.form-check-input.big-checkbox(type='checkbox', name='inversa')
               tr#addr1
-                td
-                  | 2
-                td
-                  #select-list
-                    div
-                      select.form-control
-                        option
-                        option Bodega 1
-                        option Bodega 2
-                        option Bodega 3
-                        option Bodega 4
-                td
-                  #select-list
-                    div
-                      select.form-control
-                        option
-                        option 200
-                        option 201
-                        option 202
-                        option 203
-                td
-                  #select-list
-                    div
-                      select#list-activosi2(multiple='multiple')
-                        option(value='1') CPU
-                        option(value='2') Monitor
-                        option(value='3') Hardphone
-                td
-                  i.fa.fa-arrows-h
-                td
-                  #select-list
-                    div
-                      select.form-control
-                        option
-                        option Bodega 1
-                        option Bodega 2
-                        option Bodega 3
-                        option Bodega 4
-                td
-                  #select-list
-                    div
-                      select.form-control
-                        option
-                        option 200
-                        option 201
-                        option 202
-                        option 203
-                td
-                  #select-list
-                    div
-                      select#list-activosf2(multiple='multiple')
-                        option(value='1') CPU
-                        option(value='2') Monitor
-                        option(value='3') Hardphone
-                td
-                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
               tr#addr2
       .row.add-container
         .col-md-6.row
@@ -348,6 +313,9 @@ block content
 
 append footer
   link(rel='stylesheet', href='/stylesheets/multi-select.css')
+  link(rel='stylesheet', href='/stylesheets/dropdown.css')
   script(src='/javascripts/app.js')
   script(src='/javascripts/multi-select.js')
-    script(src='/javascripts/ingresos.js')
+  script(src='/javascripts/traslados.js')
+  script(src='/javascripts/jquery.dropdown.js')
+  script(src='/javascripts/action.js')
