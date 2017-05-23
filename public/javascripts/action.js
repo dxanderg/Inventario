@@ -1,5 +1,7 @@
 (function($) {
 	$(function() {
-		$('#dropdown1, #uldrop').dropdown();
+		$('#dropdown1, #uldrop, .selectItem').dropdown({
+  		
+		});
 	});
 }(jQuery));

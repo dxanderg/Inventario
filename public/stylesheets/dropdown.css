@@ -7,7 +7,7 @@
  *	=General
  *	---------------------------------------------------------------- */
 .dropdown {
-  width: 150px;
+  /*width: 150px;*/
   position: relative;
   display: inline-block;
   vertical-align: bottom;
@@ -65,13 +65,13 @@
 }
 .dropdown-menu-container {
   position: relative;
-  width: 300px;
+  width: 260px;
   max-width: 100%;
 }
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 0;
+  /*top: 0;*/
   left: 0;
   width: inherit;
 }
@@ -334,7 +334,8 @@
 
 
 .dropdown-list{
-  height:auto !important;
+  /*height:auto !important;*/
+  max-height: 300px;
 }
 .dropdown-menu{
   border: 0px solid rgba(0,0,0,0);  
