@@ -250,10 +250,12 @@ body{
 	padding: 5px 0;  
 }
 .tablas .big-checkbox{
+	margin: 0 auto;
+	margin-top: 10px;
 	width: 20px;
 	height: 20px;
 	text-align: center;
-	margin: 0 auto;
+	
 }
 
 .tablas .table-head{

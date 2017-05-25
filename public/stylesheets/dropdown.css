@@ -65,7 +65,8 @@
 }
 .dropdown-menu-container {
   position: relative;
-  width: 260px;
+  /*min-width: 280px;*/
+  /*width: 260px;*/
   max-width: 100%;
 }
 .dropdown-menu {
@@ -335,7 +336,7 @@
 
 .dropdown-list{
   /*height:auto !important;*/
-  max-height: 300px;
+  /*max-height: 300px;*/
 }
 .dropdown-menu{
   border: 0px solid rgba(0,0,0,0);  

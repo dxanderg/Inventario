@@ -26,7 +26,8 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM estados`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM inventario_digitex.items
+																		GROUP BY nombre_item`, function(err, rows, fields){
 					if(err) throw err
 					consulta2 = rows
 					callback()

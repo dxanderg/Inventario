@@ -115,11 +115,10 @@ block content
                 td
                   #select-list
                     div
-                      select.selectItem#itemInicio
+                      select.selectItem#itemInicio1
                         option(value=' ') Seleccione Item
-                        option(value='1') CPU
-                        option(value='2') Monitor
-                        option(value='3') Hardphone
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
                 td
                   i.fa.fa-arrows-h
                 td
@@ -201,15 +200,1569 @@ block content
                 td
                   #select-list
                     div
-                      select.selectItem#itemDestino
+                      select.selectItem#itemDestino1
                         option(value=' ') Seleccione Item
-                        option(value='1') CPU
-                        option(value='2') Monitor
-                        option(value='3') Hardphone
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
                 td
                   input.form-check-input.big-checkbox(type='checkbox', name='inversa')
               tr#addr1
+                td
+                  | 2
+                td
+                  section
+                    select.form-control#dropdown2(data-dropdown='{ "closeReset": true, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemInicio2
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  i.fa.fa-arrows-h
+                td
+                  section
+                    select.form-control#dropdown2(data-dropdown='{ "closeReset": false, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemDestino2
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
               tr#addr2
+                td
+                  | 3
+                td
+                  section
+                    select.form-control#dropdown3(data-dropdown='{ "closeReset": true, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemInicio
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  i.fa.fa-arrows-h
+                td
+                  section
+                    select.form-control#dropdown3(data-dropdown='{ "closeReset": false, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemDestino
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
+              tr#addr3
+                td
+                  | 4
+                td
+                  section
+                    select.form-control#dropdown4(data-dropdown='{ "closeReset": true, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemInicio
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  i.fa.fa-arrows-h
+                td
+                  section
+                    select.form-control#dropdown4(data-dropdown='{ "closeReset": false, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemDestino
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
+              tr#addr4
+                td
+                  | 5
+                td
+                  section
+                    select.form-control#dropdown5(data-dropdown='{ "closeReset": true, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemInicio
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  i.fa.fa-arrows-h
+                td
+                  section
+                    select.form-control#dropdown5(data-dropdown='{ "closeReset": false, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemDestino
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
+              tr#addr5
+                td
+                  | 6
+                td
+                  section
+                    select.form-control#dropdown6(data-dropdown='{ "closeReset": true, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemInicio
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  i.fa.fa-arrows-h
+                td
+                  section
+                    select.form-control#dropdown6(data-dropdown='{ "closeReset": false, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemDestino
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
+              tr#addr6
+                td
+                  | 7
+                td
+                  section
+                    select.form-control#dropdown7(data-dropdown='{ "closeReset": true, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemInicio
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  i.fa.fa-arrows-h
+                td
+                  section
+                    select.form-control#dropdown7(data-dropdown='{ "closeReset": false, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemDestino
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
+              tr#addr7
+                td
+                  | 8
+                td
+                  section
+                    select.form-control#dropdown8(data-dropdown='{ "closeReset": true, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemInicio
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  i.fa.fa-arrows-h
+                td
+                  section
+                    select.form-control#dropdown8(data-dropdown='{ "closeReset": false, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemDestino
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
+              tr#addr8
+                td
+                  | 9
+                td
+                  section
+                    select.form-control#dropdown9(data-dropdown='{ "closeReset": true, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemInicio
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  i.fa.fa-arrows-h
+                td
+                  section
+                    select.form-control#dropdown9(data-dropdown='{ "closeReset": false, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemDestino
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
+              tr#addr9
+                td
+                  | 10
+                td
+                  section
+                    select.form-control#dropdown10(data-dropdown='{ "closeReset": true, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemInicio
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  i.fa.fa-arrows-h
+                td
+                  section
+                    select.form-control#dropdown10(data-dropdown='{ "closeReset": false, }')
+                      option(value='')= 'Seleccione el Puesto'
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 2
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 3
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 4
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 5
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 6
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 7
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 8
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 9
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 10
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 11
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 12
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 13
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                          when 14
+                            optgroup(label= val.nombre_bodega)
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= values.nombre_bodega + ' | Puesto ' + values.posicion
+                td
+                  #select-list
+                    div
+                      select.selectItem#itemDestino
+                        option(value=' ') Seleccione Item
+                        for values in consulta2
+                          option(value= values.id_item)= values.nombre_item
+                td
+                  input.form-check-input.big-checkbox(type='checkbox', name='inversa')
       .row.add-container
         .col-md-6.row
           a#add_row.btn.btn-default.pull-left
@@ -228,8 +1781,8 @@ block content
 append footer
   //- link(rel='stylesheet', href='/stylesheets/multi-select.css')
   link(rel='stylesheet', href='/stylesheets/dropdown.css')
-  script(src='/javascripts/app.js')
+  //- script(src='/javascripts/app.js')
   //- script(src='/javascripts/multi-select.js')
-  script(src='/javascripts/traslados.js')
+  //- script(src='/javascripts/traslados.js')
   script(src='/javascripts/jquery.dropdown.js')
   script(src='/javascripts/action.js')
