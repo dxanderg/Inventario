@@ -7,12 +7,14 @@ block content
       h2=sedes[0].nombre_sede
       h2 -
       h2=sedes[0].ciudad_sede
+      console.log('assasasas')
     .row
       .col-md-4
         .card
           .card-block
             h6 TOTAL EQUIPOS
             h2 945
+            canvas#myChart(width='400', height='400')
       .col-md-4
         .card
           .card-block
@@ -112,3 +114,8 @@ block content
             .card-blockquote Equipo / Monitor
             h2 6/6
     // Contenido Derecha
+
+append footer
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js')
+  script(src='/javascripts/chartinit.js')
