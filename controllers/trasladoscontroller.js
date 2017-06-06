@@ -70,5 +70,40 @@ module.exports = {
 		], function(err, results) {
   		res.render('Traslados', {consulta1 : consulta1, consulta2 : consulta2, consulta3 : consulta3, consulta4: consulta4, consulta5 : consulta5})
 		})
+	},
+
+	postNuevoTraslado : function(req, res, next){
+
+		var fechaActual = new Date()
+		var fechaA = dateFormat(fechaActual, 'yyyy-mm-dd')
+
+		var trasladoNew = {
+			activo : req.body.item1,
+			serial_art : req.body.puestoI1,
+			plaqueta_art : req.body.puestoF1,
+			fecha_creacion : fechaA,
+			fk_items : req.body.inversa
+			// fk_puesto : req.body['posicion'],
+			// fk_campaign : req.body.campaña,
+			// fk_bodega : req.body['bodega'],
+			// fk_sede : req.body.sede
+		}
+
+		console.log(trasladoNew)
+
+		// var config = require('.././database/config')
+		// var db = mysql.createConnection(config)
+		// db.connect()
+
+		// db.query('INSERT INTO articulos SET ?', articuloNew, function(err, rows, fields){
+		// 	if(err) {
+		// 		res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el artiulo!', error: err})
+		// 		console.log(err)//throw err
+		// 	}
+		// 	else{
+		// 		res.render('newartmodal', {title: 'Exito!', info: 'Articulo Registrado con Correctamente!'})	
+		// 	}
+		// 	db.end()
+		// })
 	}
 }
