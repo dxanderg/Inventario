@@ -14,6 +14,14 @@ $( document ).ready(function(){
 	$('select.sp1').addClass('active')
 
 	//******************************************//
+	for (var f = 1; f < 10; f++){
+		$('select.ta' + f).hide()
+		$('select.ta' + f).attr('disabled', '')
+
+		$('select.ta1').show()
+		// $('select.ta1').addClass('active')
+	}
+	//******************************************//
 
 	for (var a =1; a< 10; a++){
 		$('select.sba' + a).hide()
@@ -74,6 +82,12 @@ $('.select-bodegasa').change(function(){
 		
 })
 
-$('#btn-registrar').click(function(){
+$('#select-articulo').change(function(){
+	$('select.ta' + $(this).val()).show()
+	$('select.ta' + $(this).val()).removeAttr('disabled', '')
 
+	$('select#select-tipoarticulo:not(.ta' + $(this).val()).hide()
+  $('select#select-tipoarticulo:not(.ta' + $(this).val()).removeClass('active')
+  $('select#select-tipoarticulo:not(.ta' + $(this).val()).attr('disabled', '')
+		
 })

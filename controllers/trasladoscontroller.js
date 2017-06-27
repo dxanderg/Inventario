@@ -1,6 +1,7 @@
 var mysql = require('mysql')
 var async = require('async')
 var dateFormat = require('dateFormat')
+var InsertQuery = require('mysql-insert-multiple')
 
 module.exports = {
 
@@ -33,7 +34,8 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM bodegas WHERE fk_sede = 1`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM bodegas WHERE fk_sede = 1
+																			ORDER BY nombre_bodega`, function(err, rows, fields){
 					if(err) throw err
 					consulta3 = rows
 					callback()
@@ -76,34 +78,75 @@ module.exports = {
 
 		var fechaActual = new Date()
 		var fechaA = dateFormat(fechaActual, 'yyyy-mm-dd')
+		var usuario = 1
+		var puestos = 'puestos'
+		var articulos = 'articulos'
+		
+		var Query = InsertQuery({
+		  table: 'movimientos',
+		  maxRow: 1,
+		  data: [
+		    {
+		      'dest_sede' : {
+		      		string: '(SELECT fk_sede from ?? WHERE id_puesto = ?)',
+		      		value: [puestos, req.body.puestoF1]
+		      },
+		      'dest_bodega': {
+		      		string: '(SELECT fk_bodega from ?? WHERE id_puesto = ?)',
+		      		value: [puestos, req.body.puestoF1]
+		      },
+		      'dest_posicion': {
+		      		string: '(SELECT id_puesto from ?? WHERE id_puesto = ?)',
+		      		value: [puestos, req.body.puestoF1]
+		      },
+		      'dest_campaña': {
+		      		string: '(SELECT fk_campaign from ?? WHERE id_puesto = ?)',
+		      		value: [puestos, req.body.puestoF1]
+		      },
+		      'ori_sede': {
+		      		string: '(SELECT fk_sede from ?? WHERE fk_puesto = ? AND fk_tipo = ?)',
+		      		value: [articulos, req.body.puestoI1, req.body.item1]
+		      },
+		      'ori_bodega': {
+		      		string: '(SELECT fk_bodega from ?? WHERE fk_puesto = ? AND fk_tipo = ?)',
+		      		value: [articulos, req.body.puestoI1, req.body.item1]
+		      },
+		      'ori_posicion': {
+		      		string: '(SELECT fk_puesto from ?? WHERE fk_puesto = ? AND fk_tipo = ?)',
+		      		value: [articulos, req.body.puestoI1, req.body.item1]
+		      },
+		      'ori_campaña': {
+		      		string: '(SELECT fk_campaign from ?? WHERE fk_puesto = ? AND fk_tipo = ?)',
+		      		value: [articulos, req.body.puestoI1, req.body.item1]
+		      },
+		      'ticket': req.body.ticket ,
+		      'fecha_mov': fechaA ,
+		      'fk_usuario': usuario ,
+		      'fk_articulos': {
+		      	string: '(SELECT id_articulos from ?? WHERE fk_puesto = ? AND fk_tipo = ?)',
+		      		value: [articulos, req.body.puestoI1, req.body.item1]
+		      }
+		    },
+		  ]
+		})
+		console.log(req.body['opcion1'])
+		console.log(req.body.opcion1)
+		console.log(req.body.puestoI1)
+		console.log(req.body.puestoF1)
 
-		var trasladoNew = {
-			activo : req.body.item1,
-			serial_art : req.body.puestoI1,
-			plaqueta_art : req.body.puestoF1,
-			fecha_creacion : fechaA,
-			fk_items : req.body.inversa
-			// fk_puesto : req.body['posicion'],
-			// fk_campaign : req.body.campaña,
-			// fk_bodega : req.body['bodega'],
-			// fk_sede : req.body.sede
-		}
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
 
-		console.log(trasladoNew)
-
-		// var config = require('.././database/config')
-		// var db = mysql.createConnection(config)
-		// db.connect()
-
-		// db.query('INSERT INTO articulos SET ?', articuloNew, function(err, rows, fields){
-		// 	if(err) {
-		// 		res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el artiulo!', error: err})
-		// 		console.log(err)//throw err
-		// 	}
-		// 	else{
-		// 		res.render('newartmodal', {title: 'Exito!', info: 'Articulo Registrado con Correctamente!'})	
-		// 	}
-		// 	db.end()
-		// })
+		db.query(Query.next(), function(err, rows, fields){
+			if(err) {
+				res.render('newmovmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el movimiento!', error: err})
+				console.log(err)//throw err
+			}
+			else{
+				res.render('newmovmodal', {title: 'Exito!', info: 'Movimiento Registrado con Correctamente!'})	
+			}
+			db.end()
+		})
 	}
 }

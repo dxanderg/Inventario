@@ -16,7 +16,7 @@ module.exports = {
 		var consulta6 = null
 
 		async.parallel([
-  		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item FROM inventario_digitex.items
+  		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo FROM inventario_digitex.items
 						JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY nombre_item `, function(err, rows, fields){
 					if(err) throw err
 					consulta1 = rows
@@ -47,13 +47,19 @@ module.exports = {
 					callback()
 	      })
   		},
+  		function(callback) { db.query(`SELECT * FROM items GROUP BY tipo`, function(err, rows, fields){
+					if(err) throw err
+					consulta7 = rows
+					callback()
+	      })
+  		},
   		function(callback) { db.query(`SELECT * FROM puestos`, function(err, rows, fields){
 					if(err) throw err
 					consulta6 = rows
 					callback()
 	      })
 		}], function(err, results) {
-  		res.render('Ingresos', {consulta1 : consulta1, consulta2 : consulta2, consulta3 : consulta3, consulta4: consulta4, consulta5 : consulta5, consulta6: consulta6})
+  		res.render('Ingresos', {consulta1 : consulta1, consulta2 : consulta2, consulta3 : consulta3, consulta4: consulta4, consulta5 : consulta5, consulta6: consulta6, consulta7: consulta7})
 		})
 	},
 
@@ -67,11 +73,12 @@ module.exports = {
 			serial_art : req.body.serial,
 			plaqueta_art : req.body.plaqueta,
 			fecha_creacion : fechaA,
-			fk_items : req.body.articulo,
+			fk_items : req.body.tipoarticulo,
 			fk_puesto : req.body['posicion'],
 			fk_campaign : req.body.campaña,
 			fk_bodega : req.body['bodega'],
-			fk_sede : req.body.sede
+			fk_sede : req.body.sede,
+			fk_tipo : req.body.articulo
 		}
 
 		var config = require('.././database/config')

@@ -65,6 +65,26 @@ $(document).ready(function () {
             }
           }
       },
+      articulo: {
+          validators: {
+            // stringLength: {
+            //   min: 3,
+            // },
+            notEmpty: {
+                message: 'Seleccion el Articulo '
+            }
+          }
+      },
+      tipoarticulo: {
+          validators: {
+            // stringLength: {
+            //   min: 3,
+            // },
+            notEmpty: {
+                message: 'Seleccion el Tipo de Articulo '
+            }
+          }
+      },
       posicion: {
           validators: {
             // stringLength: {

@@ -14,8 +14,32 @@ block content
         .col-md-6
           select(name='articulo')#select-articulo.form-control
             option(value=' ') Seleccione un Articulo
-            for val in consulta1
-              option(value= val.id_item)= val.nombre_item+" - "+val.nombre_fabricante+" "+val.modelo_item
+            option(value=1) CPU
+            option(value=2) MONITOR
+            option(value=3) HARDPHONE
+      .form-group.row
+        label.col-md-2.col-form-label(for='form-ing-articulo') Tipo
+        .col-md-6
+          for val in consulta7
+            case val.tipo
+              when 1
+                select(name='tipoarticulo')#select-tipoarticulo.form-control.ta1
+                  option(value=' ') Seleccione Tipo Articulo
+                  for values in consulta1
+                    if values.tipo == 1
+                      option(value= values.id_item)= values.nombre_fabricante+" - "+values.modelo_item
+              when 2
+                select(name='tipoarticulo')#select-tipoarticulo.form-control.ta2
+                  option(value=' ') Seleccione Tipo Articulo
+                  for values in consulta1
+                    if values.tipo == 2
+                      option(value= values.id_item)= values.nombre_fabricante+" - "+values.modelo_item
+              when 3
+                select(name='tipoarticulo')#select-tipoarticulo.form-control.ta3
+                  option(value=' ') Seleccione Tipo Articulo
+                  for values in consulta1
+                    if values.tipo == 3
+                      option(value= values.id_item)= values.nombre_fabricante+" - "+values.modelo_item
       .form-group.row
         label.col-md-2.col-form-label(for='form-ing-serial') Serial
         .col-md-6
