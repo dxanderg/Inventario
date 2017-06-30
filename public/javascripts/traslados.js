@@ -1,31 +1,36 @@
 $( document ).ready(function(){
 	
 	for (var j =1; j< 15; j++){
-		$('select.sp' + j).hide()
-		$('select.sp' + j).attr('disabled', '')
+		$('select.spI' + j).hide()
+		$('select.spF' + j).hide()
+		$('select.spI' + j).attr('disabled', '')
+		$('select.spF' + j).attr('disabled', '')
 	}	
-	$('select.sp1').show()
-	$('select.sp1').addClass('active')
+	$('select.spI1').show()
+	$('select.spF1').show()
+	$('select.spI1').addClass('active')
+	$('select.spF1').addClass('active')
 
 })
 
-$('#select-bodega').change(function(){
-		$('.select-posiciones.sp' + $(this).val()).show()
-		$('.select-posiciones.sp' + $(this).val()).removeAttr('disabled', '')
+$('#itembodegaI').change(function(){
+		$('.select-posicionesI.spI' + $(this).val()).show()
+		$('.select-posicionesI.spI' + $(this).val()).removeAttr('disabled', '')
 		//alert($(this).val())
 		
-    $('select.select-posiciones:not(.sp' + $(this).val()).hide()
-    $('select.select-posiciones:not(.sp' + $(this).val()).removeClass('active')
-    $('select.select-posiciones:not(.sp' + $(this).val()).attr('disabled', '')
+    $('select.select-posicionesI:not(.spI' + $(this).val()).hide()
+    $('select.select-posicionesI:not(.spI' + $(this).val()).removeClass('active')
+    $('select.select-posicionesI:not(.spI' + $(this).val()).attr('disabled', '')
 })
 
-$('.select-bodegas').change(function(){
-		var bod = $('select.select-bodegas :selected').val()
-		$('select.sp' + bod).show()
-		$('select.sp' + bod).removeAttr('disabled', '')
-
-		$('select.select-posiciones:not(.sp' + $(this).val()).hide()
-    $('select.select-posiciones:not(.sp' + $(this).val()).removeClass('active')
-    $('select.select-posiciones:not(.sp' + $(this).val()).attr('disabled', '')
+$('#itembodegaF').change(function(){
+		$('.select-posicionesF.spF' + $(this).val()).show()
+		$('.select-posicionesF.spF' + $(this).val()).removeAttr('disabled', '')
+		//alert($(this).val())
+		
+    $('select.select-posicionesF:not(.spF' + $(this).val()).hide()
+    $('select.select-posicionesF:not(.spF' + $(this).val()).removeClass('active')
+    $('select.select-posicionesF:not(.spF' + $(this).val()).attr('disabled', '')
 })
+
 

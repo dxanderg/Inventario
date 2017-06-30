@@ -10,15 +10,6 @@ module.exports = {
 		var db = mysql.createConnection(config)
 		db.connect()
 
-		var id = req.params.id
-
-		var consulta1 = null
-		var consulta2 = null
-		var consulta3 = null
-		var consulta4 = null
-		var consulta5 = null
-		var consulta6 = null
-
 		async.parallel([
   		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item FROM inventario_digitex.items
 						JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY nombre_item `, function(err, rows, fields){
@@ -49,8 +40,7 @@ module.exports = {
   		},
   		function(callback) { db.query(`SELECT p.id_puesto, p.posicion, p.fk_bodega, fk_campaign, fk_estado, b.id_bodega, b.nombre_bodega 
   																		FROM puestos p
-																			JOIN bodegas b ON p.fk_bodega = b.id_bodega
-																			WHERE fk_estado = 1`, function(err, rows, fields){
+																			JOIN bodegas b ON p.fk_bodega = b.id_bodega`, function(err, rows, fields){
 					if(err) throw err
 					consulta5 = rows
 					callback()
