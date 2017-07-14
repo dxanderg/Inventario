@@ -155,6 +155,20 @@ block content
                                 if values.fk_bodega == 14
                                   option(value= values.id_puesto)= 'Puesto ' + values.posicion
                                 else
+                          when 15
+                            select.form-control(name='posicionI1').select-posicionesI.spI15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionI1').select-posicionesI.spI16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
                   td
                     i.fa.fa-arrows-h
                   td
@@ -263,6 +277,20 @@ block content
                               option(value=' ') Seleccione el Puesto
                               for values in consulta5
                                 if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionF1').select-posicionesF.spF15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionF1').select-posicionesF.spF16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
                                   option(value= values.id_puesto)= 'Puesto ' + values.posicion
                                 else
                   td

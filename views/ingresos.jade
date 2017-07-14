@@ -233,6 +233,20 @@ block content
                     if values.fk_bodega == 14
                       option(value= values.id_puesto)= 'Puesto ' + values.posicion
                     else
+              when 15
+                select.form-control(name='posicion').select-posiciones.sp15
+                  option(value=' ') Seleccione el Puesto
+                  for values in consulta6
+                    if values.fk_bodega == 15
+                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                    else
+              when 16
+                select.form-control(name='posicion').select-posiciones.sp16
+                  option(value=' ') Seleccione el Puesto
+                  for values in consulta6
+                    if values.fk_bodega == 16
+                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                    else
       .form-group.row
         label.col-md-2.col-form-label(for='form-ing-campaña') Campaña
         .col-md-6

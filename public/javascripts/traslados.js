@@ -1,6 +1,6 @@
 $( document ).ready(function(){
 	
-	for (var j =1; j< 15; j++){
+	for (var j =1; j< 17; j++){
 		$('select.spI' + j).hide()
 		$('select.spF' + j).hide()
 		$('select.spI' + j).attr('disabled', '')
