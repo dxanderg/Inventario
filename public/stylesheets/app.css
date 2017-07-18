@@ -366,3 +366,28 @@ select.form-control:not([size]):not([multiple]){
   cursor: pointer;
   transition: all .3s ease;
 }
+
+
+@media screen and (max-width: 500px) {   
+    #title2{
+    	background-image: url(/images/small-logo.png);
+    	background-repeat: no-repeat;
+    	/*background-attachment: fixed;*/
+    	background-position: center;
+    }
+    #header-container #linktitle #logo img{
+    	width: 50px;
+    }
+}
+
+@media screen and (min-width: 768px) {      
+    #title2{      
+    	background-image: url(/images/logo_digitex.png);
+    	background-repeat: no-repeat;
+    	/*background-attachment: fixed;*/
+    	background-position: center; 
+    }
+    #header-container #linktitle #logo img{
+    	width: 180px;
+    }
+} 

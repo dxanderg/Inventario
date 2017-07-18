@@ -94,6 +94,16 @@ $(document).ready(function () {
               message: 'Seleccione Puesto '
             }
           }
+      },
+      ticket: {
+          validators: {
+            stringLength: {
+              min: 6,
+            },
+            notEmpty: {
+              message: 'Ingrese el Numero de Ticket '
+            }
+          }
       }
     }
 	})
