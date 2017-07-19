@@ -7,7 +7,17 @@ block content
       h2=sedes[0].nombre_sede
       h2 -
       h2=sedes[0].ciudad_sede
-      console.log('assasasas')
+    .row
+      table#datoschart(style='width:100px')
+        tr
+          th ID
+          th SEDE
+          th CIUDAD
+        tr
+          for val in sedes
+            td= val.id_sede
+            td= val.nombre_sede
+            td= val.ciudad_sede
     .row
       .col-md-4
         .card
@@ -20,6 +30,7 @@ block content
           .card-block
             h6 TOTAL MONITORES
             h2 962
+            canvas#myChart(width='400', height='400')
       .col-md-4
         .card
           .card-block
