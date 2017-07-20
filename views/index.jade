@@ -4,20 +4,11 @@ block content
   // Contenido Derecha
   #contenido.container.row.col-md-10
     .row 
-      h2=sedes[0].nombre_sede
-      h2 -
-      h2=sedes[0].ciudad_sede
+      h1=sedes
+      h6=datos
+      h2=joder
     .row
-      table#datoschart(style='width:100px')
-        tr
-          th ID
-          th SEDE
-          th CIUDAD
-        tr
-          for val in sedes
-            td= val.id_sede
-            td= val.nombre_sede
-            td= val.ciudad_sede
+      meta(name='lolo', content=joder)
     .row
       .col-md-4
         .card
