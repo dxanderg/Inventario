@@ -1,0 +1,13 @@
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default
+      .panel-heading= 'Login'
+      .panel-body
+        form(action='/auth/signin' method='post' autocomplete='off')
+          .form-group
+            label(for='nombre')= 'Nombre'
+            input(type='text' name='username' id='nombre' placeholder='Nombre').form-control
+          .form-group
+            label(for='password')= 'Password'
+            input(type='password' name='password' id='password' placeholder='password').form-control
+          button(type='submit').btn.btn-default= 'Registrese'

@@ -12,6 +12,8 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/app.css')
   body
+    script.
+      usuario="#{user}"
     #main-div.container-fluid
       // HEADER
       header#header-container
@@ -27,16 +29,16 @@ html(lang='en')
                 #title2
                   img
             ul.nav.navbar-right.top-nav
-              a(href='#')
+              a
                 button.navbar-toggler.hidden-md-up(data-toggle='collapse', data-target='.navbar-ex1-collapse')
                   | ☰
                 #usuario-login.row.flex-items-xs-middle.flex-items-xs-between.hidden-sm-down(data-toggle='collapse', data-target='#logout')
                   li.text-uppercase.hidden-xs-down
-                    i.fa.fa-user-circle-o(href='#')
-                  a.text-uppercase.hidden-xs-down Usuario
+                    i.fa.fa-user-circle-o
+                  a.text-uppercase.hidden-xs-down=user.nombre
                   ul#logout.collapse
                     li
-                      a(href='#') Salir
+                      a(href='/assdsdx') Salir
                   b.text-uppercase.hidden-xs-down.fa.fa-fw.fa-caret-right
       // HEADER
       // Menu Escondido

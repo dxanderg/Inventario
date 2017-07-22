@@ -1,9 +1,21 @@
 var express = require('express');
 var router = express.Router();
-
+var passport = require('passport')
 var controllers = require('.././controllers')
 
-/* GET home page. */
+/* Autenticacion */
+router.get('/auth/signup', controllers.usercontroller.getSignUp)
+router.post('/auth/signup', controllers.usercontroller.postSignUp)
+router.get('/auth/signin', controllers.usercontroller.getSignIn)
+router.get('/auth/logout', controllers.usercontroller.logout)
+router.post('/auth/signin', passport.authenticate('local', {
+	successRedirect : '/',
+	failureRedirect: '/auth/signin',
+	failureFlash: true
+}))
+
+
+/* Modulos */
 router.get('/', controllers.homecontroller.index);
 router.get('/Ingresos', controllers.ingresoscontroller.ingresos);
 router.post('/CrearArticulo', controllers.ingresoscontroller.postNuevoArticulo);

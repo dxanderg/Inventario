@@ -14,26 +14,24 @@ module.exports = {
 			if(err) throw err
 			sedes = rows
 
-     var data = _.map(rows, function(n) { //here using lodash
-         return [`'` + n.nombre_campaign + `': ` + n.puestos];
-     })
+			var data = _.map(rows, function(n) { //here using lodash
+				return [`'` + n.nombre_campaign + `': ` + n.puestos];
+	    })
+
 			db.end()
-		res.render('index', {sedes : sedes, datos : data})
-		
+
+			res.render('index', {
+				sedes : sedes, 
+				datos : data,
+				isAuthenticated: req.isAuthenticated(),
+				user: req.user
+			})
 		})
 	},
 
 	ingresos : function(req, res, next){
 		res.render('ingresos')
 	},
-
-	// traslados : function(req, res, next){
-	// 	res.render('traslados')
-	// },
-
-	// consultas : function(req, res, next){
-	// 	res.render('consultas')
-	// },
 
 	notificaciones : function(req, res, next){
 		res.render('notificaciones')

@@ -1,0 +1,16 @@
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default
+      .panel-heading= 'Registrarme'
+      .panel-body
+        form(action='/auth/signup' method='post' autocomplete='off')
+          .form-group
+            label(for='email')= 'Email'
+            input(type='email' name='email' id='email' placeholder='Email').form-control
+          .form-group
+            label(for='nombre')= 'Nombre'
+            input(type='text' name='nombre' id='nombre' placeholder='Nombre').form-control
+          .form-group
+            label(for='password')= 'Password'
+            input(type='password' name='password' id='password' placeholder='password').form-control
+          button(type='submit').btn.btn-default= 'Registrese'

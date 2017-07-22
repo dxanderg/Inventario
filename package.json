@@ -7,17 +7,22 @@
   },
   "dependencies": {
     "async": "^2.5.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "~1.16.0",
     "chart.js": "^2.6.0",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.3",
     "dateformat": "^2.0.0",
     "debug": "~2.6.0",
     "express": "~4.14.1",
+    "express-session": "^1.15.4",
     "jade": "~1.11.0",
     "lodash": "^4.17.4",
     "morgan": "~1.7.0",
     "mysql": "^2.13.0",
     "mysql-insert-multiple": "^1.0.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "serve-favicon": "~2.3.2"
   },
   "devDependencies": {
