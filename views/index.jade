@@ -3,14 +3,12 @@ extends layout
 block content
   // Contenido Derecha
   #contenido.container.row.col-md-10
-    .row 
-      h1=sedes
-      h6=datos
-      h2=joder
+    script.
+      sedesNombre="#{sedes}"
+      sedesA="#{datos}"
+      chartdata="#{chartdata}"
     .row
-      meta(name='lolo', content=joder)
-    .row
-      .col-md-4
+      .col-md-6
         .card
           .card-block
             h6 TOTAL EQUIPOS
@@ -21,7 +19,6 @@ block content
           .card-block
             h6 TOTAL MONITORES
             h2 962
-            canvas#myChart(width='400', height='400')
       .col-md-4
         .card
           .card-block
