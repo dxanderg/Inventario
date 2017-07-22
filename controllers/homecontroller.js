@@ -14,24 +14,11 @@ module.exports = {
 			if(err) throw err
 			sedes = rows
 
-			var data = []
-			var player = [];
-			var score = [];
-
-			for(var i in sedes) {
-				player.push(sedes[i].nombre_campaign);
-				score.push(sedes[i].puestos);
-			}
-			var chartdata = {
-				labels: player,
-				data: score
-			};
-
      var data = _.map(rows, function(n) { //here using lodash
          return [`'` + n.nombre_campaign + `': ` + n.puestos];
      })
 			db.end()
-		res.render('index', {sedes : sedes, datos : JSON.stringify(chartdata), chartdata: data})
+		res.render('index', {sedes : sedes, datos : data})
 		
 		})
 	},

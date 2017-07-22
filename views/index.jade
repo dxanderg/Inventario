@@ -4,22 +4,19 @@ block content
   // Contenido Derecha
   #contenido.container.row.col-md-10
     script.
-      sedesNombre="#{sedes}"
-      sedesA="#{datos}"
-      chartdata="#{chartdata}"
+      ocupacionSede="#{datos}"
     .row
-      .col-md-6
+      .col-md-5
         .card
           .card-block
-            h6 TOTAL EQUIPOS
-            h2 945
-            canvas#myDonutChart(width='400', height='400')
-      .col-md-4
+            h4 OCUPACION IBAGUE
+            canvas#myDonutChart(width='200', height='200')
+      .col-md-3
         .card
           .card-block
-            h6 TOTAL MONITORES
-            h2 962
-      .col-md-4
+            h4 OCUPACION IBAGUE
+            canvas#myChart(width='50', height='50')
+      .col-md-3
         .card
           .card-block
             h6 TOTAL HARDPHONES

@@ -102,7 +102,7 @@ body{
 #side-menu ul li a{
 	transition: all .3s ease;
 	padding: .5em 0 .5em .5em;
-    cursor: pointer;
+  cursor: pointer;
 	color: #67809A;
 	text-decoration: none;
 	display: block;
