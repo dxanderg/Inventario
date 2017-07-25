@@ -26,13 +26,13 @@ module.exports = function(passport){
 
 			if(rows.length > 0){
 				var user = rows[0]
-				console.log(user)
 				if(bcrypt.compareSync(password, user.pass_usuario)){
 					return done(null, {
 						id: user.id_usuario,
 						nombre: user.nombre_usuario,
 						cargo: user.cargo_usuario
 					})
+					console.log("sdsdsdsdsdsd " + user)
 				}
 			}
 

@@ -16,14 +16,21 @@ router.post('/auth/signin', passport.authenticate('local', {
 
 
 /* Modulos */
-router.get('/', controllers.homecontroller.index);
-router.get('/Ingresos', controllers.ingresoscontroller.ingresos);
-router.post('/CrearArticulo', controllers.ingresoscontroller.postNuevoArticulo);
-router.post('/CrearTraslado', controllers.trasladoscontroller.postNuevoTraslado);
-router.get('/Traslados', controllers.trasladoscontroller.traslados);
-router.get('/Consultas', controllers.consultascontroller.consultas);
-router.get('/ModificarArt/:id', controllers.consultascontroller.getModificarArticulo);
-router.post('/ActualizarArt', controllers.consultascontroller.postActualizaArticulo);
-router.get('/Notificaciones', controllers.homecontroller.notificaciones);
+router.get('/', isAuthenticated, controllers.homecontroller.index);
+router.get('/Ingresos', isAuthenticated, controllers.ingresoscontroller.ingresos);
+router.post('/CrearArticulo', isAuthenticated, controllers.ingresoscontroller.postNuevoArticulo);
+router.post('/CrearTraslado', isAuthenticated, controllers.trasladoscontroller.postNuevoTraslado);
+router.get('/Traslados', isAuthenticated, controllers.trasladoscontroller.traslados);
+router.get('/Consultas', isAuthenticated, controllers.consultascontroller.consultas);
+router.get('/ModificarArt/:id', isAuthenticated, controllers.consultascontroller.getModificarArticulo);
+router.post('/ActualizarArt', isAuthenticated, controllers.consultascontroller.postActualizaArticulo);
+router.get('/Notificaciones', isAuthenticated, controllers.homecontroller.notificaciones);
+
+function isAuthenticated(req, res, next) {
+  if (req.user)
+    return next();
+  
+  res.redirect('/auth/signin');
+}
 
 module.exports = router;
