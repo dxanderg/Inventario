@@ -29,13 +29,15 @@ module.exports = function(passport){
 				if(bcrypt.compareSync(password, user.pass_usuario)){
 					return done(null, {
 						id: user.id_usuario,
-						nombre: user.nombre_usuario,
-						cargo: user.cargo_usuario
-					})
-					console.log("sdsdsdsdsdsd " + user)
+						usuario: user.nombre_usuario,
+						nombre: user.nombre_mostrar,
+						cargo: user.cargo_usuario,
+						sede: user.fk_sede,
+						campaña: user.fk_campaign,
+						perfil: user.perfil_usuario
+					})	
 				}
 			}
-
 			return done(null, false, req.flash('authmessage', 'Email o Password Inconrrectos'))
 		})
 

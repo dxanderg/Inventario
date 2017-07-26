@@ -12,13 +12,14 @@ module.exports = {
 		var password = bcrypt.hashSync(req.body.password, salt)
 
 		var user = {
-			nombre_usuario: req.body.nombre,
-			cargo_usuario: req.body.email,
+			nombre_usuario: req.body.usuario,
+			cargo_usuario: req.body.cargo,
 			pass_usuario: password,
 			fk_sede: '1',
-			fk_campaign: '9'
+			fk_campaign: '9',
+			nombre_mostrar: req.body.nombre,
+			perfil_usuario: req.body.perfil
 		}
-		console.log(user)
 
 		var config = require('.././database/config')
 
@@ -30,7 +31,7 @@ module.exports = {
 			if(err) throw err
 			db.end()
 		})
-		// req.flash('info', 'Se ha registrado correctamente, ya puede ingresar') ///{message: req.flash('info')}
+		req.flash('info', 'Se ha registrado correctamente, ya puede ingresar') ///{message: req.flash('info')}
 		return res.redirect('/auth/signin')
 	},
 

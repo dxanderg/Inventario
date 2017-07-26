@@ -26,10 +26,16 @@ router.get('/ModificarArt/:id', isAuthenticated, controllers.consultascontroller
 router.post('/ActualizarArt', isAuthenticated, controllers.consultascontroller.postActualizaArticulo);
 router.get('/Notificaciones', isAuthenticated, controllers.homecontroller.notificaciones);
 
+router.get('*', function(req, res, next){
+  return res.render('404')
+  // res.send('what???', 404);
+});
+
 function isAuthenticated(req, res, next) {
-  if (req.user)
-    return next();
-  
+  if (req.user){
+    res.locals.currentuser = req.user
+  	return next();
+  }
   res.redirect('/auth/signin');
 }
 

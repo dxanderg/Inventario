@@ -12,8 +12,6 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/app.css')
   body
-    script.
-      usuario="#{user}"
     #main-div.container-fluid
       // HEADER
       header#header-container
@@ -35,7 +33,7 @@ html(lang='en')
                 #usuario-login.row.flex-items-xs-middle.flex-items-xs-between.hidden-sm-down(data-toggle='collapse', data-target='#logout')
                   li.text-uppercase.hidden-xs-down
                     i.fa.fa-user-circle-o
-                  a.text-uppercase.hidden-xs-down
+                  a.text-uppercase.hidden-xs-down= currentuser.nombre
                   ul#logout.collapse
                     li
                       a(href='/auth/logout') Salir
@@ -110,13 +108,13 @@ html(lang='en')
                       i.fa.fa-fw.fa-info
                       |  Info
                   li.active
-                    a=usuario
-                      i.fa.fa-fw.fa-info=usuario
+                    a(href='../auth/logout')
+                      i.fa.fa-fw.fa-sign-out
+                      |  Salir
             // Lista Menu Izquierda
             block content
     script(src='/javascripts/jquery.min.js')
     script(src='/javascripts/tether.min.js')
     script(src='/javascripts/bootstrap.min.js')
-    script(src='/javascripts/index-log.js')
 
     block footer

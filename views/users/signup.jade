@@ -5,11 +5,17 @@
       .panel-body
         form(action='/auth/signup' method='post' autocomplete='off')
           .form-group
-            label(for='email')= 'Email'
-            input(type='email' name='email' id='email' placeholder='Email').form-control
+            label(for='usuario')= 'Usuario'
+            input(type='text' name='usuario' id='usuario' placeholder='Usuario').form-control
           .form-group
             label(for='nombre')= 'Nombre'
             input(type='text' name='nombre' id='nombre' placeholder='Nombre').form-control
+          .form-group
+            label(for='cargo')= 'Cargo'
+            input(type='text' name='cargo' id='cargo' placeholder='Cargo').form-control
+          .form-group
+            label(for='perfil')= 'Perfil'
+            input(type='text' name='perfil' id='perfil' placeholder='Perfil').form-control
           .form-group
             label(for='password')= 'Password'
             input(type='password' name='password' id='password' placeholder='password').form-control

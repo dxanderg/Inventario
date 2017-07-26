@@ -14,6 +14,7 @@ var users = require('./routes/users');
 
 var app = express();
 
+app.locals.currentuser = {}
 app.use(cookieParser());
 app.use(session({
 	secret: 'Sh3ld0n.2017',
