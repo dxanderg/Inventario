@@ -1,13 +1,22 @@
-.row
-  .col-md-6.col-md-offset-3
+.container
+  .col-md-6.offset-md-3
     .panel.panel-default
-      .panel-heading= 'Login'
+      .panel-heading
+        h1.display-2= 'Login Inventario Digitex'
       .panel-body
+        a=' '
         form(action='/auth/signin' method='post' autocomplete='off')
           .form-group
-            label(for='nombre')= 'Nombre'
-            input(type='text' name='username' id='nombre' placeholder='Nombre').form-control
+            input(type='text' name='username' id='nombre' placeholder='Usuario').form-control
           .form-group
-            label(for='password')= 'Password'
-            input(type='password' name='password' id='password' placeholder='password').form-control
-          button(type='submit').btn.btn-default= 'Registrese'
+            input(type='password' name='password' id='password' placeholder='Password').form-control
+          button(type='submit').btn-outline-info.btn-lg.btn-block= 'INGRESAR'
+      #image.col-md-3
+        img(src='/images/logo-azul_1.png')
+
+  link(rel='stylesheet', href='/stylesheets/bootstrap-flex.min.css')
+  link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+  link(rel='stylesheet', href='/stylesheets/login.css')
+  script(src='/javascripts/jquery.min.js')
+  script(src='/javascripts/tether.min.js')
+  script(src='/javascripts/bootstrap.min.js')

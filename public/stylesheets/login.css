@@ -1,0 +1,11 @@
+body{}
+
+.panel-body button{
+	transition: background-color .5s;
+}
+
+#image img{
+  width: 180px;
+	margin-left: 150px;
+	margin-top: 50px;
+}
