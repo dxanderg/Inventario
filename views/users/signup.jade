@@ -1,7 +1,8 @@
 .row
-  .col-md-6.col-md-offset-3
+  .col-md-6.offset-md-3
     .panel.panel-default
-      .panel-heading= 'Registrarme'
+      .panel-heading
+        h1= 'Registrar Usuarios'
       .panel-body
         form(action='/auth/signup' method='post' autocomplete='off')
           .form-group
@@ -20,3 +21,11 @@
             label(for='password')= 'Password'
             input(type='password' name='password' id='password' placeholder='password').form-control
           button(type='submit').btn.btn-default= 'Registrese'
+      a(href='/', style=' text-decoration: none;')
+        button.btn-outline-info.btn-lg.btn-block Volver al Inicio
+
+  link(rel='stylesheet', href='/stylesheets/bootstrap-flex.min.css')
+  link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+  script(src='/javascripts/jquery.min.js')
+  script(src='/javascripts/tether.min.js')
+  script(src='/javascripts/bootstrap.min.js')

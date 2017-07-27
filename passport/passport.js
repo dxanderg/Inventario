@@ -38,7 +38,7 @@ module.exports = function(passport){
 					})	
 				}
 			}
-			return done(null, false, req.flash('authmessage', 'Email o Password Inconrrectos'))
+			return done(null, false, req.flash('authmessage', 'Usuario o Password Incorrectos'))
 		})
 
 	}))

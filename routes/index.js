@@ -4,7 +4,7 @@ var passport = require('passport')
 var controllers = require('.././controllers')
 
 /* Autenticacion */
-router.get('/auth/signup', controllers.usercontroller.getSignUp)
+router.get('/auth/signup', isAdmin, controllers.usercontroller.getSignUp)
 router.post('/auth/signup', controllers.usercontroller.postSignUp)
 router.get('/auth/signin', controllers.usercontroller.getSignIn)
 router.get('/auth/logout', controllers.usercontroller.logout)
@@ -37,6 +37,14 @@ function isAuthenticated(req, res, next) {
   	return next();
   }
   res.redirect('/auth/signin');
+}
+
+function isAdmin(req, res, next) {
+  if (req.user.perfil == 1){
+    res.locals.currentuser = req.user
+    return next();
+  }
+  res.redirect('/');
 }
 
 module.exports = router;
