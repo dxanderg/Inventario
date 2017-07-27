@@ -104,6 +104,60 @@ $(document).ready(function () {
               message: 'Ingrese el Numero de Ticket '
             }
           }
+      },
+      usuario: {
+          validators: {
+            stringLength: {
+              min: 4,
+            },
+            notEmpty: {
+              message: 'Ingrese el Usuario '
+            }
+          }
+      },
+      nombre: {
+          validators: {
+            stringLength: {
+              min: 6,
+            },
+            notEmpty: {
+              message: 'Ingrese el Nombre '
+            }
+          }
+      },
+      cargo: {
+          validators: {
+            notEmpty: {
+              message: 'Ingrese el Cargo '
+            }
+          }
+      },
+      campaña: {
+          validators: {
+            notEmpty: {
+              message: 'Ingrese la Campaña '
+            }
+          }
+      },
+      perfil: {
+          validators: {
+            stringLength: {
+              min: 1,
+            },
+            notEmpty: {
+              message: 'Ingrese el Perfil de Usuario'
+            }
+          }
+      },
+      password: {
+          validators: {
+            stringLength: {
+              min: 1,
+            },
+            notEmpty: {
+              message: 'Ingrese la Contraseña'
+            }
+          }
       }
     }
 	})
