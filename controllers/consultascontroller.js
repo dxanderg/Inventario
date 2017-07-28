@@ -18,7 +18,8 @@ module.exports = {
 							JOIN puestos p ON a.fk_puesto = p.id_puesto
 							JOIN campaign c ON a.fk_campaign = c.id_campaign
 							JOIN items i ON a.fk_items = i.id_item
-							JOIN fabricante f ON i.fk_fabricante = f.id_fabricante`, function(err, rows, fields){
+							JOIN fabricante f ON i.fk_fabricante = f.id_fabricante
+							ORDER BY b.nombre_bodega, p.posicion ASC`, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()

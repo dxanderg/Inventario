@@ -6,8 +6,30 @@ $(document).ready(function() {
       $(this).html( '<input type="text" placeholder="Buscar '+title+'" />' );
   } );
  
+  var fecha = new Date();
+  var options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+  var currentTime = fecha.toLocaleDateString("es-ES", options)
+
   // DataTable
-  var table = $('#tab_logic').DataTable();
+  var table = $('#tab_logic').DataTable({
+    // lengthChange: false,
+    buttons: {
+        buttons: [
+            { extend: 'copy', text: 'Copiar Portapeles', title: 'Inventario_'+ currentTime  },
+            { extend: 'excel', text: 'Guardar en Excel', title: 'Inventario_'+ currentTime },
+            { extend: 'pdf', text: 'Guardar en PDF', title: 'Inventario_'+ currentTime },
+            { extend: 'print', text: 'Imprimir', title: 'Inventario_'+ currentTime }
+        ]
+    },
+    language: {
+            buttons: {
+                copyTitle: 'Copiado en el Portapapeles'
+              }
+    }
+  });
+
+  table.buttons().container()
+    .appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
  
   // Apply the search
   table.columns().every( function () {
