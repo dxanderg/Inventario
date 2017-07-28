@@ -17,11 +17,12 @@ router.post('/auth/signin', passport.authenticate('local', {
 
 /* Modulos */
 router.get('/', isAuthenticated, controllers.homecontroller.index);
-router.get('/Ingresos', isAuthenticated, controllers.ingresoscontroller.ingresos);
+router.get('/Ingresos', isAuthenticated, isAdmin, controllers.ingresoscontroller.ingresos);
 router.post('/CrearArticulo', isAuthenticated, controllers.ingresoscontroller.postNuevoArticulo);
 router.post('/CrearTraslado', isAuthenticated, controllers.trasladoscontroller.postNuevoTraslado);
 router.get('/Traslados', isAuthenticated, controllers.trasladoscontroller.traslados);
 router.get('/Consultas', isAuthenticated, controllers.consultascontroller.consultas);
+router.get('/Actualizar', isAdmin, controllers.consultascontroller.actualizar);
 router.get('/ModificarArt/:id', isAuthenticated, controllers.consultascontroller.getModificarArticulo);
 router.post('/ActualizarArt', isAuthenticated, controllers.consultascontroller.postActualizaArticulo);
 router.get('/Notificaciones', isAuthenticated, controllers.homecontroller.notificaciones);

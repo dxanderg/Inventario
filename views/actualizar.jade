@@ -4,7 +4,7 @@ block content
   // Contenido Derecha
   #contenido.cont-ingreso.container.col-md-10
     .form-title
-      h2 Consulta de Activos
+      h2 Consulta  y Modificacion de Activos
     // Formulario de busqueda de registros
     #tabla_consultas.container.tablas.tabla-consulta
       .row.clearfix
@@ -30,6 +30,8 @@ block content
                   | Serial
                 th.text-center
                   | Plaqueta
+                th.text-center
+                  | Editar
             tfoot.table-footer
               tr
                 th
@@ -41,6 +43,7 @@ block content
                 th
                 th
                 th
+                th.hidden-sm-up
             tbody
               each item in consulta1
                 tr#addr0
@@ -62,6 +65,10 @@ block content
                     div=item.serial_art
                   td
                     div=item.plaqueta_art
+                  td
+                    div
+                      a(href='../ModificarArt/'+item.id_articulos data-tooltip='Modificar' data-inverted data-position='top center')
+                        i.fa.fa-fw.fa-edit
     // Formulario de busqueda de registros
   // Contenido Derecha
 
