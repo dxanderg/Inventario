@@ -6,7 +6,7 @@ $( document ).ready(function(){
 	$('select.sb1').show()
 	$('select.sb1').addClass('active')
 	
-	for (var j =1; j< 17; j++){
+	for (var j =1; j< 18; j++){
 		$('select.sp' + j).hide()
 		$('select.sp' + j).attr('disabled', '')
 	}	
@@ -31,7 +31,7 @@ $( document ).ready(function(){
 	$('select.sba1').addClass('active')
 	$('select.sba1').removeAttr('disabled', '')
 	
-	for (var b =1; b< 17; b++){
+	for (var b =1; b< 18; b++){
 		$('select.spa' + b).hide()
 		$('select.spa' + b).attr('disabled', '')
 	}	

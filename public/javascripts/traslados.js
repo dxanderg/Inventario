@@ -1,7 +1,7 @@
 $( document ).ready(function(){
 	
 	for (var k = 1; k < 11; k++){
-		for (var j =1; j< 17; j++){
+		for (var j =1; j< 18; j++){
 			$('select.spI' + k + '-' + j).hide()
 			$('select.spF' + k + '-' + j).hide()
 			$('select.spI' + k + '-' + j).attr('disabled', '')
