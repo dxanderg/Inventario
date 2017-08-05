@@ -5,6 +5,21 @@ var InsertQuery = require('mysql-insert-multiple')
 
 module.exports = {
 
+	api : function(req, res, next){
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		var id = req.params.id_posicion
+		var consulta1 = null
+
+		db.query(`SELECT * FROM articulos WHERE fk_puesto = ?`, id, function(err, rows, fields){
+			if(err) throw err
+			consulta1 = rows
+			db.end()
+		res.send({ itemsPuesto : consulta1})
+		})
+	},
 	traslados : function(req, res, next){
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)

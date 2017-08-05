@@ -27,9 +27,15 @@ router.get('/ModificarArt/:id', isAuthenticated, controllers.consultascontroller
 router.post('/ActualizarArt', isAuthenticated, controllers.consultascontroller.postActualizaArticulo);
 router.get('/Notificaciones', isAuthenticated, controllers.homecontroller.notificaciones);
 
+// router.get('/api/:id_posicion', isAuthenticated, controllers.trasladoscontroller.api);
+
+router.get('/api', function(req, res, next){
+    res.send({ message : `Posicion:  ${req.params.id_posicion}`})
+})
+
+
 router.get('*', function(req, res, next){
   return res.render('404')
-  // res.send('what???', 404);
 });
 
 function isAuthenticated(req, res, next) {

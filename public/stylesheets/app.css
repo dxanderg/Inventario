@@ -244,7 +244,7 @@ body{
 }
 
 .tabla-consulta table td{
-	font-size: 17px;
+	font-size: 15px;
 	vertical-align: middle;
 	border: 1px solid #cbd0d3;
 	padding: 5px 0;  
@@ -259,7 +259,7 @@ body{
 }
 
 .tablas .table-head{
-	font-size: 1.2em;
+	font-size: 1em;
 	vertical-align: middle;
 }
 

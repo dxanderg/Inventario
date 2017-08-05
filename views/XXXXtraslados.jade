@@ -1,0 +1,2645 @@
+extends layout
+
+block content
+  // Contenido Derecha
+  // Contenido Derecha
+  #contenido.cont-ingreso.container.col-md-10
+    form#ingreso-form.form-horizontal(method='post', action='../CrearTraslado')
+      .form-title
+        h2 Traslados de Activos
+      #ticket_campo.container
+        .row.clearfix
+          .input-group
+            span#sizing-addon1.input-group-addon Ticket
+            input.form-control(type='text', placeholder='Ingrese el numero de la peticion', aria-describedby='sizing-addon1', name='ticket')
+      // Tabla de Registro de Movimientos
+      .loader
+      #tabla_traslados.container.tablas
+        .row.clearfix
+          .col-md-12.column
+            table#tab_logic.table.table-bordered.table-hover
+              thead.table-head.thead-inverse
+                tr
+                  th.text-center
+                    | N°
+                  th.text-center
+                    | Activo
+                  th.text-center
+                    | Bodega
+                  th.text-center
+                    | Puesto
+                  th.text-center
+                    i.fa.fa-arrows-h
+                  th.text-center
+                    | Bodega
+                  th.text-center
+                    | Puesto
+                  th.text-center
+                    i.fa.fa-refresh
+              tbody
+                tr#addr0
+                  td
+                    | 1
+                  td
+                    #select-list
+                      div
+                        select(name='item1').form-control.selectItem#itemInicio1
+                          option(value=' ') Seleccione Item
+                          for values in consulta2
+                            option(value= values.tipo)= values.nombre_item
+                  td
+                    section
+                      select(name='ubicacionI1').form-control.selectItem#itembodegaI1
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionI1').select-posicionesI1.spI1-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    i.fa.fa-arrows-h
+                  td
+                    section
+                      select(name='ubicacionF1').form-control.selectItem#itembodegaF1
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionF1').select-posicionesF1.spF1-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    input.form-check-input.big-checkbox(type='checkbox', name='inversa1')
+                tr#addr1
+                  td
+                    | 2
+                  td
+                    #select-list
+                      div
+                        select(name='item2').form-control.selectItem#itemInicio2
+                          option(value=' ') Seleccione Item
+                          for values in consulta2
+                            option(value= values.tipo)= values.nombre_item
+                  td
+                    section
+                      select(name='ubicacionI2').form-control.selectItem#itembodegaI2
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionI2').select-posicionesI2.spI2-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    i.fa.fa-arrows-h
+                  td
+                    section
+                      select(name='ubicacionF2').form-control.selectItem#itembodegaF2
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionF2').select-posicionesF2.spF2-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    input.form-check-input.big-checkbox(type='checkbox', name='inversa1')
+                tr#addr2
+                  td
+                    | 3
+                  td
+                    #select-list
+                      div
+                        select(name='item3').form-control.selectItem#itemInicio3
+                          option(value=' ') Seleccione Item
+                          for values in consulta2
+                            option(value= values.tipo)= values.nombre_item
+                  td
+                    section
+                      select(name='ubicacionI3').form-control.selectItem#itembodegaI3
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionI3').select-posicionesI3.spI3-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    i.fa.fa-arrows-h
+                  td
+                    section
+                      select(name='ubicacionF3').form-control.selectItem#itembodegaF3
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionF3').select-posicionesF3.spF3-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    input.form-check-input.big-checkbox(type='checkbox', name='inversa1')
+                tr#addr3
+                  td
+                    | 4
+                  td
+                    #select-list
+                      div
+                        select(name='item4').form-control.selectItem#itemInicio4
+                          option(value=' ') Seleccione Item
+                          for values in consulta2
+                            option(value= values.tipo)= values.nombre_item
+                  td
+                    section
+                      select(name='ubicacionI4').form-control.selectItem#itembodegaI4
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionI4').select-posicionesI4.spI4-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    i.fa.fa-arrows-h
+                  td
+                    section
+                      select(name='ubicacionF4').form-control.selectItem#itembodegaF4
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionF4').select-posicionesF4.spF4-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    input.form-check-input.big-checkbox(type='checkbox', name='inversa1')
+                tr#addr4
+                  td
+                    | 5
+                  td
+                    #select-list
+                      div
+                        select(name='item5').form-control.selectItem#itemInicio5
+                          option(value=' ') Seleccione Item
+                          for values in consulta2
+                            option(value= values.tipo)= values.nombre_item
+                  td
+                    section
+                      select(name='ubicacionI5').form-control.selectItem#itembodegaI5
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionI5').select-posicionesI5.spI5-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    i.fa.fa-arrows-h
+                  td
+                    section
+                      select(name='ubicacionF5').form-control.selectItem#itembodegaF5
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionF5').select-posicionesF5.spF5-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    input.form-check-input.big-checkbox(type='checkbox', name='inversa1')
+                tr#addr5
+                  td
+                    | 6
+                  td
+                    #select-list
+                      div
+                        select(name='item6').form-control.selectItem#itemInicio6
+                          option(value=' ') Seleccione Item
+                          for values in consulta2
+                            option(value= values.tipo)= values.nombre_item
+                  td
+                    section
+                      select(name='ubicacionI6').form-control.selectItem#itembodegaI6
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionI6').select-posicionesI6.spI6-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    i.fa.fa-arrows-h
+                  td
+                    section
+                      select(name='ubicacionF6').form-control.selectItem#itembodegaF6
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionF6').select-posicionesF6.spF6-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    input.form-check-input.big-checkbox(type='checkbox', name='inversa1')
+                tr#addr6
+                  td
+                    | 7
+                  td
+                    #select-list
+                      div
+                        select(name='item7').form-control.selectItem#itemInicio7
+                          option(value=' ') Seleccione Item
+                          for values in consulta2
+                            option(value= values.tipo)= values.nombre_item
+                  td
+                    section
+                      select(name='ubicacionI7').form-control.selectItem#itembodegaI7
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionI7').select-posicionesI7.spI7-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    i.fa.fa-arrows-h
+                  td
+                    section
+                      select(name='ubicacionF7').form-control.selectItem#itembodegaF7
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionF7').select-posicionesF7.spF7-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    input.form-check-input.big-checkbox(type='checkbox', name='inversa1')
+                tr#addr7
+                  td
+                    | 8
+                  td
+                    #select-list
+                      div
+                        select(name='item8').form-control.selectItem#itemInicio8
+                          option(value=' ') Seleccione Item
+                          for values in consulta2
+                            option(value= values.tipo)= values.nombre_item
+                  td
+                    section
+                      select(name='ubicacionI8').form-control.selectItem#itembodegaI8
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionI8').select-posicionesI8.spI8-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    i.fa.fa-arrows-h
+                  td
+                    section
+                      select(name='ubicacionF8').form-control.selectItem#itembodegaF8
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionF8').select-posicionesF8.spF8-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    input.form-check-input.big-checkbox(type='checkbox', name='inversa1')
+                tr#addr8
+                  td
+                    | 9
+                  td
+                    #select-list
+                      div
+                        select(name='item9').form-control.selectItem#itemInicio9
+                          option(value=' ') Seleccione Item
+                          for values in consulta2
+                            option(value= values.tipo)= values.nombre_item
+                  td
+                    section
+                      select(name='ubicacionI9').form-control.selectItem#itembodegaI9
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionI9').select-posicionesI9.spI9-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    i.fa.fa-arrows-h
+                  td
+                    section
+                      select(name='ubicacionF9').form-control.selectItem#itembodegaF9
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionF9').select-posicionesF9.spF9-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    input.form-check-input.big-checkbox(type='checkbox', name='inversa1')
+                tr#addr9
+                  td
+                    | 10
+                  td
+                    #select-list
+                      div
+                        select(name='item10').form-control.selectItem#itemInicio10
+                          option(value=' ') Seleccione Item
+                          for values in consulta2
+                            option(value= values.tipo)= values.nombre_item
+                  td
+                    section
+                      select(name='ubicacionI10').form-control.selectItem#itembodegaI10
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionI10').select-posicionesI10.spI10-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    i.fa.fa-arrows-h
+                  td
+                    section
+                      select(name='ubicacionF10').form-control.selectItem#itembodegaF10
+                          option(value=' ') Seleccione Bodega
+                          for values in consulta3
+                            option(value= values.id_bodega)= values.nombre_bodega
+                  td
+                    section
+                      for val in consulta3
+                        case val.id_bodega
+                          when 1
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-1
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 1
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 2
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-2
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 2
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 3
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-3
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 3
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 4
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-4
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 4
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 5
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-5
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 5
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 6
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-6
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 6
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 7
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-7
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 7
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 8
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-8
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 8
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 9
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-9
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 9
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 10
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-10
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 10
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 11
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-11
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 11
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 12
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-12
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 12
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 13
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-13
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 13
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 14
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-14
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 14
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 15
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-15
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 15
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                          when 16
+                            select.form-control(name='posicionF10').select-posicionesF10.spF10-16
+                              option(value=' ') Seleccione el Puesto
+                              for values in consulta5
+                                if values.fk_bodega == 16
+                                  option(value= values.id_puesto)= 'Puesto ' + values.posicion
+                                else
+                  td
+                    input.form-check-input.big-checkbox(type='checkbox', name='inversa1')
+        .row.add-container
+          .col-md-6.row
+            a#add_row.btn.btn-default.pull-left
+              i.fa.fa-plus-circle
+          .col-md-6.row
+            a#delete_row.pull-right.btn.btn-default
+              i.fa.fa-minus-circle
+      // Tabla de Registro de Movimientos
+      .button-container.form-group.row
+        .col-md-2
+          button(type='submit')#traslado.div-button.btn.btn-primary.btn-block Registrar
+        .col-md-2
+          a(href='../Traslados', style='text-decoration: none;')
+            button(type='button').div-button-danger.btn.btn-primary.btn-block Limpiar
+  // Contenido Derecha
+
+append footer
+  //- link(rel='stylesheet', href='/stylesheets/multi-select.css')
+  link(rel='stylesheet', href='/stylesheets/dropdown.css')
+  link(rel='stylesheet', href='/stylesheets/loader.css')
+  //- script(src='/javascripts/app.js')
+  //- script(src='/javascripts/multi-select.js')
+  script(src='/javascripts/traslados.js')
+  script(src='/javascripts/bootstrapvalidator.js')
+  script(src='/javascripts/validacion.js')
+  script(src='/javascripts/action.js')
