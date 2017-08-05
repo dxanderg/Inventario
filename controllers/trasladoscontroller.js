@@ -2,6 +2,7 @@ var mysql = require('mysql')
 var async = require('async')
 var dateFormat = require('dateFormat')
 var InsertQuery = require('mysql-insert-multiple')
+var _ = require('lodash')
 
 module.exports = {
 
@@ -17,7 +18,7 @@ module.exports = {
 			if(err) throw err
 			consulta1 = rows
 			db.end()
-		res.send({ itemsPuesto : consulta1})
+		res.send({ data : consulta1})
 		})
 	},
 	traslados : function(req, res, next){
