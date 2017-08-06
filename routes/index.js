@@ -28,6 +28,7 @@ router.post('/ActualizarArt', isAuthenticated, controllers.consultascontroller.p
 router.get('/Notificaciones', isAuthenticated, controllers.homecontroller.notificaciones);
 
 router.get('/api/:id_posicion', isAuthenticated, controllers.trasladoscontroller.api);
+router.get('/api-puestos/:id_puesto', isAuthenticated, controllers.trasladoscontroller.apiPuestos);
 
 // router.get('/api', function(req, res, next){      :id_posicion
 //     res.send({ message : `Posicion:  ${req.params.id_posicion}`})

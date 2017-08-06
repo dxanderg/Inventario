@@ -14,11 +14,29 @@ module.exports = {
 		var id = req.params.id_posicion
 		var consulta1 = null
 
-		db.query(`SELECT * FROM articulos WHERE fk_puesto = ?`, id, function(err, rows, fields){
+		db.query(`SELECT a.id_articulos, a.serial_art, a.plaqueta_art, i.nombre_item, i.modelo_item FROM articulos a
+							JOIN items i ON a.fk_items = i.id_item
+							WHERE fk_puesto = ?`, id, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()
 		res.send({ data : consulta1})
+		})
+	},
+	apiPuestos : function(req, res, next){
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		var id = req.params.id_puesto
+		var consulta2 = null
+
+		db.query(`SELECT id_puesto, posicion, fk_bodega FROM puestos
+							WHERE fk_bodega = ?`, id, function(err, rows, fields){
+			if(err) throw err
+			consulta2 = rows
+			db.end()
+		res.send({ data : consulta2})
 		})
 	},
 	traslados : function(req, res, next){
