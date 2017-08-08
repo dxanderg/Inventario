@@ -17,7 +17,7 @@ module.exports = {
 
 		async.parallel([
   		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo FROM inventario_digitex.items
-						JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY nombre_item `, function(err, rows, fields){
+						JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY b.nombre_fabricante, nombre_item`, function(err, rows, fields){
 					if(err) throw err
 					consulta1 = rows
 					callback()
@@ -74,10 +74,6 @@ module.exports = {
 			plaqueta_art : req.body.plaqueta,
 			fecha_creacion : fechaA,
 			fk_items : req.body.tipoarticulo,
-			fk_puesto : req.body['posicion'],
-			fk_campaign : req.body.campaña,
-			fk_bodega : req.body['bodega'],
-			fk_sede : req.body.sede,
 			fk_tipo : req.body.articulo
 		}
 
@@ -91,7 +87,21 @@ module.exports = {
 				console.log(err)//throw err
 			}
 			else{
-				res.render('newartmodal', {title: 'Exito!', info: 'Articulo Registrado con Correctamente!'})	
+				var idInserted = rows.insertId
+				var ocupacionNew = {
+					fk_id_puesto: req.body['posicion'],
+					fk_id_articulos: idInserted,
+					fk_id_campaign: req.body.campaña,
+					fecha_ocupacion : fechaA
+				}
+				db.query('INSERT INTO ocupacion SET ?', ocupacionNew, function(err, rows, fields){
+					if (err){
+						res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al asignar la ocupacion! (Articulo OK)', error: err})
+					}
+					else{
+						res.render('newartmodal', {title: 'Exito!', info: 'Articulo Registrado con Correctamente!'})
+					}
+				})
 			}
 			db.end()
 		})

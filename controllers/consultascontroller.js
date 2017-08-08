@@ -11,15 +11,17 @@ module.exports = {
 
 		var consulta1 = null
 
-		db.query(`SELECT a.id_articulos, s.nombre_sede, b.nombre_bodega, p.posicion, c.nombre_campaign, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art
-							FROM articulos a
-							JOIN bodegas b ON a.fk_bodega = b.id_bodega
-							JOIN sedes s ON a.fk_sede = s.id_sede 
-							JOIN puestos p ON a.fk_puesto = p.id_puesto
-							JOIN campaign c ON a.fk_campaign = c.id_campaign
-							JOIN items i ON a.fk_items = i.id_item
-							JOIN fabricante f ON i.fk_fabricante = f.id_fabricante
-							ORDER BY b.nombre_bodega, p.posicion ASC, i.nombre_item ASC`, function(err, rows, fields){
+		db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
+							FROM articulos a, fabricante f, items i, estados e, sedes s, bodegas b, puestos p, campaign c, ocupacion o
+							WHERE o.fk_id_articulos = a.id_articulos
+							AND o.fk_id_puesto = p.id_puesto 
+							AND f.id_fabricante = i.fk_fabricante 
+							AND a.fk_items = i.id_item
+							AND p.fk_campaign = c.id_campaign
+							AND p.fk_bodega = b.id_bodega
+							AND p.fk_sede = s.id_sede
+							AND a.activo = e.id_estados
+							ORDER BY b.nombre_bodega, p.posicion ASC`, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()
@@ -41,8 +43,8 @@ module.exports = {
 		var consulta6 = null
 
 		async.parallel([
-  		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item FROM inventario_digitex.items
-						JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY nombre_item `, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo FROM inventario_digitex.items
+						JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY b.nombre_fabricante, nombre_item `, function(err, rows, fields){
 					if(err) throw err
 					consulta1 = rows
 					callback()
@@ -78,15 +80,17 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`select a.id_articulos, a.activo, e.nombre_estado, a.serial_art, a.plaqueta_art, a.fk_items, i.nombre_item, i.modelo_item, a.fk_puesto, a.fk_campaign, c.nombre_campaign, f.nombre_fabricante, a.fk_bodega, b.nombre_bodega, a.fk_sede, s.nombre_sede from articulos a
-																			JOIN estados e ON a.activo = e.id_estados
-																			JOIN bodegas b ON a.fk_bodega = b.id_bodega
-																			JOIN sedes s ON a.fk_sede = s.id_sede 
-																			JOIN puestos p ON a.fk_puesto = p.id_puesto
-																			JOIN campaign c ON a.fk_campaign = c.id_campaign
-																			JOIN items i ON a.fk_items = i.id_item
-																			JOIN fabricante f ON i.fk_fabricante = f.id_fabricante
-																			where a.id_articulos = ?`, id, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
+																		FROM articulos a, fabricante f, items i, estados e, sedes s, bodegas b, puestos p, campaign c, ocupacion o
+																		WHERE o.fk_id_articulos = a.id_articulos
+																		AND o.fk_id_puesto = p.id_puesto 
+																		AND f.id_fabricante = i.fk_fabricante 
+																		AND a.fk_items = i.id_item
+																		AND p.fk_campaign = c.id_campaign
+																		AND p.fk_bodega = b.id_bodega
+																		AND p.fk_sede = s.id_sede
+																		AND a.activo = e.id_estados
+																		AND a.id_articulos = ?`, id, function(err, rows, fields){
 					if(err) throw err
 					consulta7 = rows
 					callback()
@@ -102,14 +106,16 @@ module.exports = {
 
 		var consulta1 = null
 
-		db.query(`SELECT a.id_articulos, s.nombre_sede, b.nombre_bodega, p.posicion, c.nombre_campaign, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art
-							FROM articulos a
-							JOIN bodegas b ON a.fk_bodega = b.id_bodega
-							JOIN sedes s ON a.fk_sede = s.id_sede 
-							JOIN puestos p ON a.fk_puesto = p.id_puesto
-							JOIN campaign c ON a.fk_campaign = c.id_campaign
-							JOIN items i ON a.fk_items = i.id_item
-							JOIN fabricante f ON i.fk_fabricante = f.id_fabricante
+		db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
+							FROM articulos a, fabricante f, items i, estados e, sedes s, bodegas b, puestos p, campaign c, ocupacion o
+							WHERE o.fk_id_articulos = a.id_articulos
+							AND o.fk_id_puesto = p.id_puesto 
+							AND f.id_fabricante = i.fk_fabricante 
+							AND a.fk_items = i.id_item
+							AND p.fk_campaign = c.id_campaign
+							AND p.fk_bodega = b.id_bodega
+							AND p.fk_sede = s.id_sede
+							AND a.activo = e.id_estados
 							ORDER BY b.nombre_bodega, p.posicion ASC`, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
@@ -169,15 +175,17 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`select a.id_articulos, a.activo, e.nombre_estado, a.serial_art, a.plaqueta_art, a.fk_items, i.nombre_item, i.modelo_item, a.fk_puesto, a.fk_campaign, c.nombre_campaign, f.nombre_fabricante, a.fk_bodega, b.nombre_bodega, a.fk_sede, s.nombre_sede from articulos a
-																			JOIN estados e ON a.activo = e.id_estados
-																			JOIN bodegas b ON a.fk_bodega = b.id_bodega
-																			JOIN sedes s ON a.fk_sede = s.id_sede 
-																			JOIN puestos p ON a.fk_puesto = p.id_puesto
-																			JOIN campaign c ON a.fk_campaign = c.id_campaign
-																			JOIN items i ON a.fk_items = i.id_item
-																			JOIN fabricante f ON i.fk_fabricante = f.id_fabricante
-																			where a.id_articulos = ?`, id, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
+																		FROM articulos a, fabricante f, items i, estados e, sedes s, bodegas b, puestos p, campaign c, ocupacion o
+																		WHERE o.fk_id_articulos = a.id_articulos
+																		AND o.fk_id_puesto = p.id_puesto 
+																		AND f.id_fabricante = i.fk_fabricante 
+																		AND a.fk_items = i.id_item
+																		AND p.fk_campaign = c.id_campaign
+																		AND p.fk_bodega = b.id_bodega
+																		AND p.fk_sede = s.id_sede
+																		AND a.activo = e.id_estados
+																		AND a.id_articulos = ?`, id, function(err, rows, fields){
 					if(err) throw err
 					consulta7 = rows
 					callback()
@@ -195,11 +203,7 @@ module.exports = {
 			serial_art : req.body.serial,
 			plaqueta_art : req.body.plaqueta,
 			fecha_creacion : fechaA,
-			fk_items : req.body.articulo,
-			fk_puesto : req.body['posicion'],
-			fk_campaign : req.body.campaña,
-			fk_bodega : req.body['bodega'],
-			fk_sede : req.body.sede
+			fk_items : req.body.articulo
 		}
 		
 		console.log(articuloEdit)
@@ -211,12 +215,25 @@ module.exports = {
 
 		db.query('UPDATE articulos SET ? WHERE ? ', [articuloEdit, {id_articulos : req.body.id_articulos}], function(err, rows, fields){
 			if(err) {
-				res.render('actuaartmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el artiulo!', error: err})
+				res.render('actuaartmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el articulo!', error: err})
 				console.log(err)//throw err
 			}
 			else{
-				res.render('actuaartmodal', {title: 'Exito!', info: 'Articulo Actualizado Correctamente!'})	
+				var ocupacionMod = {
+					fk_id_puesto: req.body['posicion'],
+					fk_id_campaign: req.body.campaña,
+					fecha_ocupacion : fechaA
+				}
+				db.query('UPDATE ocupacion SET ? WHERE ?', [ocupacionMod, {fk_id_articulos : req.body.id_articulos}], function(err, rows, fields){
+					if (err){
+						res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al asignar la ocupacion! (Articulo OK)', error: err})
+					}
+					else{
+						res.render('actuaartmodal', {title: 'Exito!', info: 'Articulo Actualizado Correctamente!'})	
+					}
+				})
 			}
+			db.end()
 		})
 	}
 }

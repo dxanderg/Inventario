@@ -31,7 +31,7 @@ block content
           .col-md-6
             select(name='estado')#select-estado.form-control
               for val in consulta7
-                option(value=val.activo)= val.nombre_estado
+                option(value=val.id_estados)= val.nombre_estado
               for val in consulta2
                 option(value=val.id_estados)= val.nombre_estado
         .form-group.row
@@ -119,7 +119,7 @@ block content
                 when 1
                   select.form-control(name='posicion').select-posiciones.spa1
                     for val in consulta7
-                      option(value=val.fk_puesto)= 'Puesto '+val.fk_puesto
+                      option(value=val.id_puesto)= 'Puesto '+val.posicion
                     for values in consulta6
                       if values.fk_bodega == 1
                         option(value= values.id_puesto)= 'Puesto ' + values.posicion
