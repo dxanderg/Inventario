@@ -241,7 +241,7 @@ block content
           .col-md-6
             select(name='campaña')#select-campaign.form-control
               for val in consulta7
-                option(value=val.fk_campaign)= val.nombre_campaign
+                option(value=val.id_campaign)= val.nombre_campaign
               for val in consulta5
                 option(value=val.id_campaign)= val.nombre_campaign
         .button-container.form-group.row

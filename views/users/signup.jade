@@ -5,29 +5,29 @@
         h1= 'Registrar Usuarios'
       .panel-body
         form(action='/auth/signup' method='post' autocomplete='off')#ingreso-form
-          .form-group
-            label(for='usuario')= 'Usuario'
-            input(type='text' name='usuario' id='usuario' placeholder='Usuario').form-control
-          .form-group
-            label(for='nombre')= 'Nombre'
-            input(type='text' name='nombre' id='nombre' placeholder='Nombre').form-control
-          .form-group
-            label(for='cargo')= 'Cargo'
-            input(type='text' name='cargo' id='cargo' placeholder='Cargo').form-control
-          .form-group
-            label(for='Campaña')= 'Campaña'
-            input(type='text' name='campaña' id='campaña' placeholder='Campaña').form-control
-          .form-group
-            label(for='perfil')= 'Perfil'
-            select(name='perfil')#select-cargo.form-control
-              option(value=2)= ''
-              option(value=1)= 'Administrador'
-              option(value=2)= 'Soporte'
-              option(value=3)= 'Responsable Campaña'
-              option(value=4)= 'Consultas'
-          .form-group
-            label(for='password')= 'Password'
-            input(type='password' name='password' id='password' placeholder='password').form-control
+              .form-group
+                label(for='usuario')= 'Usuario'
+                input(type='text' name='usuario' id='usuario' placeholder='Usuario').form-control
+              .form-group
+                label(for='nombre')= 'Nombre'
+                input(type='text' name='nombre' id='nombre' placeholder='Nombre').form-control
+              .form-group
+                label(for='cargo')= 'Cargo'
+                input(type='text' name='cargo' id='cargo' placeholder='Cargo').form-control
+              .form-group
+                label(for='Campaña')= 'Campaña'
+                input(type='text' name='campaña' id='campaña' placeholder='Campaña').form-control
+              .form-group
+                label(for='perfil')= 'Perfil'
+                select(name='perfil')#select-cargo.form-control
+                  option(value=2)= ''
+                  option(value=1)= 'Administrador'
+                  option(value=2)= 'Soporte'
+                  option(value=3)= 'Responsable Campaña'
+                  option(value=4)= 'Consultas'
+              .form-group
+                label(for='password')= 'Password'
+                input(type='password' name='password' id='password' placeholder='password').form-control
           button(type='submit').btn.btn-primary= 'Registrese'
       a(href='/', style=' text-decoration: none;')
         button.btn-outline-info Volver al Inicio

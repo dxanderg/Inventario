@@ -91,7 +91,6 @@ module.exports = {
 				var ocupacionNew = {
 					fk_id_puesto: req.body['posicion'],
 					fk_id_articulos: idInserted,
-					fk_id_campaign: req.body.campaña,
 					fecha_ocupacion : fechaA
 				}
 				db.query('INSERT INTO ocupacion SET ?', ocupacionNew, function(err, rows, fields){

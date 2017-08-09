@@ -14,9 +14,12 @@ module.exports = {
 		var id = req.params.id_posicion
 		var consulta1 = null
 
-		db.query(`SELECT a.id_articulos, a.serial_art, a.plaqueta_art, i.nombre_item, i.modelo_item FROM articulos a
+		db.query(`SELECT a.id_articulos, a.serial_art, a.plaqueta_art, i.nombre_item, i.modelo_item, p.id_puesto, p.posicion
+							FROM articulos a
+							JOIN ocupacion o ON a.id_articulos = o.fk_id_articulos
 							JOIN items i ON a.fk_items = i.id_item
-							WHERE fk_puesto = ?`, id, function(err, rows, fields){
+							JOIN puestos p ON p.id_puesto = o.fk_id_puesto
+							WHERE o.fk_id_puesto = ?`, id, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()

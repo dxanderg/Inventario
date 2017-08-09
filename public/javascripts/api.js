@@ -1,6 +1,6 @@
 $(function(){
 	//API request para consultar los articulos en un posicion X(Posicion Inicial)
-	$('#puestoI').on('change', function(e){
+	$('#puestoI').click('.opcionPuesto',  function(e){
    	var parameters = $(this).val()
 		$.ajax({
 	      url: '/api/' + parameters,
@@ -18,7 +18,7 @@ $(function(){
 	    })
 	})
 		//API request para consultar los articulos en un posicion X(Posicion Final)
-	$('#puestoF').on('change', function(e){
+	$('#puestoF').click('.opcionPuesto', function(e){
    	var parameters = $(this).val()
 		$.ajax({
 	      url: '/api/' + parameters,
@@ -49,6 +49,7 @@ $(function(){
 	          	var opt = document.createElement('option');
             	opt.value = response.data[i].id_puesto;
             	opt.innerHTML = 'Puesto ' + response.data[i].posicion;
+            	opt.className = 'opcionPuesto';
             	selectItems.append(opt);
 	          }
 	      }
@@ -67,6 +68,7 @@ $(function(){
 	          	var opt = document.createElement('option');
             	opt.value = response.data[i].id_puesto;
             	opt.innerHTML = 'Puesto ' + response.data[i].posicion;
+            	opt.className = 'opcionPuesto';
             	selectItems.append(opt);
 	          }
 	      }

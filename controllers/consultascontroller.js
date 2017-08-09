@@ -21,7 +21,7 @@ module.exports = {
 							AND p.fk_bodega = b.id_bodega
 							AND p.fk_sede = s.id_sede
 							AND a.activo = e.id_estados
-							ORDER BY b.nombre_bodega, p.posicion ASC`, function(err, rows, fields){
+							ORDER BY b.nombre_bodega, p.posicion, i.nombre_item ASC`, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()
@@ -116,7 +116,7 @@ module.exports = {
 							AND p.fk_bodega = b.id_bodega
 							AND p.fk_sede = s.id_sede
 							AND a.activo = e.id_estados
-							ORDER BY b.nombre_bodega, p.posicion ASC`, function(err, rows, fields){
+							ORDER BY b.nombre_bodega, p.posicion, i.nombre_item ASC`, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()
@@ -206,8 +206,6 @@ module.exports = {
 			fk_items : req.body.articulo
 		}
 		
-		console.log(articuloEdit)
-
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)
 		var respuesta = {res: false}
@@ -221,7 +219,6 @@ module.exports = {
 			else{
 				var ocupacionMod = {
 					fk_id_puesto: req.body['posicion'],
-					fk_id_campaign: req.body.campaña,
 					fecha_ocupacion : fechaA
 				}
 				db.query('UPDATE ocupacion SET ? WHERE ?', [ocupacionMod, {fk_id_articulos : req.body.id_articulos}], function(err, rows, fields){
@@ -229,11 +226,22 @@ module.exports = {
 						res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al asignar la ocupacion! (Articulo OK)', error: err})
 					}
 					else{
-						res.render('actuaartmodal', {title: 'Exito!', info: 'Articulo Actualizado Correctamente!'})	
+						var puestosMod = {
+							fk_campaign: req.body.campaña,
+							fecha_puestos : fechaA
+						}
+						db.query('UPDATE puestos SET ? WHERE ?', [puestosMod, {id_puesto : req.body['posicion']}], function(err, rows, fields){
+							if (err){
+								res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al asignar la campaña! (Articulo - Ocupacion OK)', error: err})
+							}
+							else{
+								res.render('actuaartmodal', {title: 'Exito!', info: 'Articulo Actualizado Correctamente!'})	
+							}
+						})
 					}
 				})
 			}
-			db.end()
+			// db.end()
 		})
 	}
 }
