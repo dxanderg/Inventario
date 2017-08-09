@@ -317,6 +317,14 @@ select.form-control:not([size]):not([multiple]){
 	font-size: 12px;
 }
 
+#tabla_traslados .table td, .table th{
+	padding: .5rem .25rem;
+}
+
+#tabla_traslados .table_number{
+	font-size: 1.5em;
+}
+
 #pill{
 	background-color: red;
 	color: white;
