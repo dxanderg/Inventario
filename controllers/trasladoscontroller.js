@@ -6,7 +6,7 @@ var _ = require('lodash')
 
 module.exports = {
 
-	api : function(req, res, next){
+	apiArticulos : function(req, res, next){
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)
 		db.connect()
@@ -40,6 +40,22 @@ module.exports = {
 			consulta2 = rows
 			db.end()
 		res.send({ data : consulta2})
+		})
+	},
+	apiBodegas : function(req, res, next){
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		var id = req.user.sede
+		var consulta3 = null
+
+		db.query(`SELECT id_bodega, nombre_bodega, fk_sede FROM bodegas
+							WHERE fk_sede = ?`, id, function(err, rows, fields){
+			if(err) throw err
+			consulta3 = rows
+			db.end()
+		res.send({ data : consulta3})
 		})
 	},
 	traslados : function(req, res, next){

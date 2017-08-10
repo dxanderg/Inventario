@@ -39,47 +39,6 @@ block content
                   th.text-center
                     i.fa.fa-refresh
               tbody
-                tr#addr1
-                  td.table_number
-                    | 1
-                  td
-                    section
-                      select(name='ubicacionI').form-control.selectItem#itembodegaI
-                          option(value=' ') Seleccione Bodega
-                          for values in consulta3
-                            option(value= values.id_bodega)= values.nombre_bodega
-                  td
-                    section
-                      select(name='posicionI').form-control.select-posicionesI#puestoI
-                        option(value=' ') Seleccione el Puesto
-                  td
-                    #select-list
-                      div
-                        select(name='item1').form-control.selectItem#itemI
-                          option(value=' ') Seleccione Item
-                          for values in consulta2
-                            option(value= values.tipo)= values.nombre_item
-                  td
-                    i.fa.fa-arrows-h
-                  td
-                    section
-                      select(name='ubicacionF').form-control.selectItem#itembodegaF
-                          option(value=' ') Seleccione Bodega
-                          for values in consulta3
-                            option(value= values.id_bodega)= values.nombre_bodega
-                  td
-                    section
-                      select(name='posicionF').form-control.select-posicionesI#puestoF
-                        option(value=' ') Seleccione el Puesto
-                  td
-                    #select-list
-                      div
-                        select(name='item2').form-control.selectItem#itemF
-                          option(value=' ') Seleccione Item
-                          for values in consulta2
-                            option(value= values.tipo)= values.nombre_item
-                  td
-                    input.form-check-input.big-checkbox(type='checkbox', name='inversa1')
         .row.add-container
           .col-md-6.row
             a#add_row.btn.btn-default.pull-left
