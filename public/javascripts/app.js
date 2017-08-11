@@ -7,14 +7,14 @@ $(document).ready(function(){
                       <td class="table_number">` + i + `</td>
                         <td>
                           <section>
-                            <select name="ubicacionI-` + i + `" id="itembodegaI-` + i + `" class="form-control selectItem">
+                            <select name="ubicacionI-` + i + `" id="itembodegaI-` + i + `" class="form-control selectUbicacion">
                               <option value=" ">Bodega Inicio</option>
                             </select>
                           </section>
                         </td>
                         <td>
                           <section>
-                            <select name="posicionI-` + i + `" id="puestoI-` + i + `" class="form-control select-posicionesI` + i + `">
+                            <select name="posicionI-` + i + `" id="puestoI-` + i + `" class="form-control selectPuesto">
                               <option value=" ">Puesto Inicio</option>
                             </select>
                           </section>
@@ -31,14 +31,14 @@ $(document).ready(function(){
                         <td><i class="fa fa-arrows-h"></i></td>
                         <td>
                           <section>
-                            <select name="ubicacionF-` + i + `" id="itembodegaF-` + i + `" class="form-control selectItem">
+                            <select name="ubicacionF-` + i + `" id="itembodegaF-` + i + `" class="form-control selectUbicacion">
                               <option value=" ">Bodega Destino</option>
                             </select>
                           </section>
                         </td>
                         <td>
                           <section>
-                            <select name="posicionF-` + i + `" id="puestoF-` + i + `" class="form-control select-posicionesI">
+                            <select name="posicionF-` + i + `" id="puestoF-` + i + `" class="form-control selectPuesto">
                               <option value=" ">Puesto Destino</option>
                             </select>
                           </section>
