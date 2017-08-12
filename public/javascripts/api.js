@@ -53,7 +53,7 @@ function consultarArticulos(val, id, pos){
           selectItems.html('');
           for(i=0; i<response.data.length; i++){
           	var opt = document.createElement('option');
-          	opt.value = response.data[i].id_posicion;
+          	opt.value = response.data[i].id_articulos;
           	opt.innerHTML = response.data[i].nombre_item + ' ' + response.data[i].plaqueta_art;
           	selectItems.append(opt);
           }
@@ -80,7 +80,7 @@ function consultarPuestos(val, id, pos){
     })
 }
 
-//API request para consultar los la ubicacion de la sede X
+//API request para consultar las bodegas de la sede X
 function consultaBodegas(i){
 	$.ajax({
     url: '/api-bodegas',

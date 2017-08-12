@@ -5,6 +5,7 @@ $(document).ready(function(){
   $("#add_row").click(function(){
     $('#tab_logic').append(`<tr id="addr` + i + `">
                       <td class="table_number">` + i + `</td>
+                      <input type="hidden" name="indice" id="indexRow`+ i + `" value="`+ i + `" />
                         <td>
                           <section>
                             <select name="ubicacionI-` + i + `" id="itembodegaI-` + i + `" class="form-control selectUbicacion">
@@ -22,7 +23,7 @@ $(document).ready(function(){
                         <td>
                           <div id="select-list">
                             <div>
-                              <select name="itemI-` + i + `" id="itemI-` + i + `" class="form-control selectItem">
+                              <select name="articuloI-` + i + `" id="itemI-` + i + `" class="form-control selectItem">
                                 <option value=" ">Item Inicio</option>
                               </select>
                             </div>
@@ -46,7 +47,7 @@ $(document).ready(function(){
                         <td>
                           <div id="select-list">
                             <div>
-                              <select name="itemF-` + i + `" id="itemF-` + i + `" class="form-control selectItem">
+                              <select name="articuloF-` + i + `" id="itemF-` + i + `" class="form-control selectItem">
                                 <option value=" ">Item a Cambiar</option>
                               </select>
                             </div>
