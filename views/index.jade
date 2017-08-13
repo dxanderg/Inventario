@@ -5,21 +5,32 @@ block content
   #contenido.container.row.col-md-10
     script.
       ocupacionSede="#{datos}"
+      ocupacionSitio="#{datos2}"
     .row
       .col-md-5
         .card
           .card-block
             h4 OCUPACION IBAGUE
             canvas#myDonutChart(width='200', height='200')
-      .col-md-3
+      .col-md-5
         .card
           .card-block
             h4 OCUPACION IBAGUE
-            canvas#myChart(width='50', height='50')
+            canvas#myBarChart(width='200', height='200')
+      .col-md-3
+        .card
+          .card-block
+            h6 TOTAL CPU's
+            h2 216
       .col-md-3
         .card
           .card-block
             h6 TOTAL HARDPHONES
+            h2 216
+      .col-md-3
+        .card
+          .card-block
+            h6 TOTAL MONITORES
             h2 216
       .col-md-12
         hr

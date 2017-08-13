@@ -1,6 +1,7 @@
 Chart.defaults.global.defaultFontFamily = "Catamaran"
 Chart.defaults.global.defaultFontSize = 12
 obj = eval('({' + ocupacionSede + '})');
+obj2 = eval('({' + ocupacionSitio + '})');
 
 var datas = {
   labels: [],
@@ -32,6 +33,22 @@ var myBarChart = new Chart(ctx, {
     options: {
         legend: {
         		display: false,
+            labels: {
+                // This more specific font property overrides the global property
+                fontFamily: 'Ubuntu',
+            }
+        }
+    }
+})
+
+var ctx2 = document.getElementById("myBarChart").getContext('2d');
+var myBarChart2 = new Chart(ctx2, {
+    // type: 'doughnut',
+    type: 'doughnut',
+    data: datas,
+    options: {
+        legend: {
+                display: false,
             labels: {
                 // This more specific font property overrides the global property
                 fontFamily: 'Ubuntu',

@@ -17,12 +17,14 @@ module.exports = {
 			var data = _.map(rows, function(n) { //here using lodash
 				return [`'` + n.nombre_campaign + `': ` + n.puestos];
 	    })
+	    var data2 = data
 
 			db.end()
 
 			res.render('index', {
 				sedes : sedes, 
 				datos : data,
+				datos2 : data2,
 				isAuthenticated: req.isAuthenticated(),
 				user: req.user
 			})
