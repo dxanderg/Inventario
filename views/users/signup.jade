@@ -1,41 +1,47 @@
 .row-fluid
-  .col-md-5.offset-md-4
+  .col-md-10.offset-md-4
     .panel.panel-default
       .panel-heading
         h1= 'Registrar Usuarios'
       .panel-body
         form(action='/auth/signup' method='post' autocomplete='off')#ingreso-form
-              .form-group
-                label(for='usuario')= 'Usuario'
-                input(type='text' name='usuario' id='usuario' placeholder='Usuario').form-control
-              .form-group
-                label(for='nombre')= 'Nombre'
-                input(type='text' name='nombre' id='nombre' placeholder='Nombre').form-control
-              .form-group
-                label(for='cargo')= 'Cargo'
-                input(type='text' name='cargo' id='cargo' placeholder='Cargo').form-control
-              .form-group
-                label(for='Campaña')= 'Campaña'
-                input(type='text' name='campaña' id='campaña' placeholder='Campaña').form-control
-              .form-group
-                label(for='perfil')= 'Perfil'
-                select(name='perfil')#select-cargo.form-control
-                  option(value=2)= ''
-                  option(value=1)= 'Administrador'
-                  option(value=2)= 'Soporte'
-                  option(value=3)= 'Responsable Campaña'
-                  option(value=4)= 'Consultas'
-              .form-group
-                label(for='password')= 'Password'
-                input(type='password' name='password' id='password' placeholder='password').form-control
+          .form-group.row
+            label.col-2.col-form-label(for='usuario')= 'Usuario'
+            .col-10
+              input(type='text' name='usuario' id='usuario' placeholder='Usuario').form-control
+          .form-group.row
+            label.col-2.col-form-label(for='nombre')= 'Nombre'
+            .col-10
+              input(type='text' name='nombre' id='nombre' placeholder='Nombre').form-control
+          .form-group.row
+            label.col-2.col-form-label(for='cargo')= 'Cargo'
+            .col-10
+              input(type='text' name='cargo' id='cargo' placeholder='Cargo').form-control
+          .form-group.row
+            label.col-2.col-form-label(for='Campaña')= 'Campaña'
+            .col-10
+              input(type='text' name='campaña' id='campaña' placeholder='Campaña').form-control
+          .form-group.row
+            label.col-2.col-form-label(for='perfil')= 'Perfil'
+            .col-10
+              select(name='perfil')#select-cargo.form-control
+                option(value=' ')= 'Seleccione el perfil de Usuario'
+                option(value=1)= 'Administrador'
+                option(value=2)= 'Soporte'
+                option(value=3)= 'Responsable Campaña'
+                option(value=4)= 'Consultas'
+          .form-group.row
+            label.col-2.col-form-label(for='password')= 'Password'
+            .col-10
+              input(type='password' name='password' id='password' placeholder='password').form-control
           button(type='submit').btn.btn-primary= 'Registrese'
       a(href='/', style=' text-decoration: none;')
         button.btn-outline-info Volver al Inicio
 
-  link(rel='stylesheet', href='/stylesheets/bootstrap-flex.min.css')
-  link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
-  script(src='/javascripts/jquery.min.js')
-  script(src='/javascripts/tether.min.js')
-  script(src='/javascripts/bootstrap.min.js')
-  script(src='/javascripts/bootstrapvalidator.js')
-  script(src='/javascripts/validacion.js')
+link(rel='stylesheet', href='/stylesheets/bootstrap-flex.min.css')
+link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+script(src='/javascripts/jquery.min.js')
+script(src='/javascripts/tether.min.js')
+script(src='/javascripts/bootstrap.min.js')
+script(src='/javascripts/bootstrapvalidator.js')
+script(src='/javascripts/validacion.js')
