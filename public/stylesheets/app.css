@@ -8,7 +8,7 @@ body{
 	cursor: pointer;
 	text-decoration: none;
 	transition: all .5s ease;
-	padding: 1em 0;
+	padding: 0;
 }
 #header-container #linktitle:hover{
 		transform: scale(1.03);
@@ -141,7 +141,10 @@ body{
 #contenido hr{
 	border: 0;
     border-bottom: 1px dashed #2EBE8D;
-    
+}
+
+#contenido #selectSede{
+	text-align: center;
 }
 
 #contenido .card{

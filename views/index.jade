@@ -6,28 +6,49 @@ block content
     script.
       ocupacionSede="#{datos}"
       ocupacionSitio="#{datos2}"
+    .row#selectSede.offset-md-4
+      h5 DataSet Actual :    
+      select.h5
+        optgroup(label='Colombia')
+          option DXCO - Ibagué
+          option DXCO - Manizales
+          option DXCO - Bogotá
+          option DXCO - Armenia
+          option DXCO - Cali
+          option DXCO - Medellin
+        optgroup(label='Perú')
+          option DXPE - Lima
+        optgroup(label='Chile')
+          option DXCH - Santiago
+        optgroup(label='Mexico')
+          option DXMX - Mexico DF
+    .col-md-10.offset-md-1
+        .card
+          .card-block
+            #regions_div
     .row
+      .offset-md-1
       .col-md-5
         .card
           .card-block
-            h4 OCUPACION IBAGUE
-            canvas#myDonutChart(width='200', height='200')
+            h4 OCUPACION DXCO - IBAGUE
+            canvas#myDonutChart(width='200', height='150')
       .col-md-5
         .card
           .card-block
-            h4 OCUPACION IBAGUE
-            canvas#myBarChart(width='200', height='200')
-      .col-md-3
+            h4 OCUPACION DXCO - IBAGUE
+            canvas#myBarChart(width='200', height='150')
+      .col-md-4
         .card
           .card-block
             h6 TOTAL CPU's
             h2 216
-      .col-md-3
+      .col-md-4
         .card
           .card-block
             h6 TOTAL HARDPHONES
             h2 216
-      .col-md-3
+      .col-md-4
         .card
           .card-block
             h6 TOTAL MONITORES
@@ -126,3 +147,5 @@ append footer
   script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js')
   script(src='/javascripts/chartinit.js')
+  script(src='/javascripts/loader-geochart.js')
+  script(src='/javascripts/init-geochart.js')

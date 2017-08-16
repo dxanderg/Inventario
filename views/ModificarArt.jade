@@ -114,12 +114,15 @@ block content
         .form-group.row
           label.col-md-2.col-form-label(for='form-ing-numpuesto') N° Puesto
           .col-md-6
+            select.form-control(name='posicion').select-posiciones.spa99
+              for val in consulta7
+                option(value=val.id_puesto)= 'Puesto '+val.posicion
             for val in consulta4
               case val.id_bodega
                 when 1
                   select.form-control(name='posicion').select-posiciones.spa1
-                    for val in consulta7
-                      option(value=val.id_puesto)= 'Puesto '+val.posicion
+                    //- for val in consulta7
+                    //-   option(value=val.id_puesto)= 'Puesto '+val.posicion
                     for values in consulta6
                       if values.fk_bodega == 1
                         option(value= values.id_puesto)= 'Puesto ' + values.posicion
@@ -255,6 +258,7 @@ block content
     // Contenido Derecha
 
 append footer
-  script(src='/javascripts/ingresos.js')
+  //- script(src='/javascripts/ingresos.js')
+  script(src='/javascripts/ingresos-mod.js')
   script(src='/javascripts/validacion.js')
   script(src='/javascripts/bootstrapvalidator.js')
