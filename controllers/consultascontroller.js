@@ -21,7 +21,7 @@ module.exports = {
 							AND p.fk_bodega = b.id_bodega
 							AND p.fk_sede = s.id_sede
 							AND a.activo = e.id_estados
-							ORDER BY b.nombre_bodega, p.posicion, i.nombre_item ASC`, function(err, rows, fields){
+							ORDER BY b.nombre_bodega, p.posicion, i.nombre_item, f.nombre_fabricante ASC`, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()

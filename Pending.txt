@@ -1,0 +1,12 @@
+Pendientes:
+
+- No esta creando Usuarios
+- Login por Dominio
+- Modulo de traslados
+- Importe Excel
+- Datos de Equipo - caracteristicas
+- Usuarios por campaña
+-mayuscula por default en los campos
+-formulario ingresos, llama todas bodegas y laptops y impresosar.
+-lo mismo para el editar
+-formulario de ocupacion y asignacion de puestos. CON RECUENTO DE ITEMS POR PUESTO

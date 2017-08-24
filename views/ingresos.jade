@@ -42,6 +42,18 @@ block content
                   for values in consulta1
                     if values.tipo == 3
                       option(value= values.id_item)= values.nombre_fabricante+" - "+values.modelo_item
+              when 4
+                select(name='tipoarticulo')#select-tipoarticulo.form-control.ta4
+                  option(value=' ') Seleccione Tipo Articulo
+                  for values in consulta1
+                    if values.tipo == 4
+                      option(value= values.id_item)= values.nombre_fabricante+" - "+values.modelo_item
+              when 5
+                select(name='tipoarticulo')#select-tipoarticulo.form-control.ta5
+                  option(value=' ') Seleccione Tipo Articulo
+                  for values in consulta1
+                    if values.tipo == 5
+                      option(value= values.id_item)= values.nombre_fabricante+" - "+values.modelo_item
       .form-group.row
         label.col-md-2.col-form-label(for='form-ing-serial') Serial
         .col-md-6
