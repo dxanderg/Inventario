@@ -14,6 +14,8 @@ module.exports = {
 		var consulta4 = null
 		var consulta5 = null
 		var consulta6 = null
+		var userSede = res.locals.currentuser.sede
+		var userCampana = res.locals.currentuser.campaña
 
 		async.parallel([
   		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo FROM inventario_digitex.items
@@ -29,13 +31,13 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM sedes`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM sedes WHERE id_sede = ?`, userSede, function(err, rows, fields){
 					if(err) throw err
 					consulta3 = rows
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM bodegas`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM bodegas WHERE fk_sede = ?`, userSede, function(err, rows, fields){
 					if(err) throw err
 					consulta4 = rows
 					callback()
@@ -53,7 +55,7 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM puestos`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM puestos WHERE fk_sede = ?`, userSede, function(err, rows, fields){
 					if(err) throw err
 					consulta6 = rows
 					callback()

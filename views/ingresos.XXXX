@@ -19,6 +19,9 @@ block content
             option(value=3) HARDPHONE
             option(value=4) IMPRESORA
             option(value=5) LAPTOP
+            option(value=6) ACCESS POINT
+            option(value=7) SWITCH
+            option(value=8) SERVIDOR
       .form-group.row
         label.col-md-2.col-form-label(for='form-ing-articulo') Tipo
         .col-md-6

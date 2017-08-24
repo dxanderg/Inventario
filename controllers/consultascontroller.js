@@ -10,6 +10,8 @@ module.exports = {
 		db.connect()
 
 		var consulta1 = null
+		var userSede = res.locals.currentuser.sede
+		var userCampana = res.locals.currentuser.campaña
 
 		db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
 							FROM articulos a, fabricante f, items i, estados e, sedes s, bodegas b, puestos p, campaign c, ocupacion o
@@ -21,7 +23,8 @@ module.exports = {
 							AND p.fk_bodega = b.id_bodega
 							AND p.fk_sede = s.id_sede
 							AND a.activo = e.id_estados
-							ORDER BY b.nombre_bodega, p.posicion, i.nombre_item, f.nombre_fabricante ASC`, function(err, rows, fields){
+							AND id_sede = ?
+							ORDER BY b.nombre_bodega, p.posicion, i.nombre_item, f.nombre_fabricante ASC`, userSede, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()
@@ -34,6 +37,9 @@ module.exports = {
 		db.connect()
 
 		var id = req.params.id
+		var userSede = res.locals.currentuser.sede
+		var userCampana = res.locals.currentuser.campaña
+		var params = [id, userSede]
 
 		var consulta1 = null
 		var consulta2 = null
@@ -56,13 +62,13 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM sedes`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM sedes WHERE id_sede = ?`, userSede, function(err, rows, fields){
 					if(err) throw err
 					consulta3 = rows
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM bodegas`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM bodegas WHERE fk_sede = ?`, userSede,  function(err, rows, fields){
 					if(err) throw err
 					consulta4 = rows
 					callback()
@@ -74,7 +80,7 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM puestos`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM puestos WHERE fk_sede = ?`, userSede,  function(err, rows, fields){
 					if(err) throw err
 					consulta6 = rows
 					callback()
@@ -90,7 +96,8 @@ module.exports = {
 																		AND p.fk_bodega = b.id_bodega
 																		AND p.fk_sede = s.id_sede
 																		AND a.activo = e.id_estados
-																		AND a.id_articulos = ?`, id, function(err, rows, fields){
+																		AND a.id_articulos = ?
+																		AND s.id_sede = ?`, params, function(err, rows, fields){
 					if(err) throw err
 					consulta7 = rows
 					callback()
@@ -105,6 +112,8 @@ module.exports = {
 		db.connect()
 
 		var consulta1 = null
+		var userSede = res.locals.currentuser.sede
+		var userCampana = res.locals.currentuser.campaña
 
 		db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
 							FROM articulos a, fabricante f, items i, estados e, sedes s, bodegas b, puestos p, campaign c, ocupacion o
@@ -116,7 +125,8 @@ module.exports = {
 							AND p.fk_bodega = b.id_bodega
 							AND p.fk_sede = s.id_sede
 							AND a.activo = e.id_estados
-							ORDER BY b.nombre_bodega, p.posicion, i.nombre_item ASC`, function(err, rows, fields){
+							AND id_sede = ?
+							ORDER BY b.nombre_bodega, p.posicion, i.nombre_item ASC`, userSede, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()
@@ -129,6 +139,9 @@ module.exports = {
 		db.connect()
 
 		var id = req.params.id
+		var userSede = res.locals.currentuser.sede
+		var userCampana = res.locals.currentuser.campaña
+		var params = [id, userSede]
 
 		var consulta1 = null
 		var consulta2 = null
@@ -151,13 +164,13 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM sedes`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM sedes WHERE id_sede = ?`, userSede, function(err, rows, fields){
 					if(err) throw err
 					consulta3 = rows
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM bodegas`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM bodegas WHERE fk_sede = ?`, userSede, function(err, rows, fields){
 					if(err) throw err
 					consulta4 = rows
 					callback()
@@ -169,7 +182,7 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM puestos`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM  puestos WHERE fk_sede = ?`, userSede, function(err, rows, fields){
 					if(err) throw err
 					consulta6 = rows
 					callback()
@@ -185,7 +198,8 @@ module.exports = {
 																		AND p.fk_bodega = b.id_bodega
 																		AND p.fk_sede = s.id_sede
 																		AND a.activo = e.id_estados
-																		AND a.id_articulos = ?`, id, function(err, rows, fields){
+																		AND a.id_articulos = ?
+																		AND s.id_sede = ?`, params, function(err, rows, fields){
 					if(err) throw err
 					consulta7 = rows
 					callback()
