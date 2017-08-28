@@ -14,62 +14,13 @@ block content
         .col-md-6
           select(name='articulo')#select-articulo.form-control
             option(value=' ') Seleccione un Articulo
-            option(value=1) CPU
-            option(value=2) MONITOR
-            option(value=3) HARDPHONE
-            option(value=4) IMPRESORA
-            option(value=5) LAPTOP
-            option(value=6) ACCESS POINT
-            option(value=7) SWITCH
-            option(value=8) SERVIDOR
-            option(value=9) TELEVISOR
-            option(value=10) AIRE ACONDICIONADO
-            option(value=11) BATERIA UPS
-            option(value=12) POWER MODULE
-            option(value=13) SYSTEM POWER SUPLY
-            option(value=14) UPS
-            option(value=15) BATERIAS
-            option(value=16) SCANNER
-            option(value=17) MAQUINA DE CARNETS
-            option(value=18) ROUTER
-            option(value=19) FIREWALL
-            option(value=20) CAMARA DE SEGURIDAD
-            option(value=21) DVR
+            for values in consulta0
+              option(value= values.idtipo_item)= values.nombre_item
       .form-group.row
         label.col-md-2.col-form-label(for='form-ing-articulo') Tipo
         .col-md-6
-          for val in consulta7
-            case val.tipo
-              when 1
-                select(name='tipoarticulo')#select-tipoarticulo.form-control.ta1
-                  option(value=' ') Seleccione Tipo Articulo
-                  for values in consulta1
-                    if values.tipo == 1
-                      option(value= values.id_item)= values.nombre_fabricante+" - "+values.modelo_item
-              when 2
-                select(name='tipoarticulo')#select-tipoarticulo.form-control.ta2
-                  option(value=' ') Seleccione Tipo Articulo
-                  for values in consulta1
-                    if values.tipo == 2
-                      option(value= values.id_item)= values.nombre_fabricante+" - "+values.modelo_item
-              when 3
-                select(name='tipoarticulo')#select-tipoarticulo.form-control.ta3
-                  option(value=' ') Seleccione Tipo Articulo
-                  for values in consulta1
-                    if values.tipo == 3
-                      option(value= values.id_item)= values.nombre_fabricante+" - "+values.modelo_item
-              when 4
-                select(name='tipoarticulo')#select-tipoarticulo.form-control.ta4
-                  option(value=' ') Seleccione Tipo Articulo
-                  for values in consulta1
-                    if values.tipo == 4
-                      option(value= values.id_item)= values.nombre_fabricante+" - "+values.modelo_item
-              when 5
-                select(name='tipoarticulo')#select-tipoarticulo.form-control.ta5
-                  option(value=' ') Seleccione Tipo Articulo
-                  for values in consulta1
-                    if values.tipo == 5
-                      option(value= values.id_item)= values.nombre_fabricante+" - "+values.modelo_item
+          select(name='tipoarticulo')#select-tipoarticulo.form-control
+            option(value=' ') Seleccione Tipo Articulo
       .form-group.row
         label.col-md-2.col-form-label(for='form-ing-serial') Serial
         .col-md-6
@@ -83,214 +34,25 @@ block content
         .col-md-6
           select(name='estado')#select-estado.form-control
             option(value=' ') Seleccione un Estado
-            for val in consulta2
+            for val in consulta1
               option(value=val.id_estados)= val.nombre_estado
       .form-group.row
         label.col-md-2.col-form-label(for='form-ing-sede') Sede
         .col-md-6
           select(name='sede')#select-sede.form-control
             option(value=' ') Seleccione la Sede
-            for val in consulta3
+            for val in consulta2
               option(value=val.id_sede)= val.nombre_sede
       .form-group.row
         label.col-md-2.col-form-label(for='form-ing-ubicacion') Ubicacion
         .col-md-6
-          for val in consulta3
-            case val.id_sede
-              when 1
-                select.form-control(name='bodega').select-bodegas.sb1
-                  option(value=' ') Seleccione la Ubicacion
-                  for values in consulta4
-                    if values.fk_sede == 1
-                      option(value= values.id_bodega)= values.nombre_bodega
-                    else
-              when 2
-                select.form-control(name='bodega').select-bodegas.sb2
-                  option(value=' ') Seleccione la Ubicacion
-                  for values in consulta4
-                    if values.fk_sede == 2
-                      option(value= values.id_bodega)= values.nombre_bodega
-                    else
-              when 3
-                select.form-control(name='bodega').select-bodegas.sb3
-                  option(value=' ') Seleccione la Ubicacion
-                  for values in consulta4
-                    if values.fk_sede == 3
-                      option(value= values.id_bodega)= values.nombre_bodega
-                    else
-              when 4
-                select.form-control(name='bodega').select-bodegas.sb4
-                  option(value=' ') Seleccione la Ubicacion
-                  for values in consulta4
-                    if values.fk_sede == 4
-                      option(value= values.id_bodega)= values.nombre_bodega
-                    else
-              when 5
-                select.form-control(name='bodega').select-bodegas.sb5
-                  option(value=' ') Seleccione la Ubicacion
-                  for values in consulta4
-                    if values.fk_sede == 5
-                      option(value= values.id_bodega)= values.nombre_bodega
-                    else
-              when 6
-                select.form-control(name='bodega').select-bodegas.sb6
-                  option(value=' ') Seleccione la Ubicacion
-                  for values in consulta4
-                    if values.fk_sede == 6
-                      option(value= values.id_bodega)= values.nombre_bodega
-                    else
-              when 7
-                select.form-control(name='bodega').select-bodegas.sb7
-                  option(value=' ') Seleccione la Ubicacion
-                  for values in consulta4
-                    if values.fk_sede == 7
-                      option(value= values.id_bodega)= values.nombre_bodega
-                    else
-              when 8
-                select.form-control(name='bodega').select-bodegas.sb8
-                  option(value=' ') Seleccione la Ubicacion
-                  for values in consulta4
-                    if values.fk_sede == 8
-                      option(value= values.id_bodega)= values.nombre_bodega
-                    else
-              when 9
-                select.form-control(name='bodega').select-bodegas.sb9
-                  option(value=' ') Seleccione la Ubicacion
-                  for values in consulta4
-                    if values.fk_sede == 9
-                      option(value= values.id_bodega)= values.nombre_bodega
-                    else
+          select(name='bodega')#select-bodegas.form-control
+            option(value=' ') Seleccione la Ubicacion
       .form-group.row
         label.col-md-2.col-form-label(for='form-ing-numpuesto') N° Puesto
         .col-md-6
-          for val in consulta4
-            case val.id_bodega
-              when 1
-                select.form-control(name='posicion').select-posiciones.sp1
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 1
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 2
-                select.form-control(name='posicion').select-posiciones.sp2
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 2
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 3
-                select.form-control(name='posicion').select-posiciones.sp3
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 3
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 4
-                select.form-control(name='posicion').select-posiciones.sp4
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 4
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 5
-                select.form-control(name='posicion').select-posiciones.sp5
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 5
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 6
-                select.form-control(name='posicion').select-posiciones.sp6
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 6
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 7
-                select.form-control(name='posicion').select-posiciones.sp7
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 7
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 8
-                select.form-control(name='posicion').select-posiciones.sp8
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 8
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 9
-                select.form-control(name='posicion').select-posiciones.sp9
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 9
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 10
-                select.form-control(name='posicion').select-posiciones.sp10
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 10
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 11
-                select.form-control(name='posicion').select-posiciones.sp11
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 11
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 12
-                select.form-control(name='posicion').select-posiciones.sp12
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 12
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 13
-                select.form-control(name='posicion').select-posiciones.sp13
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 13
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 14
-                select.form-control(name='posicion').select-posiciones.sp14
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 14
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 15
-                select.form-control(name='posicion').select-posiciones.sp15
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 15
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 16
-                select.form-control(name='posicion').select-posiciones.sp16
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 16
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-              when 17
-                select.form-control(name='posicion').select-posiciones.sp17
-                  option(value=' ') Seleccione el Puesto
-                  for values in consulta6
-                    if values.fk_bodega == 17
-                      option(value= values.id_puesto)= 'Puesto ' + values.posicion
-                    else
-      //- .form-group.row
-      //-   label.col-md-2.col-form-label(for='form-ing-campaña') Campaña
-      //-   .col-md-6
-      //-     select(name='campaña')#select-campaign.form-control
-      //-       option(value=' ') Seleccione la Campaña
-      //-       for val in consulta5
-      //-         option(value=val.id_campaign)= val.nombre_campaign
+          select(name='posicion')#select-posiciones.form-control
+            option(value=' ') Seleccione el Puesto
       .button-container.form-group.row
         .col-md-2
           button(type='submit')#btn-registrar.div-button.btn.btn-primary.btn-block Registrar
@@ -302,6 +64,7 @@ block content
   // Contenido Derecha
 
 append footer
-  script(src='/javascripts/ingresos.js')
+  script(src='/javascripts/api-ingresos.js')
+  //- script(src='/javascripts/ingresos.js')
   script(src='/javascripts/bootstrapvalidator.js')
   script(src='/javascripts/validacion.js')

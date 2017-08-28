@@ -7,7 +7,7 @@ Pendientes:
 - Datos de Equipo - caracteristicas
 - Usuarios por campaña
 -mayuscula por default en los campos
--formulario ingresos, llama todas bodegas y laptops y impresosar.
+-formulario ingresos, llama todas bodegas y laptops y impresosar.  -  OK
 -lo mismo para el editar
 -formulario de ocupacion y asignacion de puestos. CON RECUENTO DE ITEMS POR PUESTO
 
@@ -33,3 +33,32 @@ JOIN sedes s ON s.id_sede = p.fk_sede
 JOIN bodegas b ON b.id_bodega = p.fk_bodega
 JOIN campaign c ON c.id_campaign = p.fk_campaign
 ORDER BY nombre_bodega, posicion;
+
+
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+tipo_item
+idtipo_item INT(11)
+nombre_item VARCHAR
+
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('1', 'CPU');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('2', 'MONITOR');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('3', 'HARDPHONE');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('4', 'IMPRESORA');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('5', 'LAPTOP');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('6', 'ACCESS POINT');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('7', 'SWITCH');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('8', 'SERVIDOR');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('9', 'TELEVISOR');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('10', 'AIRE ACONDICIONADO');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('11', 'BATERIA UPS');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('12', 'POWER MODULE');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('13', 'SYSTEM POWER SUPLY');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('14', 'UPS');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('15', 'BATERIAS');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('16', 'SCANNER');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('17', 'MAQUINA DE CARNETS');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('18', 'ROUTER');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('19', 'FIREWALL');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('20', 'CAMARA DE SEGURIDAD');
+INSERT INTO `inventario_digitex`.`tipo_item` (`idtipo_item`, `nombre_item`) VALUES ('21', 'DVR');

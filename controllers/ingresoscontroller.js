@@ -8,63 +8,35 @@ module.exports = {
 		var db = mysql.createConnection(config)
 		db.connect()
 
+		var consulta0 = null
 		var consulta1 = null
 		var consulta2 = null
-		var consulta3 = null
-		var consulta4 = null
-		var consulta5 = null
-		var consulta6 = null
 		var userSede = res.locals.currentuser.sede
 		var userCampana = res.locals.currentuser.campaña
 
 		async.parallel([
-  		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo FROM inventario_digitex.items
-						JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY b.nombre_fabricante, nombre_item`, function(err, rows, fields){
+			function(callback) { db.query(`SELECT * FROM inventario_digitex.tipo_item
+																		ORDER BY nombre_item`, function(err, rows, fields){
 					if(err) throw err
-					consulta1 = rows
+					consulta0 = rows
 					callback()
 	      })
   		},
   		function(callback) { db.query(`SELECT * FROM estados`, function(err, rows, fields){
 					if(err) throw err
-					consulta2 = rows
+					consulta1 = rows
 					callback()
 	      })
   		},
   		function(callback) { db.query(`SELECT * FROM sedes WHERE id_sede = ?`, userSede, function(err, rows, fields){
 					if(err) throw err
-					consulta3 = rows
-					callback()
-	      })
-  		},
-  		function(callback) { db.query(`SELECT * FROM bodegas WHERE fk_sede = ?`, userSede, function(err, rows, fields){
-					if(err) throw err
-					consulta4 = rows
-					callback()
-	      })
-  		},
-  		function(callback) { db.query(`SELECT * FROM campaign`, function(err, rows, fields){
-					if(err) throw err
-					consulta5 = rows
-					callback()
-	      })
-  		},
-  		function(callback) { db.query(`SELECT * FROM items GROUP BY tipo`, function(err, rows, fields){
-					if(err) throw err
-					consulta7 = rows
-					callback()
-	      })
-  		},
-  		function(callback) { db.query(`SELECT * FROM puestos WHERE fk_sede = ?`, userSede, function(err, rows, fields){
-					if(err) throw err
-					consulta6 = rows
+					consulta2 = rows
 					callback()
 	      })
 		}], function(err, results) {
-  		res.render('Ingresos', {consulta1 : consulta1, consulta2 : consulta2, consulta3 : consulta3, consulta4: consulta4, consulta5 : consulta5, consulta6: consulta6, consulta7: consulta7})
+  		res.render('Ingresos', {consulta0 : consulta0, consulta1 : consulta1, consulta2 : consulta2})
 		})
 	},
-
 	postNuevoArticulo : function(req, res, next){
 
 		var fechaActual = new Date()
@@ -106,5 +78,24 @@ module.exports = {
 			}
 			db.end()
 		})
-	}
+	},
+	apiItems : function(req, res, next){
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		var id = req.params.id_item
+		var consulta1 = null
+
+		db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo 
+						FROM inventario_digitex.items
+						JOIN fabricante b ON fk_fabricante = b.id_fabricante 
+						WHERE activo = 1 AND tipo = ?
+						ORDER BY b.nombre_fabricante, nombre_item, modelo_item`, id, function(err, rows, fields){
+			if(err) throw err
+			consulta1 = rows
+			db.end()
+		res.send({ data : consulta1})
+		})
+	},
 }

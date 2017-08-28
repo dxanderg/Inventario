@@ -51,7 +51,8 @@ module.exports = {
 		var consulta3 = null
 
 		db.query(`SELECT id_bodega, nombre_bodega, fk_sede FROM bodegas
-							WHERE fk_sede = ?`, id, function(err, rows, fields){
+							WHERE fk_sede = ?
+							ORDER BY nombre_bodega`, id, function(err, rows, fields){
 			if(err) throw err
 			consulta3 = rows
 			db.end()
