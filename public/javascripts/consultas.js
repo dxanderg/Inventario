@@ -12,7 +12,7 @@ $(document).ready(function() {
 
   // DataTable
   var table = $('#tab_logic').DataTable({
-    // lengthChange: false,
+   // lengthChange: false,
     buttons: {
         buttons: [
             { extend: 'copy', text: 'Copiar Portapeles', title: 'Inventario_'+ currentTime  },
@@ -131,3 +131,29 @@ $(function(){
        location.reload();
       });
 });
+
+// PARA LA CONSULTA CON SELECTS EN VEZ DE TEXTO
+// $(document).ready(function() {
+//     $('#example').DataTable( {
+//         initComplete: function () {
+//             this.api().columns().every( function () {
+//                 var column = this;
+//                 var select = $('<select><option value=""></option></select>')
+//                     .appendTo( $(column.footer()).empty() )
+//                     .on( 'change', function () {
+//                         var val = $.fn.dataTable.util.escapeRegex(
+//                             $(this).val()
+//                         );
+ 
+//                         column
+//                             .search( val ? '^'+val+'$' : '', true, false )
+//                             .draw();
+//                     } );
+ 
+//                 column.data().unique().sort().each( function ( d, j ) {
+//                     select.append( '<option value="'+d+'">'+d+'</option>' )
+//                 } );
+//             } );
+//         }
+//     } );
+// } );

@@ -30,9 +30,9 @@ html(lang='en')
                   img
             ul.nav.navbar-right.top-nav
               a
-                button.navbar-toggler.hidden-md-up(data-toggle='collapse', data-target='.navbar-ex1-collapse')
+                button.navbar-toggler.hidden-lg-up(data-toggle='collapse', data-target='.navbar-ex1-collapse')
                   | ☰
-                #usuario-login.row.flex-items-xs-middle.flex-items-xs-between.hidden-sm-down(data-toggle='collapse', data-target='#logout')
+                #usuario-login.row.flex-items-xs-middle.flex-items-xs-between.hidden-md-down(data-toggle='collapse', data-target='#logout')
                   li.text-uppercase.hidden-xs-down
                     i.fa.fa-user-circle-o
                   a.text-uppercase.hidden-xs-down= currentuser.nombre
@@ -76,12 +76,16 @@ html(lang='en')
             a(href='../Info')
               i.fa.fa-fw.fa-info
               |  Info
+          li.active
+            a(href='../auth/logout')
+              i.fa.fa-fw.fa-sign-out
+              |  Salir
       // Menu Escondido
       section#detalle
         .container-fluid.delgado
           .row
             // Lista Menu Izquierda
-            #menu-wrapper.col-md-2.delgado.hidden-sm-down
+            #menu-wrapper.col-md-2.delgado.hidden-md-down
               #side-menu.container
                 ul.nav.navbar-nav.side-nav
                   li

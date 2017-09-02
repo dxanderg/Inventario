@@ -391,7 +391,10 @@ select.form-control:not([size]):not([multiple]){
     }
 }
 
-@media screen and (min-width: 768px) {      
+@media screen and (min-width: 768px) { 
+		#contenido{
+			width: 100%;
+		}
     #title2{      
     	background-image: url(/images/logo_digitex.png);
     	background-repeat: no-repeat;

@@ -5,7 +5,19 @@ body{}
 }
 
 #image img{
-  width: 180px;
-	margin-left: 150px;
+  width: 200px;
+	margin-left: 140px;
 	margin-top: 50px;
+}
+
+
+@media screen and (max-width: 800px) {   
+  .container{
+  	margin-top: 5em;
+  }
+  #image img{
+  	width: 300px;
+		margin-left: 50px;
+		margin-top: 50px;
+	}
 }

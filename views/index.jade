@@ -2,7 +2,7 @@ extends layout
 
 block content
   // Contenido Derecha
-  #contenido.container.row.col-md-10
+  #contenido.container.row.col-lg-10.col-md-12
     script.
       ocupacionSede="#{datos}"
       ocupacionSitio="#{datos2}"
@@ -22,21 +22,21 @@ block content
           option DXCH - Santiago
         optgroup(label='Mexico')
           option DXMX - Mexico DF
-    .col-md-10.offset-md-1
+    .col-lg-10.offset-lg-1.col-md-12
         .card
           .card-block
             #regions_div
     .row
-      .offset-md-1
-      .col-md-5
+      .offset-lg-1
+      .col-lg-5.col-md-6
         .card
           .card-block
-            h4 OCUPACION DXCO - IBAGUE
+            h4 OCUPACION DXCO SEDE
             canvas#myDonutChart(width='200', height='150')
-      .col-md-5
+      .col-lg-5.col-md-6
         .card
           .card-block
-            h4 OCUPACION DXCO - IBAGUE
+            h4 OCUPACION DXCO SEDE
             canvas#myBarChart(width='200', height='150')
       .col-md-4
         .card
@@ -99,48 +99,48 @@ block content
             h2 12/12
       .col-md-12
         hr
-      .col-md-4
-        .card
-          .card-block
-            h6 Sala Formacion 1
-            .card-blockquote Equipo / Monitor
-            h2 21/21
-      .col-md-4
-        .card
-          .card-block
-            h6 Sala Formacion 2
-            .card-blockquote Equipo / Monitor
-            h2 21/21
-      .col-md-4
-        .card
-          .card-block
-            h6 Sala Formacion 3
-            .card-blockquote Equipo / Monitor
-            h2 21/21
-      .col-md-4
-        .card
-          .card-block
-            h6 Sala Formacion 4
-            .card-blockquote Equipo / Monitor
-            h2 21/21
-      .col-md-4
-        .card
-          .card-block
-            h6 Sala Formacion 5
-            .card-blockquote Equipo / Monitor
-            h2 21/21
-      .col-md-4
-        .card
-          .card-block
-            h6 Administracion
-            .card-blockquote Equipo / Monitor
-            h2 10/10
-      .col-md-4
-        .card
-          .card-block
-            h6 Laboral
-            .card-blockquote Equipo / Monitor
-            h2 6/6
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Sala Formacion 1
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 21/21
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Sala Formacion 2
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 21/21
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Sala Formacion 3
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 21/21
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Sala Formacion 4
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 21/21
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Sala Formacion 5
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 21/21
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Administracion
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 10/10
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Laboral
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 6/6
     // Contenido Derecha
 
 append footer

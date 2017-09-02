@@ -9,8 +9,10 @@ module.exports = {
 		db.connect()
 
 		var sedes = null
+		var userSede = res.locals.currentuser.sede
+		var userCampana = res.locals.currentuser.campaña
 
-		db.query('select c.nombre_campaign, count(puestos.id_puesto) as puestos from puestos join campaign c ON puestos.fk_campaign = c.id_campaign group by fk_campaign order by puestos DESC', function(err, rows, fields){
+		db.query('select c.nombre_campaign, count(puestos.id_puesto) as puestos from puestos join campaign c ON puestos.fk_campaign = c.id_campaign  where puestos.fk_sede = ? group by fk_campaign order by puestos DESC', userSede, function(err, rows, fields){
 			if(err) throw err
 			sedes = rows
 
