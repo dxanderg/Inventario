@@ -20,7 +20,7 @@ module.exports = {
 				return [`'` + n.nombre_campaign + `': ` + n.puestos];
 	    })
 	    var data2 = data
-
+	    
 			db.end()
 
 			res.render('index', {

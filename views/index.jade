@@ -26,79 +26,77 @@ block content
         .card
           .card-block
             #regions_div
-    .row
-      .offset-lg-1
-      .col-lg-5.col-md-6
-        .card
-          .card-block
-            h4 OCUPACION DXCO SEDE
-            canvas#myDonutChart(width='200', height='150')
-      .col-lg-5.col-md-6
-        .card
-          .card-block
-            h4 OCUPACION DXCO SEDE
-            canvas#myBarChart(width='200', height='150')
-      .col-md-4
-        .card
-          .card-block
-            h6 TOTAL CPU's
-            h2 216
-      .col-md-4
-        .card
-          .card-block
-            h6 TOTAL HARDPHONES
-            h2 216
-      .col-md-4
-        .card
-          .card-block
-            h6 TOTAL MONITORES
-            h2 216
-      .col-md-12
-        hr
-      .col-md-4
-        .card
-          .card-block
-            h6 Colmena Seguros
-            .card-blockquote Equipo / Monitor
-            h2 167/167
-      .col-md-4
-        .card
-          .card-block
-            h6 BCSC
-            .card-blockquote Equipo / Monitor
-            h2 214/214
-      .col-md-4
-        .card
-          .card-block
-            h6 Cobranzas BCSC
-            .card-blockquote Equipo / Monitor
-            h2 235/235
-      .col-md-4
-        .card
-          .card-block
-            h6 Retencion BCSC
-            .card-blockquote Equipo / Monitor
-            h2 23/23
-      .col-md-4
-        .card
-          .card-block
-            h6 Televentas
-            .card-blockquote Equipo / Monitor
-            h2 89/89
-      .col-md-4
-        .card
-          .card-block
-            h6 Movistar
-            .card-blockquote Equipo / Monitor
-            h2 37/37
-      .col-md-4
-        .card
-          .card-block
-            h6 Chile Fija
-            .card-blockquote Equipo / Monitor
-            h2 12/12
-      .col-md-12
-        hr
+    .col-lg-8.col-md-6.offset-lg-2
+      .card
+        .card-block
+          h4 OCUPACION DXCO SEDE
+          canvas#myDonutChart
+    .col-lg-8.col-md-6.offset-lg-2
+      .card
+        .card-block
+          h4 OCUPACION DXCO SEDE
+          canvas#myBarChart
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 TOTAL CPU's
+      //-       h2 216
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 TOTAL HARDPHONES
+      //-       h2 216
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 TOTAL MONITORES
+      //-       h2 216
+      //- .col-md-12
+      //-   hr
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Colmena Seguros
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 167/167
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 BCSC
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 214/214
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Cobranzas BCSC
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 235/235
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Retencion BCSC
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 23/23
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Televentas
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 89/89
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Movistar
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 37/37
+      //- .col-md-4
+      //-   .card
+      //-     .card-block
+      //-       h6 Chile Fija
+      //-       .card-blockquote Equipo / Monitor
+      //-       h2 12/12
+      //- .col-md-12
+      //-   hr
       //- .col-md-4
       //-   .card
       //-     .card-block
@@ -144,8 +142,9 @@ block content
     // Contenido Derecha
 
 append footer
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js')
+  //- script(src='/javascripts/Chart.bundle.min.js')
+  script(src='/javascripts/Chart.min.js')
+  script(src='/javascripts/chartsjs-plugin-data-labels.js')
   script(src='/javascripts/chartinit.js')
   script(src='/javascripts/loader-geochart.js')
   script(src='/javascripts/init-geochart.js')

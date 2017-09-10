@@ -156,11 +156,11 @@ body{
 	cursor: pointer;
 }
 
-#contenido .card:hover{
+/*#contenido .card:hover{
 	border-color: #58738A;
 	transform: scale(1.03);
 	z-index: 9999;
-}
+}*/
 
 #contenido .card h2{
 	padding-top: .3em;
