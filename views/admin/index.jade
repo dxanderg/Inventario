@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+  // Contenido Derecha
+  #contenido.cont-ingreso.container.col-lg-10.col-md-12
+    form#ingreso-form.form-horizontal(method='post', action='../CrearArticulo')
+      .form-title
+        h2 Administracion de Items
+      .form-group.row
+        // Nav tabs
+        ul.nav.nav-tabs(role='tablist')
+          li.nav-item
+            a.nav-link.active(data-toggle='tab', href='#home', role='tab') FABRICANTES
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#profile', role='tab') TIPO ITEMS
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#messages', role='tab') ITEMS
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#settings', role='tab') Settings
+        // Tab panes
+        .tab-content
+          #home.tab-pane.active(role='tabpanel') 
+            table.table
+              thead
+                tr
+                  th #
+                  th Fabricante
+              tbody
+                tr
+                  th(scope='row') 1
+                  td Mark
+          #profile.tab-pane.fade(role='tabpanel') dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+          #messages.tab-pane.fade(role='tabpanel') Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown
+          #settings.tab-pane.fade(role='tabpanel')  Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+  // Contenido Derecha
+
+append footer
+  //- script(src='/javascripts/api-ingresos.js')
+  //- script(src='/javascripts/bootstrapvalidator.js')
+  //- script(src='/javascripts/validacion.js')

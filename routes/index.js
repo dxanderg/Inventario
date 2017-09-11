@@ -27,16 +27,14 @@ router.get('/ModificarArt/:id', isAuthenticated, controllers.consultascontroller
 router.post('/ActualizarArt', isAuthenticated, controllers.consultascontroller.postActualizaArticulo);
 router.get('/Notificaciones', isAuthenticated, controllers.homecontroller.notificaciones);
 
+
 router.get('/api-articulos/:id_posicion', isAuthenticated, controllers.trasladoscontroller.apiArticulos);
 router.get('/api-puestos/:id_puesto', isAuthenticated, controllers.trasladoscontroller.apiPuestos);
 router.get('/api-bodegas', isAuthenticated, controllers.trasladoscontroller.apiBodegas);
-
 router.get('/api-items/:id_item', isAuthenticated, controllers.ingresoscontroller.apiItems);
 
-// router.get('/api', function(req, res, next){      :id_posicion
-//     res.send({ message : `Posicion:  ${req.params.id_posicion}`})
-// })
 
+router.get('/admin/Index', isAuthenticated, isAdmin, controllers.admincontroller.index);
 
 router.get('*', function(req, res, next){
   return res.render('404')
