@@ -35,6 +35,7 @@ router.get('/api-items/:id_item', isAuthenticated, controllers.ingresoscontrolle
 
 
 router.get('/admin/Index', isAuthenticated, isAdmin, controllers.admincontroller.index);
+router.post('/admin/fabricante', isAuthenticated, isAdmin, controllers.admincontroller.postFabricante);
 
 router.get('*', function(req, res, next){
   return res.render('404')

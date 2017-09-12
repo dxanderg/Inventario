@@ -1,0 +1,26 @@
+#tabs li a.active{
+	border-top: 2px solid #2DBD8D;
+	font-weight: bold;
+}
+
+.crearRow{
+	border: 1px solid #C8CACB;
+	padding: .5em;
+	margin-bottom: 1em;
+	background-color: #E4E8EA;
+}
+
+.crearRow input{
+	/*height: 2em;*/
+}
+
+.crearRow button{
+
+}
+
+
+@media (min-width: 544px){
+	.form-inline .input-group{
+		display: inline-flex;
+	}
+}

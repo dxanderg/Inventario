@@ -3,38 +3,83 @@ extends ../layout
 block content
   // Contenido Derecha
   #contenido.cont-ingreso.container.col-lg-10.col-md-12
-    form#ingreso-form.form-horizontal(method='post', action='../CrearArticulo')
+    form#ingreso-form.form-horizontal(method='', action='')
       .form-title
         h2 Administracion de Items
       .form-group.row
         // Nav tabs
-        ul.nav.nav-tabs(role='tablist')
+        ul#tabs.nav.nav-tabs(role='tablist')
           li.nav-item
-            a.nav-link.active(data-toggle='tab', href='#home', role='tab') FABRICANTES
+            a.nav-link.active(data-toggle='tab', href='#fabricantes', role='tab') FABRICANTES
           li.nav-item
             a.nav-link(data-toggle='tab', href='#profile', role='tab') TIPO ITEMS
           li.nav-item
             a.nav-link(data-toggle='tab', href='#messages', role='tab') ITEMS
-          li.nav-item
-            a.nav-link(data-toggle='tab', href='#settings', role='tab') Settings
         // Tab panes
-        .tab-content
-          #home.tab-pane.active(role='tabpanel') 
-            table.table
-              thead
+      .form-group.row
+        .tab-content.col-md-12
+          #fabricantes.tab-pane.active(role='tabpanel')
+            .container.crearRow
+              .row
+                .col-md-2
+                  label Nuevo Fabricante: 
+                .col-md-8
+                  input.form-control.input-sm#input-fabr
+                .col-md-2
+                  button.btn.btn-success#btn-fabr Insertar
+            table#tab_logic.table.table-striped.table-hover.table-sm
+              thead.thead-inverse
                 tr
-                  th #
+                  th # ID
                   th Fabricante
               tbody
+                for val in consulta0
+                  tr
+                    td=val.id_fabricante
+                    td=val.nombre_fabricante
+          #profile.tab-pane.fade(role='tabpanel')
+            .container.crearRow
+              .row
+                .col-md-2
+                  label Nuevo Tipo Item: 
+                .col-md-8
+                  input.form-control.input-sm
+                .col-md-2
+                  button.btn.btn-success Insertar
+            table#tab_logic1.table.table-striped.table-hover.table-sm
+              thead.thead-inverse
                 tr
-                  th(scope='row') 1
-                  td Mark
-          #profile.tab-pane.fade(role='tabpanel') dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-          #messages.tab-pane.fade(role='tabpanel') Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown
-          #settings.tab-pane.fade(role='tabpanel')  Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+                  th # ID
+                  th Tipo de Item
+              tbody
+                for val in consulta1
+                  tr
+                    td=val.idtipo_item
+                    td=val.nombre_item
+          #messages.tab-pane.fade(role='tabpanel')
+            .container.crearRow
+              .row
+                .col-md-2
+                  label Nuevo Item: 
+                .col-md-8
+                  input.form-control.input-sm
+                .col-md-2
+                  button.btn.btn-success Insertar
+            table#tab_logic2.table.table-striped.table-hover.table-sm
+              thead.thead-inverse
+                tr
+                  th # ID
+                  th Nombre Item
+                  th Modelo Item
+              tbody
+                for val in consulta2
+                  tr
+                    td=val.id_item
+                    td=val.nombre_item
+                    td=val.modelo_item
   // Contenido Derecha
-
 append footer
-  //- script(src='/javascripts/api-ingresos.js')
-  //- script(src='/javascripts/bootstrapvalidator.js')
-  //- script(src='/javascripts/validacion.js')
+  link(rel='stylesheet', href='/stylesheets/pagination.css')
+  script(src='/javascripts/pagination.js')
+  script(src='/javascripts/admin.js')
+  link(rel='stylesheet', href='/stylesheets/admin.css')
