@@ -25,12 +25,17 @@ $(document).ready(function() {
 $('#btn-fabr').on('click', function(){
     var val = $('#input-fabr').val()
     $.ajax({
-      type: 'POST',
-      url: '/admin/fabricante',
+      url: '/admin/fabricante/' + val,
       contentType: 'application/json',
-      data: val,
       success: function(response) {
-        alert('OK')
+        var selectItems = $('#select-tipoarticulo');
+          selectItems.html('');
+          for(i=0; i<response.data.length; i++){
+            var opt = document.createElement('option');
+            opt.value = response.data[i].id_item;
+            opt.innerHTML = response.data[i].nombre_fabricante + ' - ' + response.data[i].modelo_item;
+            selectItems.append(opt);
+          }
       }
     })
 })

@@ -42,24 +42,19 @@ module.exports = {
 	},
 	postFabricante: function(req, res, next){
 		var insertFabricante = {
-			nombre_fabricante: req.body.data
+			nombre_fabricante: req.params.nombre_fabricante	
 		}
-		console.log(insertFabricante)
-		
+
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)
-		var respuesta = {res: false}
 		db.connect()
+		
 
-		db.query('INSERT INTO fabricante VALUES ? ', insertFabricante, function(err, rows, fields){
-			if(err) {
-				res.render('actuaartmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el articulo!', error: err})
-				console.log(err)//throw err
-			}
-			else{
-					res.render('actuaartmodal', {title: 'Exito!', info: 'Articulo Actualizado Correctamente!'})	
-					}
+		db.query('INSERT INTO fabricante SET ? ', insertFabricante, function(err, rows, fields){
+			if(err) throw err
+			consulta1 = rows
 			db.end()
+		res.send({ data : consulta1})
 		})
 	}
 }
