@@ -24,18 +24,69 @@ $(document).ready(function() {
 
 $('#btn-fabr').on('click', function(){
     var val = $('#input-fabr').val()
-    $.ajax({
-      url: '/admin/fabricante/' + val,
-      contentType: 'application/json',
-      success: function(response) {
-        var selectItems = $('#select-tipoarticulo');
-          selectItems.html('');
-          for(i=0; i<response.data.length; i++){
-            var opt = document.createElement('option');
-            opt.value = response.data[i].id_item;
-            opt.innerHTML = response.data[i].nombre_fabricante + ' - ' + response.data[i].modelo_item;
-            selectItems.append(opt);
+    if (val.length == 0){
+      alert('Nombre Fabricante no puede estar vacio.')
+    }
+    else{
+      $.ajax({
+        url: '/admin/fabricante/' + val,
+        contentType: 'application/json',
+        success: function(response) {
+          if (response.status == 400){
+            $('#contenido').append(`<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h2 class="modal-title" id="exampleModalLabel">${response.title}</h2>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      ${response.info}
+                                      </br>
+                                      ${response.error}
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" id="continue" class="btn btn-danger" data-dismiss="modal">Continuar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <script>
+                                $('#myModal').on('hidden.bs.modal', function () {
+                                  location.reload()
+                                })
+                              </script>`)
+            $("#myModal").modal()
           }
-      }
-    })
+          else{
+            $('#contenido').append(`<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h2 class="modal-title" id="exampleModalLabel">${response.title}</h2>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      ${response.info}
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button id="continue" type="button" class="btn btn-primary" data-dismiss="modal">Continuar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <script>
+                                $('#myModal').on('hidden.bs.modal', function () {
+                                  location.reload()
+                                })
+                              </script>`)
+            $("#myModal").modal()
+          }
+        }
+      })
+    }
 })

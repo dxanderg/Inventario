@@ -57,7 +57,7 @@ module.exports = {
 
 		db.query('INSERT INTO articulos SET ?', articuloNew, function(err, rows, fields){
 			if(err) {
-				res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el artiulo!', error: err})
+				res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el articulo!', error: err})
 				console.log(err)//throw err
 			}
 			else{

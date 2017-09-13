@@ -30,8 +30,9 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM inventario_digitex.items
-																		order by nombre_item, modelo_item, modelo_item_2`, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT f.nombre_fabricante, id_item, nombre_item, modelo_item, modelo_item_2 FROM items i, fabricante f
+																		where f.id_fabricante = i.fk_fabricante
+																		order by nombre_fabricante, nombre_item, modelo_item, modelo_item_2;`, function(err, rows, fields){
 					if(err) throw err
 					consulta2 = rows
 					callback()
@@ -51,10 +52,13 @@ module.exports = {
 		
 
 		db.query('INSERT INTO fabricante SET ? ', insertFabricante, function(err, rows, fields){
-			if(err) throw err
-			consulta1 = rows
+			if(err) {
+				res.send({title: 'Error!', info: 'Se produjo un error al ingresar el Fabricante!', error: err, status: 400})
+			}
+			else{
+				res.send({title: 'Exito!', info: 'Se creo el fabricante correctamente!', status: 200})
+			}
 			db.end()
-		res.send({ data : consulta1})
 		})
 	}
 }

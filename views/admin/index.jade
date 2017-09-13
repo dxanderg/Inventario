@@ -31,11 +31,16 @@ block content
                 tr
                   th # ID
                   th Fabricante
+                  th Editar
               tbody
                 for val in consulta0
                   tr
                     td=val.id_fabricante
                     td=val.nombre_fabricante
+                    td
+                      div
+                        a(href='../ModificarArt/'+val.id_fabricante data-tooltip='Modificar' data-inverted data-position='top center')
+                          i.fa.fa-fw.fa-edit
           #profile.tab-pane.fade(role='tabpanel')
             .container.crearRow
               .row
@@ -50,11 +55,16 @@ block content
                 tr
                   th # ID
                   th Tipo de Item
+                  th Editar
               tbody
                 for val in consulta1
                   tr
                     td=val.idtipo_item
                     td=val.nombre_item
+                    td
+                      div
+                        a(href='../ModificarArt/'+val.idtipo_item data-tooltip='Modificar' data-inverted data-position='top center')
+                          i.fa.fa-fw.fa-edit
           #messages.tab-pane.fade(role='tabpanel')
             .container.crearRow
               .row
@@ -70,12 +80,19 @@ block content
                   th # ID
                   th Nombre Item
                   th Modelo Item
+                  th Modelo Item 2
+                  th Editar
               tbody
                 for val in consulta2
                   tr
                     td=val.id_item
-                    td=val.nombre_item
+                    td=val.nombre_fabricante + ' - ' + val.nombre_item
                     td=val.modelo_item
+                    td=val.modelo_item_2
+                    td
+                      div
+                        a(href='../ModificarArt/'+val.id_fabricante data-tooltip='Modificar' data-inverted data-position='top center')
+                          i.fa.fa-fw.fa-edit
   // Contenido Derecha
 append footer
   link(rel='stylesheet', href='/stylesheets/pagination.css')
