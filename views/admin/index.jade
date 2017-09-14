@@ -4,7 +4,7 @@ block content
   // Contenido Derecha
   #contenido.cont-ingreso.container.col-lg-10.col-md-12
       .form-title
-        h2 Administracion de Items
+        h2 Administracion de Datos
       .form-group.row
         // Nav tabs
         ul#tabs.nav.nav-tabs(role='tablist')
@@ -47,9 +47,9 @@ block content
                 .col-md-2
                   label Nuevo Tipo Item: 
                 .col-md-8
-                  input.form-control.input-sm
+                  input.form-control.input-sm#input-tipoitem
                 .col-md-2
-                  button.btn.btn-success Insertar
+                  button.btn.btn-success#btn-tipoitem Insertar
             table#tab_logic1.table.table-striped.table-hover.table-sm
               thead.thead-inverse
                 tr
@@ -69,15 +69,50 @@ block content
             .container.crearRow
               .row
                 .col-md-2
-                  label Nuevo Item: 
-                .col-md-8
-                  input.form-control.input-sm
+                  label Item: 
+                .col-md-6
+                  select.form-control.input-sm#item_nombre
+                    for val in consulta1
+                      option(value=val.idtipo_item)=val.nombre_item
+              .row
                 .col-md-2
-                  button.btn.btn-success Insertar
+                  label Fabricante:
+                .col-md-6
+                  select.form-control.input-sm#item_fabricante
+                    for val in consulta0
+                      option(value=val.id_fabricante)=val.nombre_fabricante
+              .row
+                .col-md-2
+                  label Modelo Corto:
+                .col-md-6
+                  input.form-control.input-sm#item_modelo1
+              .row
+                .col-md-2
+                  label Modelo Largo:
+                .col-md-6
+                  input.form-control.input-sm#item_modelo2
+              .row
+                .col-md-2
+                  label Caracteristica 1:
+                .col-md-6
+                  input.form-control.input-sm#item_c1
+              .row
+                .col-md-2
+                  label Caracteristica 2:
+                .col-md-6
+                  input.form-control.input-sm#item_c2
+              .row
+                .col-md-2
+                  label Caracteristica 3:
+                .col-md-6
+                  input.form-control.input-sm#item_c3
+                .col-md-2
+                  button.btn.btn-success#btn-items Insertar
             table#tab_logic2.table.table-striped.table-hover.table-sm
               thead.thead-inverse
                 tr
                   th # ID
+                  th Fabricante
                   th Nombre Item
                   th Modelo Item
                   th Modelo Item 2
@@ -86,7 +121,8 @@ block content
                 for val in consulta2
                   tr
                     td=val.id_item
-                    td=val.nombre_fabricante + ' - ' + val.nombre_item
+                    td=val.nombre_fabricante
+                    td=val.nombre_item
                     td=val.modelo_item
                     td=val.modelo_item_2
                     td

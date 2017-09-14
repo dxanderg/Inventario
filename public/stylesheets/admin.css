@@ -10,12 +10,8 @@
 	background-color: #E4E8EA;
 }
 
-.crearRow input{
-	/*height: 2em;*/
-}
-
-.crearRow button{
-
+#messages .row{
+	margin: .5em 0;
 }
 
 

@@ -60,5 +60,54 @@ module.exports = {
 			}
 			db.end()
 		})
+	},
+	postTipoItem: function(req, res, next){
+		var insertTipoItem = {
+			nombre_item: req.params.tipoitem
+		}
+
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+		
+
+		db.query('INSERT INTO tipo_item SET ? ', insertTipoItem, function(err, rows, fields){
+			if(err) {
+				res.send({title: 'Error!', info: 'Se produjo un error al ingresar el Tipo de Item!', error: err, status: 400})
+			}
+			else{
+				res.send({title: 'Exito!', info: 'Se creo el Tipo de Item correctamente!', status: 200})
+			}
+			db.end()
+		})
+	},
+	postItems: function(req, res, next){
+		var insertItem = {
+			nombre_item : req.params.val1,
+	    modelo_item : req.params.val2,
+	    modelo_item_2 : req.params.val3,
+	    fk_fabricante : req.params.val4,
+	    activo : req.params.val5,
+	    tipo : req.params.val6,
+	    caracteristica_1 : req.params.val7,
+	    caracteristica_2 : req.params.val8,
+	    caracteristica_3 : req.params.val9
+		}
+
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+		
+		console.log(insertItem)
+
+		db.query('INSERT INTO items SET ? ', insertItem, function(err, rows, fields){
+			if(err) {
+				res.send({title: 'Error!', info: 'Se produjo un error al ingresar el Item!', error: err, status: 400})
+			}
+			else{
+				res.send({title: 'Exito!', info: 'Se creo el Item correctamente!', status: 200})
+			}
+			db.end()
+		})
 	}
 }
