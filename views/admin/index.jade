@@ -11,16 +11,25 @@ block content
           li.nav-item
             a.nav-link.active(data-toggle='tab', href='#fabricantes', role='tab') FABRICANTES
           li.nav-item
-            a.nav-link(data-toggle='tab', href='#profile', role='tab') TIPO ITEMS
+            a.nav-link(data-toggle='tab', href='#tipoitems', role='tab') TIPO ITEMS
           li.nav-item
-            a.nav-link(data-toggle='tab', href='#messages', role='tab') ITEMS
+            a.nav-link(data-toggle='tab', href='#items', role='tab') ITEMS
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#sedes', role='tab') SEDES
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#bodegas', role='tab') BODEGAS
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#puestos', role='tab') PUESTOS
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#campanas', role='tab') CAMPAÑAS
         // Tab panes
       .form-group.row
         .tab-content.col-md-12
           #fabricantes.tab-pane.active(role='tabpanel')
             .container.crearRow
               .row
-                .col-md-2
+                .col-md-2.mintitle
+                  i.fa.fa-fw.fa-plus-square-o.hidden-md-down
                   label Nuevo Fabricante: 
                 .col-md-8
                   input.form-control.input-sm#input-fabr
@@ -41,10 +50,11 @@ block content
                       div
                         a(href='../ModificarArt/'+val.id_fabricante data-tooltip='Modificar' data-inverted data-position='top center')
                           i.fa.fa-fw.fa-edit
-          #profile.tab-pane.fade(role='tabpanel')
+          #tipoitems.tab-pane.fade(role='tabpanel')
             .container.crearRow
               .row
-                .col-md-2
+                .col-md-2.mintitle
+                  i.fa.fa-fw.fa-plus-square-o.hidden-md-down
                   label Nuevo Tipo Item: 
                 .col-md-8
                   input.form-control.input-sm#input-tipoitem
@@ -65,50 +75,53 @@ block content
                       div
                         a(href='../ModificarArt/'+val.idtipo_item data-tooltip='Modificar' data-inverted data-position='top center')
                           i.fa.fa-fw.fa-edit
-          #messages.tab-pane.fade(role='tabpanel')
+          #items.tab-pane.fade(role='tabpanel')
             .container.crearRow
+              .col-md-2.mintitle
+                  i.fa.fa-fw.fa-plus-square-o.hidden-md-down
+                  label Nuevo Item
               .row
-                .col-md-2
+                .col-lg-2.col-md-3
                   label Item: 
-                .col-md-6
+                .col-lg-6.col-md-7
                   select.form-control.input-sm#item_nombre
                     for val in consulta1
                       option(value=val.idtipo_item)=val.nombre_item
               .row
-                .col-md-2
+                .col-lg-2.col-md-3
                   label Fabricante:
-                .col-md-6
+                .col-lg-6.col-md-7
                   select.form-control.input-sm#item_fabricante
                     for val in consulta0
                       option(value=val.id_fabricante)=val.nombre_fabricante
               .row
-                .col-md-2
+                .col-lg-2.col-md-3
                   label Modelo Corto:
-                .col-md-6
+                .col-lg-6.col-md-7
                   input.form-control.input-sm#item_modelo1
               .row
-                .col-md-2
+                .col-lg-2.col-md-3
                   label Modelo Largo:
-                .col-md-6
+                .col-lg-6.col-md-7
                   input.form-control.input-sm#item_modelo2
               .row
-                .col-md-2
+                .col-lg-2.col-md-3
                   label Caracteristica 1:
-                .col-md-6
+                .col-lg-6.col-md-7
                   input.form-control.input-sm#item_c1
               .row
-                .col-md-2
+                .col-lg-2.col-md-3
                   label Caracteristica 2:
-                .col-md-6
+                .col-lg-6.col-md-7
                   input.form-control.input-sm#item_c2
               .row
-                .col-md-2
+                .col-lg-2.col-md-3
                   label Caracteristica 3:
-                .col-md-6
+                .col-lg-6.col-md-7
                   input.form-control.input-sm#item_c3
-                .col-md-2
+                .col-lg-2.col-md-3
                   button.btn.btn-success#btn-items Insertar
-            table#tab_logic2.table.table-striped.table-hover.table-sm
+            table#tab_logic2.table.table-striped.table-hover.tabllgsm.col-md-7
               thead.thead-inverse
                 tr
                   th # ID
@@ -125,6 +138,118 @@ block content
                     td=val.nombre_item
                     td=val.modelo_item
                     td=val.modelo_item_2
+                    td
+                      div
+                        a(href='../ModificarArt/'+val.id_fabricante data-tooltip='Modificar' data-inverted data-position='top center')
+                          i.fa.fa-fw.fa-edit
+          #sedes.tab-pane.fade(role='tabpanel')
+            .container.crearRow
+              .row
+                .col-md-2.mintitle
+                  i.fa.fa-fw.fa-plus-square-o.hidden-md-down
+                  label Nueva Sede: 
+                .col-md-8
+                  input.form-control.input-sm#input-fabr
+                .col-md-2
+                  button.btn.btn-success#btn-fabr Insertar
+            table#tab_logic3.table.table-striped.table-hover.table-sm
+              thead.thead-inverse
+                tr
+                  th # ID
+                  th Sede
+                  th Ciudad
+                  th Pais
+                  th Editar
+              tbody
+                for val in consulta3
+                  tr
+                    td=val.id_sede
+                    td=val.nombre_sede
+                    td=val.ciudad_sede
+                    td=val.pais_sede
+                    td
+                      div
+                        a(href='../ModificarArt/'+val.id_fabricante data-tooltip='Modificar' data-inverted data-position='top center')
+                          i.fa.fa-fw.fa-edit
+          #bodegas.tab-pane.fade(role='tabpanel')
+            .container.crearRow
+              .row
+                .col-md-2.mintitle
+                  i.fa.fa-fw.fa-plus-square-o.hidden-md-down
+                  label Nueva Bodega/Piso: 
+                .col-md-8
+                  input.form-control.input-sm#input-fabr
+                .col-md-2
+                  button.btn.btn-success#btn-fabr Insertar
+            table#tab_logic4.table.table-striped.table-hover.table-sm
+              thead.thead-inverse
+                tr
+                  th # ID
+                  th Sede
+                  th Bodega
+                  th Editar
+              tbody
+                for val in consulta4
+                  tr
+                    td=val.id_bodega
+                    td=val.nombre_sede
+                    td=val.nombre_bodega
+                    td
+                      div
+                        a(href='../ModificarArt/'+val.id_fabricante data-tooltip='Modificar' data-inverted data-position='top center')
+                          i.fa.fa-fw.fa-edit
+          #puestos.tab-pane.fade(role='tabpanel')
+            .container.crearRow
+              .row
+                .col-md-2.mintitle
+                  i.fa.fa-fw.fa-plus-square-o.hidden-md-down
+                  label Nueva Posicion: 
+                .col-md-8
+                  input.form-control.input-sm#input-fabr
+                .col-md-2
+                  button.btn.btn-success#btn-fabr Insertar
+            table#tab_logic5.table.table-striped.table-hover.table-sm
+              thead.thead-inverse
+                tr
+                  th # ID
+                  th Sede
+                  th Bodega
+                  th Editar
+              tbody
+                for val in consulta5
+                  tr
+                    td=val.id_puesto
+                    td=val.posicion
+                    td=val.fk_bodega
+                    td
+                      div
+                        a(href='../ModificarArt/'+val.id_fabricante data-tooltip='Modificar' data-inverted data-position='top center')
+                          i.fa.fa-fw.fa-edit
+          #campanas.tab-pane.fade(role='tabpanel')
+            .container.crearRow
+              .row
+                .col-md-2.mintitle
+                  i.fa.fa-fw.fa-plus-square-o.hidden-md-down
+                  label Nueva Campaña: 
+                .col-md-8
+                  input.form-control.input-sm#input-fabr
+                .col-md-2
+                  button.btn.btn-success#btn-fabr Insertar
+            table#tab_logic6.table.table-striped.table-hover.table-sm
+              thead.thead-inverse
+                tr
+                  th # ID
+                  th CECO
+                  th Campaña
+                  th Cliente
+                  th Editar
+              tbody
+                for val in consulta6
+                  tr
+                    td=val.id_campaign
+                    td=val.CECO
+                    td=val.nombre_campaign
+                    td=val.cliente_campaign
                     td
                       div
                         a(href='../ModificarArt/'+val.id_fabricante data-tooltip='Modificar' data-inverted data-position='top center')

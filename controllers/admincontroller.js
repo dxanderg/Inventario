@@ -12,6 +12,9 @@ module.exports = {
 		var consulta0 = null
 		var consulta1 = null
 		var consulta2 = null
+		var consulta3 = null
+		var consulta4 = null
+		var consulta5 = null
 		var userSede = res.locals.currentuser.sede
 		var userCampana = res.locals.currentuser.campaña
 
@@ -37,8 +40,34 @@ module.exports = {
 					consulta2 = rows
 					callback()
 	      })
+			},
+			function(callback) { db.query(`SELECT * FROM inventario_digitex.sedes`, function(err, rows, fields){
+						if(err) throw err
+						consulta3 = rows
+						callback()
+		      })
+			},
+			function(callback) { db.query(`SELECT b.id_bodega, b.nombre_bodega, b.fk_sede, s.nombre_sede FROM inventario_digitex.bodegas b
+																		JOIN sedes s ON s.id_sede = b.fk_sede
+																		ORDER BY s.nombre_sede, b.nombre_bodega`, function(err, rows, fields){
+							if(err) throw err
+							consulta4 = rows
+							callback()
+			      })
+			},
+			function(callback) { db.query(`SELECT * FROM inventario_digitex.puestos`, function(err, rows, fields){
+							if(err) throw err
+							consulta5 = rows
+							callback()
+			      })
+			},
+			function(callback) { db.query(`SELECT * FROM inventario_digitex.campaign`, function(err, rows, fields){
+								if(err) throw err
+								consulta6 = rows
+								callback()
+				      })
 		}], function(err, results) {
-  		res.render('admin/Index', {consulta0 : consulta0, consulta1 : consulta1, consulta2 : consulta2})
+  		res.render('admin/Index', {consulta0 : consulta0, consulta1 : consulta1, consulta2 : consulta2, consulta3 : consulta3, consulta4 : consulta4, consulta5 : consulta5,  consulta6 : consulta6})
 		})
 	},
 	postFabricante: function(req, res, next){

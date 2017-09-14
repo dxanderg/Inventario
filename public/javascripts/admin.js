@@ -4,6 +4,10 @@ $(document).ready(function() {
   var table = $('#tab_logic').DataTable({ });
   var table1 = $('#tab_logic1').DataTable({ });
   var table2 = $('#tab_logic2').DataTable({ });
+  var table3 = $('#tab_logic3').DataTable({ });
+  var table4 = $('#tab_logic4').DataTable({ });
+  var table5 = $('#tab_logic5').DataTable({ });
+  var table6 = $('#tab_logic6').DataTable({ });
 
   table.buttons().container()
     .appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );

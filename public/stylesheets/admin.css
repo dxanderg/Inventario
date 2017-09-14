@@ -1,6 +1,33 @@
+#contenido{
+	font-size: 14px;
+}
+
+#contenido .tab-content input,
+#contenido .tab-content select{
+	height: 30px;
+}
+
+#contenido .tab-content input[type="search"]{
+	height: 38px;
+}
+
+#contenido .mintitle{
+	margin-top: 6px;
+}
+
 #tabs li a.active{
 	border-top: 2px solid #2DBD8D;
 	font-weight: bold;
+	background-color: white;
+}
+#tabs li a{
+	transition: all .3s ease;
+	border-color: #eceeef #eceeef;
+	background-color: #eceeef;
+	color: #58738A;
+}
+#tabs li a:hover{
+	border-top: 2px solid orange;
 }
 
 .crearRow{
@@ -10,7 +37,7 @@
 	background-color: #E4E8EA;
 }
 
-#messages .row{
+#items .row{
 	margin: .5em 0;
 }
 
@@ -18,5 +45,18 @@
 @media (min-width: 544px){
 	.form-inline .input-group{
 		display: inline-flex;
+	}
+}
+
+@media (max-width: 980px){
+	#contenido .mintitle{
+		margin-top: 0px;
+	}
+	#contenido .tab-content input,
+	#contenido .tab-content select{
+		margin-top: 5px;
+	}
+	#contenido .tab-content input[type="search"]{
+		margin: 0 auto;
 	}
 }
