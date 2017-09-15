@@ -38,6 +38,10 @@ router.get('/admin/Index', isAuthenticated, isAdmin, controllers.admincontroller
 router.get('/admin/fabricante/:nombre_fabricante', isAuthenticated, isAdmin, controllers.admincontroller.postFabricante);
 router.get('/admin/tipoitem/:tipoitem', isAuthenticated, isAdmin, controllers.admincontroller.postTipoItem);
 router.get('/admin/items/:val1/:val2/:val3/:val4/:val5/:val6/:val7?/:val8?/:val9?', isAuthenticated, isAdmin, controllers.admincontroller.postItems);
+router.get('/admin/sedes/:val1/:val2/:val3', isAuthenticated, isAdmin, controllers.admincontroller.postSedes);
+router.get('/admin/bodegas/:val1/:val2', isAuthenticated, isAdmin, controllers.admincontroller.postBodegas);
+router.get('/admin/puestos/:val1/:val2/:val3/:val4', isAuthenticated, isAdmin, controllers.admincontroller.postPuestos);
+router.get('/bodega/:id_sede', isAuthenticated, controllers.admincontroller.apiBodega);
 
 router.get('*', function(req, res, next){
   return res.render('404')

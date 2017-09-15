@@ -121,7 +121,7 @@ block content
                   input.form-control.input-sm#item_c3
                 .col-lg-2.col-md-3
                   button.btn.btn-success#btn-items Insertar
-            table#tab_logic2.table.table-striped.table-hover.tabllgsm.col-md-7
+            table#tab_logic2.table.table-striped.table-hover.table-sm.col-md-7
               thead.thead-inverse
                 tr
                   th # ID
@@ -147,11 +147,24 @@ block content
               .row
                 .col-md-2.mintitle
                   i.fa.fa-fw.fa-plus-square-o.hidden-md-down
-                  label Nueva Sede: 
-                .col-md-8
-                  input.form-control.input-sm#input-fabr
+                  label Nueva Sede 
+              .row
+                .col-lg-2.col-md-3
+                  label Nombre Sede:
+                .col-lg-6.col-md-7
+                  input.form-control.input-sm#input-sede
+              .row
+                .col-lg-2.col-md-3
+                  label Ciudad:
+                .col-lg-6.col-md-7
+                  input.form-control.input-sm#input-ciudad
+              .row
+                .col-lg-2.col-md-3
+                  label Pais:
+                .col-lg-6.col-md-7
+                  input.form-control.input-sm#input-pais
                 .col-md-2
-                  button.btn.btn-success#btn-fabr Insertar
+                  button.btn.btn-success#btn-sedes Insertar
             table#tab_logic3.table.table-striped.table-hover.table-sm
               thead.thead-inverse
                 tr
@@ -174,13 +187,23 @@ block content
           #bodegas.tab-pane.fade(role='tabpanel')
             .container.crearRow
               .row
-                .col-md-2.mintitle
+                .col-md-3.mintitle
                   i.fa.fa-fw.fa-plus-square-o.hidden-md-down
-                  label Nueva Bodega/Piso: 
-                .col-md-8
-                  input.form-control.input-sm#input-fabr
+                  label Nueva Bodega ó Piso
+              .row
+                .col-lg-2.col-md-3
+                  label Sede :
+                .col-lg-6.col-md-7
+                  select.form-control.input-sm#sede_id
+                    for val in consulta3
+                      option(value=val.id_sede)= val.nombre_sede
+              .row
+                .col-lg-2.col-md-3
+                  label Nombre Bodega/Piso :
+                .col-lg-6.col-md-7
+                  input.form-control.input-sm#input-bodega
                 .col-md-2
-                  button.btn.btn-success#btn-fabr Insertar
+                  button.btn.btn-success#btn-bodega Insertar
             table#tab_logic4.table.table-striped.table-hover.table-sm
               thead.thead-inverse
                 tr
@@ -204,10 +227,32 @@ block content
                 .col-md-2.mintitle
                   i.fa.fa-fw.fa-plus-square-o.hidden-md-down
                   label Nueva Posicion: 
-                .col-md-8
-                  input.form-control.input-sm#input-fabr
+              .row
+                .col-lg-2.col-md-3
+                  label Sede :
+                .col-lg-6.col-md-7
+                  select.form-control.input-sm#puesto_idsede
+                    for val in consulta3
+                      option(value=val.id_sede)= val.nombre_sede
+              .row
+                .col-lg-2.col-md-3
+                  label Bodega/Piso :
+                .col-lg-6.col-md-7
+                  select.form-control.input-sm#puesto_idbodega
+              .row
+                .col-lg-2.col-md-3
+                  label Posicion:
+                .col-lg-6.col-md-7
+                  input.form-control.input-sm#puesto_posicion
+              .row
+                .col-lg-2.col-md-3
+                  label Campaña :
+                .col-lg-6.col-md-7
+                  select.form-control.input-sm#puesto_idcampaign
+                    for val in consulta6
+                      option(value=val.id_campaign)=val.CECO + ' - ' +val.nombre_campaign
                 .col-md-2
-                  button.btn.btn-success#btn-fabr Insertar
+                  button.btn.btn-success#btn-puesto Insertar
             table#tab_logic5.table.table-striped.table-hover.table-sm
               thead.thead-inverse
                 tr

@@ -104,7 +104,6 @@ module.exports = {
   		res.render('Traslados', {consulta1 : consulta1, consulta2 : consulta2, consulta3 : consulta3, consulta4: consulta4, consulta5 : consulta5})
 		})
 	},
-
 	postNuevoTraslado : function(req, res, next){
 
 		var fechaActual = new Date()

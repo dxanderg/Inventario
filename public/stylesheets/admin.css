@@ -37,7 +37,10 @@
 	background-color: #E4E8EA;
 }
 
-#items .row{
+#items .row,
+#sedes .row,
+#bodegas .row,
+#puestos .row{
 	margin: .5em 0;
 }
 

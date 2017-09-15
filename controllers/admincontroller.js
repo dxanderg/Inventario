@@ -61,7 +61,8 @@ module.exports = {
 							callback()
 			      })
 			},
-			function(callback) { db.query(`SELECT * FROM inventario_digitex.campaign`, function(err, rows, fields){
+			function(callback) { db.query(`SELECT * FROM inventario_digitex.campaign
+																		ORDER BY CECO`, function(err, rows, fields){
 								if(err) throw err
 								consulta6 = rows
 								callback()
@@ -126,8 +127,6 @@ module.exports = {
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)
 		db.connect()
-		
-		console.log(insertItem)
 
 		db.query('INSERT INTO items SET ? ', insertItem, function(err, rows, fields){
 			if(err) {
@@ -137,6 +136,91 @@ module.exports = {
 				res.send({title: 'Exito!', info: 'Se creo el Item correctamente!', status: 200})
 			}
 			db.end()
+		})
+	},
+	postSedes: function(req, res, next){
+		var insertSedes = {
+			nombre_sede : req.params.val1,
+	    ciudad_sede : req.params.val2,
+	    pais_sede : req.params.val3
+		}
+
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		db.query('INSERT INTO sedes SET ? ', insertSedes, function(err, rows, fields){
+			if(err) {
+				res.send({title: 'Error!', info: 'Se produjo un error al ingresar Sede!', error: err, status: 400})
+			}
+			else{
+				res.send({title: 'Exito!', info: 'Se creo la Sede correctamente!', status: 200})
+			}
+			db.end()
+		})
+	},
+	postBodegas: function(req, res, next){
+		var insertBodegas = {
+			nombre_bodega : req.params.val1,
+	    fk_sede : req.params.val2
+		}
+
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		db.query('INSERT INTO bodegas SET ? ', insertBodegas, function(err, rows, fields){
+			if(err) {
+				res.send({title: 'Error!', info: 'Se produjo un error al ingresar la Bodega!', error: err, status: 400})
+			}
+			else{
+				res.send({title: 'Exito!', info: 'Se creo la Bodega correctamente!', status: 200})
+			}
+			db.end()
+		})
+	},
+	postPuestos: function(req, res, next){
+		var fechaActual = new Date()
+		var fechaA = dateFormat(fechaActual, 'yyyy-mm-dd')
+
+		var insertPuestos = {
+			posicion : req.params.val1,
+			fk_sede : req.params.val2,
+			fk_bodega : req.params.val3,
+			fk_campaign : req.params.val4,
+			fk_estado : 1,
+			fecha_puestos : fechaA
+		}
+
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		db.query('INSERT INTO puestos SET ? ', insertPuestos, function(err, rows, fields){
+			if(err) {
+				res.send({title: 'Error!', info: 'Se produjo un error al ingresar la Posicion!', error: err, status: 400})
+			}
+			else{
+				res.send({title: 'Exito!', info: 'Se creo la Posicion correctamente!', status: 200})
+			}
+			db.end()
+		})
+	},
+	apiBodega : function(req, res, next){
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		var bodegas = null
+		var idSede = req.params.id_sede
+
+		db.query(`SELECT id_bodega, nombre_bodega, fk_sede FROM bodegas
+							WHERE fk_sede = ?
+							ORDER BY nombre_bodega`, idSede, function(err, rows, fields){
+			if(err) throw err
+			bodegas = rows
+			db.end()
+		res.send({ data : bodegas})
 		})
 	}
 }
