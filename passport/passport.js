@@ -19,7 +19,10 @@ module.exports = function(passport){
 		var db = mysql.createConnection(config)
 		db.connect()
 
-		db.query('SELECT * FROM usuarios WHERE nombre_usuario = ?', username, function(err, rows, fields){
+		db.query(`SELECT u.id_usuario, u.nombre_usuario, u.pass_usuario, u.nombre_mostrar, u.cargo_usuario, u.fk_sede, s.nombre_sede, u.fk_campaign, c.nombre_campaign FROM usuarios u 
+						JOIN campaign c ON c.id_campaign = u.fk_campaign
+						JOIN sedes s ON s.id_sede = u.fk_sede
+						WHERE nombre_usuario = ?`, username, function(err, rows, fields){
 			if(err) throw err
 
 			db.end()
@@ -33,7 +36,9 @@ module.exports = function(passport){
 						nombre: user.nombre_mostrar,
 						cargo: user.cargo_usuario,
 						sede: user.fk_sede,
-						campaña: user.fk_campaign,
+						nsede: user.nombre_sede,
+						campana: user.fk_campaign,
+						ncampana: user.nombre_campaign,
 						perfil: user.perfil_usuario
 					})	
 				}

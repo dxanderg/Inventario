@@ -478,3 +478,75 @@ $('#btn-puesto').on('click', function(){
       })
     }
 })
+
+$('#btn-campaign').on('click', function(){
+    var CECO = $('#id_CECO').val()
+    var nombre_campaign = $('#nombre_campaign').val()
+    var cliente_campaign = $('#cliente_campaign').val()
+    
+    if (CECO.length == 0 || nombre_campaign == 0 || cliente_campaign == 0){
+      alert('Faltan Datos por Completar')
+    }
+    else{
+      $.ajax({
+        url: '/admin/campana/'+CECO+'/'+nombre_campaign+'/'+cliente_campaign,
+        contentType: 'application/json',
+        success: function(response) {
+          if (response.status == 400){
+            $('#contenido').append(`<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h2 class="modal-title" id="exampleModalLabel">${response.title}</h2>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      ${response.info}
+                                      </br>
+                                      ${response.error.code}
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" id="continue" class="btn btn-danger" data-dismiss="modal">Continuar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <script>
+                                $('#myModal').on('hidden.bs.modal', function () {
+                                  location.reload()
+                                })
+                              </script>`)
+            $("#myModal").modal()
+          }
+          else{
+            $('#contenido').append(`<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h2 class="modal-title" id="exampleModalLabel">${response.title}</h2>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      ${response.info}
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button id="continue" type="button" class="btn btn-primary" data-dismiss="modal">Continuar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <script>
+                                $('#myModal').on('hidden.bs.modal', function () {
+                                  location.reload()
+                                })
+                              </script>`)
+            $("#myModal").modal()
+          }
+        }
+      })
+    }
+})

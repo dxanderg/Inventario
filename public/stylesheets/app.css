@@ -44,6 +44,15 @@ body{
 	user-select: none;
 }
 
+#header-container #usuario-login .datos{
+	display: grid;
+	margin: 0 auto;
+}
+
+#header-container #usuario-login .datos .campad{
+	font-size: 13px;
+}
+
 #header-container #usuario-login:hover{
 	background-color: #23303D;
 	border-left: .3rem solid #2DBD8D;

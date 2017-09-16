@@ -1,42 +1,60 @@
-.row-fluid
-  .col-md-10.offset-md-4
+extends ../layout
+
+block content
+  #contenido.cont-ingreso.container.col-lg-10.col-md-12
     .panel.panel-default
       .panel-heading
-        h1= 'Registrar Usuarios'
+        .row.form-group
+          h2= 'Registrar Usuarios'
       .panel-body
         form(action='/auth/signup' method='post' autocomplete='off')#ingreso-form
-          .form-group.row
-            label.col-2.col-form-label(for='usuario')= 'Usuario'
-            .col-10
+          .row.form-group
+            .col-md-2
+              label.col-2.col-form-label(for='usuario')= 'USUARO'
+            .col-md-6
               input(type='text' name='usuario' id='usuario' placeholder='Usuario').form-control
-          .form-group.row
-            label.col-2.col-form-label(for='nombre')= 'Nombre'
-            .col-10
+          .row.form-group
+            .col-md-2
+              label.col-2.col-form-label(for='nombre')= 'NOMBRE'
+            .col-md-6
               input(type='text' name='nombre' id='nombre' placeholder='Nombre').form-control
-          .form-group.row
-            label.col-2.col-form-label(for='cargo')= 'Cargo'
-            .col-10
+          .row.form-group
+            .col-md-2
+              label.col-2.col-form-label(for='cargo')= 'CARGO'
+            .col-md-6
               input(type='text' name='cargo' id='cargo' placeholder='Cargo').form-control
-          .form-group.row
-            label.col-2.col-form-label(for='Campaña')= 'Campaña'
-            .col-10
-              input(type='text' name='campaña' id='campaña' placeholder='Campaña').form-control
-          .form-group.row
-            label.col-2.col-form-label(for='perfil')= 'Perfil'
-            .col-10
+          .row.form-group
+            .col-md-2
+              label.col-2.col-form-label(for='Campaña')= 'CAMPAÑA'
+            .col-md-6
+              select(name='campaign')#select-campaign.form-control
+                for val in consulta1
+                  option(value=val.id_campaign)= val.nombre_campaign
+          .row.form-group
+            .col-md-2
+              label.col-2.col-form-label(for='sede')= 'SEDE'
+            .col-md-6
+              select(name='sede')#select-sede.form-control
+                for val in consulta0
+                  option(value=val.id_sede)= val.nombre_sede
+          .row.form-group
+            .col-md-2
+              label.col-2.col-form-label(for='perfil')= 'PERFIL'
+            .col-md-6
               select(name='perfil')#select-cargo.form-control
                 option(value=' ')= 'Seleccione el perfil de Usuario'
                 option(value=1)= 'Administrador'
                 option(value=2)= 'Soporte'
                 option(value=3)= 'Responsable Campaña'
                 option(value=4)= 'Consultas'
-          .form-group.row
-            label.col-2.col-form-label(for='password')= 'Password'
-            .col-10
+          .row.form-group
+            .col-md-2
+              label.col-2.col-form-label(for='password')= 'PASSWORD'
+            .col-md-6
               input(type='password' name='password' id='password' placeholder='password').form-control
-          button(type='submit').btn.btn-primary= 'Registrese'
-      a(href='/', style=' text-decoration: none;')
-        button.btn-outline-info Volver al Inicio
+          .row.form-group
+            .col-md-3
+              button(type='submit').btn.btn-primary= 'Registrese'
 
 link(rel='stylesheet', href='/stylesheets/bootstrap-flex.min.css')
 link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')

@@ -40,7 +40,8 @@
 #items .row,
 #sedes .row,
 #bodegas .row,
-#puestos .row{
+#puestos .row,
+#campanas .row{
 	margin: .5em 0;
 }
 

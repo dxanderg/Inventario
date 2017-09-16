@@ -1,14 +1,37 @@
 var mysql = require('mysql')
+var async = require('async')
 var bcrypt = require('bcryptjs')
 
 module.exports = {
 
 	getSignUp: function(req, res, next){
-		return res.render('users/Signup')
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		var consulta0 = null
+		var consulta1 = null
+
+		async.parallel([
+			function(callback) { db.query(`SELECT * FROM sedes
+																		ORDER BY nombre_sede`, function(err, rows, fields){
+					if(err) throw err
+					consulta0 = rows
+					callback()
+	      })
+  		},
+  		function(callback) { db.query(`SELECT * FROM campaign
+  																	ORDER BY nombre_campaign`, function(err, rows, fields){
+					if(err) throw err
+					consulta1 = rows
+					callback()
+	      })
+		}], function(err, results) {
+  		return res.render('users/Signup', {consulta0 : consulta0, consulta1 : consulta1})
+		})
 	},
 
 	postSignUp: function(req, res, next){
-		console.log('adentro')
 		var salt = bcrypt.genSaltSync(10)
 		var password = bcrypt.hashSync(req.body.password, salt)
 
@@ -16,17 +39,14 @@ module.exports = {
 			nombre_usuario: req.body.usuario,
 			cargo_usuario: req.body.cargo,
 			pass_usuario: password,
-			fk_sede: '1',
-			fk_campaign: '9',
+			fk_sede: req.body.sede,
+			fk_campaign: req.body.campaign,
 			nombre_mostrar: req.body.nombre,
 			perfil_usuario: req.body.perfil
 		}
-		console.log(user)
 
 		var config = require('.././database/config')
-
 		var db = mysql.createConnection(config)
-
 		db.connect()
 
 		db.query('INSERT INTO usuarios SET ?', user, function(err, row, fields){

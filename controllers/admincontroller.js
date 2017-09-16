@@ -206,6 +206,27 @@ module.exports = {
 			db.end()
 		})
 	},
+	postCampana: function(req, res, next){
+		var insertCampana = {
+			CECO : req.params.val1,
+			nombre_campaign : req.params.val2,
+			cliente_campaign : req.params.val3
+		}
+
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		db.query('INSERT INTO campaign SET ? ', insertCampana, function(err, rows, fields){
+			if(err) {
+				res.send({title: 'Error!', info: 'Se produjo un error al ingresar la Campaña!', error: err, status: 400})
+			}
+			else{
+				res.send({title: 'Exito!', info: 'Se creo la Campaña correctamente!', status: 200})
+			}
+			db.end()
+		})
+	},
 	apiBodega : function(req, res, next){
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)
