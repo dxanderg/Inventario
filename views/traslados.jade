@@ -3,7 +3,7 @@ extends layout
 block content
   // Contenido Derecha
   // Contenido Derecha
-  #contenido.cont-ingreso.container.col-lg-10.col-md-12
+  #contenido.container.col-lg-10.col-md-12
     form#ingreso-form.form-horizontal(method='post', action='../CrearTraslado')
       .form-title
         h2 Traslados de Activos
@@ -17,7 +17,7 @@ block content
       #tabla_traslados.container.tablas
         .row.clearfix
           .col-md-12.column
-            table#tab_logic.table.table-bordered.table-hover
+            table#tab_logic.table.table-bordered.table-hover.table-sm
               thead.table-head.thead-inverse
                 tr
                   th.text-center
@@ -56,12 +56,12 @@ block content
   // Contenido Derecha
 
 append footer
-  //- link(rel='stylesheet', href='/stylesheets/multi-select.css')
   //- link(rel='stylesheet', href='/stylesheets/dropdown.css')
   //- link(rel='stylesheet', href='/stylesheets/loader.css')
   script(src='/javascripts/api.js')
   script(src='/javascripts/app.js')
   script(src='/javascripts/bootstrapvalidator.js')
   script(src='/javascripts/validacion-traslados.js')
-  //- script(src='/javascripts/multi-select.js')
+  link(rel='stylesheet', href='/stylesheets/multi-select.css')
+  script(src='/javascripts/multi-select.js')
   

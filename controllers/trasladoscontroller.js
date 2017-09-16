@@ -106,28 +106,28 @@ module.exports = {
 	},
 	postNuevoTraslado : function(req, res, next){
 
-		var fechaActual = new Date()
-		var fechaA = dateFormat(fechaActual, 'yyyy-mm-dd')
+		// var fechaActual = new Date()
+		// var fechaA = dateFormat(fechaActual, 'yyyy-mm-dd')
 
-		var a = req.body.indice
-		var result = a.map(function (x) {
-		    return parseInt(x); 
-		})
+		// var a = req.body.indice
+		// var result = a.map(function (x) {
+		//     return parseInt(x); 
+		// })
 
-		function getMaxOfArray(numArray) {
-		  return Math.max.apply(null, numArray);
-		}
+		// function getMaxOfArray(numArray) {
+		//   return Math.max.apply(null, numArray);
+		// }
 
-		var indice = getMaxOfArray(result)
-		console.log(indice)
+		// var indice = getMaxOfArray(result)
+		// console.log(indice)
 
-		var sql = "INSERT INTO movimientos (ori_puestoId, ori_campana, dest_puestoId, dest_campana, ticket, fecha_mov, fk_usuario, fk_articulos ) VALUES ?";
-		var values = []
-		for (i=1; i==4; i++){
-	    values.push(req.body['posicionI-'+i], 9, req.body['posicionF-'+i], 2, req.body.ticket, fechaA, req.user.id, req.body['articuloI-'+i])
-	  }
+		// var sql = "INSERT INTO movimientos (ori_puestoId, ori_campana, dest_puestoId, dest_campana, ticket, fecha_mov, fk_usuario, fk_articulos ) VALUES ?";
+		// var values = []
+		// for (i=1; i==4; i++){
+	 //    values.push(req.body['posicionI-'+i], 9, req.body['posicionF-'+i], 2, req.body.ticket, fechaA, req.user.id, req.body['articuloI-'+i])
+	 //  }
 
-		console.log(values)
+		console.log(req.body)
 		
 		// var Query = InsertQuery({
 		//   table: 'movimientos',
@@ -149,19 +149,19 @@ module.exports = {
 		//   ]
 		// })
 
-		var config = require('.././database/config')
-		var db = mysql.createConnection(config)
-		db.connect()
+		// var config = require('.././database/config')
+		// var db = mysql.createConnection(config)
+		// db.connect()
 
-		db.query(sql, [values], function(err, rows, fields){
-			if(err) {
-				res.render('newmovmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el movimiento!', error: err})
-				console.log(err)//throw err
-			}
-			else{
-				res.render('newmovmodal', {title: 'Exito!', info: 'Movimiento Registrado con Correctamente!'})	
-			}
-			db.end()
-		})
+		// db.query(sql, [values], function(err, rows, fields){
+		// 	if(err) {
+		// 		res.render('newmovmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el movimiento!', error: err})
+		// 		console.log(err)//throw err
+		// 	}
+		// 	else{
+		// 		res.render('newmovmodal', {title: 'Exito!', info: 'Movimiento Registrado con Correctamente!'})	
+		// 	}
+		// 	db.end()
+		// })
 	}
 }

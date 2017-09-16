@@ -50,13 +50,14 @@ function consultarArticulos(val, id, pos){
       contentType: 'application/json',
       success: function(response) {
         var selectItems = $(pos + id);
-          selectItems.html('');
-          for(i=0; i<response.data.length; i++){
-          	var opt = document.createElement('option');
-          	opt.value = response.data[i].id_articulos;
-          	opt.innerHTML = response.data[i].nombre_item + ' ' + response.data[i].plaqueta_art;
-          	selectItems.append(opt);
-          }
+        selectItems.html('');
+        for(i=0; i<response.data.length; i++){
+        	var opt = document.createElement('option');
+        	opt.value = response.data[i].id_articulos;
+        	opt.innerHTML = response.data[i].nombre_item + ': ' + response.data[i].plaqueta_art;
+        	selectItems.append(opt);
+        }
+        renderSelects(selectItems)
       }
     })
 }
@@ -109,4 +110,12 @@ function bloquearSelect(i){
 	$('#itemI-' + i).attr('disabled', '')
 	$('#puestoF-' + i).attr('disabled', '')
 	$('#itemF-' + i).attr('disabled', '')
+}
+
+
+function renderSelects(ev){
+	setTimeout(function(){ $(ev).multiselect({
+		maxHeight: 200,
+		buttonWidth: '150px'
+	}) }, 10);
 }

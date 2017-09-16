@@ -8,14 +8,14 @@ $(document).ready(function(){
                       <input type="hidden" name="indice" id="indexRow`+ i + `" value="`+ i + `" />
                         <td>
                           <section>
-                            <select name="ubicacionI-` + i + `" id="itembodegaI-` + i + `" class="form-control selectUbicacion">
+                            <select name="ubicacionI-` + i + `" id="itembodegaI-` + i + `" class="form-control-sm selectUbicacion">
                               <option value=" ">Bodega Inicio</option>
                             </select>
                           </section>
                         </td>
                         <td>
                           <section>
-                            <select name="posicionI-` + i + `" id="puestoI-` + i + `" class="form-control selectPuesto">
+                            <select name="posicionI-` + i + `" id="puestoI-` + i + `" class="form-control-sm selectPuesto ">
                               <option value=" ">Puesto Inicio</option>
                             </select>
                           </section>
@@ -23,7 +23,7 @@ $(document).ready(function(){
                         <td>
                           <div id="select-list">
                             <div>
-                              <select name="articuloI-` + i + `" id="itemI-` + i + `" class="form-control selectItem">
+                              <select size="1" name="articuloI-` + i + `" id="itemI-` + i + `" class="form-control-sm selectItem multiples" multiple="multiple">
                                 <option value=" ">Item Inicio</option>
                               </select>
                             </div>
@@ -32,14 +32,14 @@ $(document).ready(function(){
                         <td><i class="fa fa-arrows-h"></i></td>
                         <td>
                           <section>
-                            <select name="ubicacionF-` + i + `" id="itembodegaF-` + i + `" class="form-control selectUbicacion">
+                            <select name="ubicacionF-` + i + `" id="itembodegaF-` + i + `" class="form-control-sm selectUbicacion">
                               <option value=" ">Bodega Destino</option>
                             </select>
                           </section>
                         </td>
                         <td>
                           <section>
-                            <select name="posicionF-` + i + `" id="puestoF-` + i + `" class="form-control selectPuesto">
+                            <select name="posicionF-` + i + `" id="puestoF-` + i + `" class="form-control-sm selectPuesto">
                               <option value=" ">Puesto Destino</option>
                             </select>
                           </section>
@@ -47,7 +47,7 @@ $(document).ready(function(){
                         <td>
                           <div id="select-list">
                             <div>
-                              <select name="articuloF-` + i + `" id="itemF-` + i + `" class="form-control selectItem">
+                              <select size="1" name="articuloF-` + i + `" id="itemF-` + i + `" class="form-control-sm selectItem multiples" multiple="multiple">
                                 <option value=" ">Item a Cambiar</option>
                               </select>
                             </div>
@@ -62,11 +62,14 @@ $(document).ready(function(){
     i++;
   });
 
-
+  var $tbody = $("#tab_logic tbody")
   $("#delete_row").click(function(){
-    if(i>1){
-      $("#addr"+(i-1)).html('');
-      i--;
+    var $last = $tbody.find('tr:last');
+    if($last.is(':first-child')){
+        alert('Ultimo Registro.')
+    }else {
+        $last.remove()
+        i--
     }
   });
 
