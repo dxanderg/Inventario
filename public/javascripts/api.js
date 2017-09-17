@@ -114,8 +114,13 @@ function bloquearSelect(i){
 
 
 function renderSelects(ev){
+	$(ev).multiselect('destroy')
 	setTimeout(function(){ $(ev).multiselect({
 		maxHeight: 200,
 		buttonWidth: '150px'
 	}) }, 10);
 }
+
+$('#prueba').click(function(){
+	$("#confirmTraslado").modal()
+})

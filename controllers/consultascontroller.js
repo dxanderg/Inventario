@@ -47,7 +47,7 @@ module.exports = {
 		var consulta7 = null
 
 		async.parallel([
-  		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo FROM inventario_digitex.items
+  		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo FROM items
 						JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY b.nombre_fabricante, nombre_item `, function(err, rows, fields){
 					if(err) throw err
 					consulta1 = rows

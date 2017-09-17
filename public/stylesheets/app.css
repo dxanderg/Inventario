@@ -422,3 +422,29 @@ select.form-control:not([size]):not([multiple]){
     	width: 180px;
     }
 } 
+
+/*Estilos para los mensages de Verificacion de Datos */
+#ingreso-form .alert-danger{
+    padding: .3em 1em;
+    border-radius: 10px;
+    /*font-weight: bold;*/
+    font-size: 14px;
+    user-select: none;
+    color: white;
+    background-color: #D9534F;
+}
+
+#ingreso-form .alert-danger:before{ 
+   content: '\f00d';
+   font-family: FontAwesome;
+   font-weight: bolder;
+   font-style: normal;
+   margin:10px 0px 0px 0px;
+   padding-right: .5em;
+   text-decoration:none;
+}
+
+#ticket_campo .row{
+	margin-bottom: .3em;
+}
+/*Estilos para los mensages de Verificacion de Datos */

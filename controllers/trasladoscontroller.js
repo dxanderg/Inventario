@@ -65,14 +65,14 @@ module.exports = {
 		db.connect()
 
 		async.parallel([
-  		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item FROM inventario_digitex.items
+  		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item FROM items
 						JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY nombre_item `, function(err, rows, fields){
 					if(err) throw err
 					consulta1 = rows
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM inventario_digitex.items
+  		function(callback) { db.query(`SELECT * FROM items
 																		GROUP BY nombre_item`, function(err, rows, fields){
 					if(err) throw err
 					consulta2 = rows
@@ -106,28 +106,17 @@ module.exports = {
 	},
 	postNuevoTraslado : function(req, res, next){
 
-		// var fechaActual = new Date()
-		// var fechaA = dateFormat(fechaActual, 'yyyy-mm-dd')
-
-		// var a = req.body.indice
-		// var result = a.map(function (x) {
-		//     return parseInt(x); 
-		// })
-
-		// function getMaxOfArray(numArray) {
-		//   return Math.max.apply(null, numArray);
-		// }
-
-		// var indice = getMaxOfArray(result)
-		// console.log(indice)
+		var fechaActual = new Date()
+		var fechaA = dateFormat(fechaActual, 'yyyy-mm-dd')
+		var indice = req.body.indice.length
 
 		// var sql = "INSERT INTO movimientos (ori_puestoId, ori_campana, dest_puestoId, dest_campana, ticket, fecha_mov, fk_usuario, fk_articulos ) VALUES ?";
 		// var values = []
-		// for (i=1; i==4; i++){
+		// for (i=1; i==indice; i++){
 	 //    values.push(req.body['posicionI-'+i], 9, req.body['posicionF-'+i], 2, req.body.ticket, fechaA, req.user.id, req.body['articuloI-'+i])
 	 //  }
 
-		console.log(req.body)
+		console.log(req.body)		
 		
 		// var Query = InsertQuery({
 		//   table: 'movimientos',

@@ -62,6 +62,9 @@ $(document).ready(function(){
     i++;
   });
 
+  //Añade las primera fila 
+  $("#add_row").click()
+
   var $tbody = $("#tab_logic tbody")
   $("#delete_row").click(function(){
     var $last = $tbody.find('tr:last');
@@ -73,27 +76,10 @@ $(document).ready(function(){
     }
   });
 
+
+
 });
 //-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
 
-//Scrip de Dropdown Seleccion multiple.
-// $(function multiseleccion() {
-//   var num = 1
-//   $('#list-activosi'+num).multiselect({
-//     includeSelectAllOption: true
-//   });
-//   $('#list-activosf'+num).multiselect({
-//     includeSelectAllOption: true
-//   });
-//   num += 1
-//   // $('#btnSelected').click(function () {
-//   //   var selected = $("#list-activos option:selected");
-//   //   var message = "";
-//   //   selected.each(function () {
-//   //     message += $(this).text() + " " + $(this).val() + "\n";
-//   //   });
-//   //   alert(message);
-//   // });
-// });

@@ -7,11 +7,12 @@ block content
     form#ingreso-form.form-horizontal(method='post', action='../CrearTraslado')
       .form-title
         h2 Traslados de Activos
-      #ticket_campo.container
-        .row.clearfix
+      #ticket_campo.container.form-group
+        .row
           .input-group
-            span#sizing-addon1.input-group-addon Ticket
-            input.form-control(type='text', placeholder='Ingrese el numero de la peticion', aria-describedby='sizing-addon1', name='ticket')
+            span#sizing-addon1.input-group-addon.col-md-1 Ticket
+            input.form-control.col-md-3(type='text', placeholder='Ingrese el numero de la peticion', aria-describedby='sizing-addon1', name='ticket')
+            button#prueba PRUEBA
       // Tabla de Registro de Movimientos
       .loader
       #tabla_traslados.container.tablas
@@ -53,15 +54,26 @@ block content
         .col-md-2
           a(href='../Traslados', style='text-decoration: none;')
             button(type='button').div-button-danger.btn.btn-primary.btn-block Limpiar
+  #confirmTraslado.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Modal title
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body
+          | ...
+        .modal-footer
+          button#cancel.btn.btn-danger(type='button', data-dismiss='modal') Cancelar
+          button#confirm.btn.btn-success(type='button') Confirmar
   // Contenido Derecha
 
 append footer
-  //- link(rel='stylesheet', href='/stylesheets/dropdown.css')
-  //- link(rel='stylesheet', href='/stylesheets/loader.css')
   script(src='/javascripts/api.js')
   script(src='/javascripts/app.js')
   script(src='/javascripts/bootstrapvalidator.js')
   script(src='/javascripts/validacion-traslados.js')
   link(rel='stylesheet', href='/stylesheets/multi-select.css')
   script(src='/javascripts/multi-select.js')
+  //- script(src='/javascripts/formTraslados.js')
   

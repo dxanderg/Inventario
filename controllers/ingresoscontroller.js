@@ -15,7 +15,7 @@ module.exports = {
 		var userCampana = res.locals.currentuser.campaña
 
 		async.parallel([
-			function(callback) { db.query(`SELECT * FROM inventario_digitex.tipo_item
+			function(callback) { db.query(`SELECT * FROM tipo_item
 																		ORDER BY nombre_item`, function(err, rows, fields){
 					if(err) throw err
 					consulta0 = rows
@@ -88,7 +88,7 @@ module.exports = {
 		var consulta1 = null
 
 		db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo 
-						FROM inventario_digitex.items
+						FROM items
 						JOIN fabricante b ON fk_fabricante = b.id_fabricante 
 						WHERE activo = 1 AND tipo = ?
 						ORDER BY b.nombre_fabricante, nombre_item, modelo_item`, id, function(err, rows, fields){

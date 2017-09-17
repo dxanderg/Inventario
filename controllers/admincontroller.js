@@ -19,14 +19,14 @@ module.exports = {
 		var userCampana = res.locals.currentuser.campaña
 
 		async.parallel([
-			function(callback) { db.query(`SELECT * FROM inventario_digitex.fabricante
+			function(callback) { db.query(`SELECT * FROM fabricante
 																		order by id_fabricante`, function(err, rows, fields){
 					if(err) throw err
 					consulta0 = rows
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM inventario_digitex.tipo_item
+  		function(callback) { db.query(`SELECT * FROM tipo_item
 																		order by idtipo_item`, function(err, rows, fields){
 					if(err) throw err
 					consulta1 = rows
@@ -41,13 +41,13 @@ module.exports = {
 					callback()
 	      })
 			},
-			function(callback) { db.query(`SELECT * FROM inventario_digitex.sedes`, function(err, rows, fields){
+			function(callback) { db.query(`SELECT * FROM sedes`, function(err, rows, fields){
 						if(err) throw err
 						consulta3 = rows
 						callback()
 		      })
 			},
-			function(callback) { db.query(`SELECT b.id_bodega, b.nombre_bodega, b.fk_sede, s.nombre_sede FROM inventario_digitex.bodegas b
+			function(callback) { db.query(`SELECT b.id_bodega, b.nombre_bodega, b.fk_sede, s.nombre_sede FROM bodegas b
 																		JOIN sedes s ON s.id_sede = b.fk_sede
 																		ORDER BY s.nombre_sede, b.nombre_bodega`, function(err, rows, fields){
 							if(err) throw err
@@ -55,13 +55,13 @@ module.exports = {
 							callback()
 			      })
 			},
-			function(callback) { db.query(`SELECT * FROM inventario_digitex.puestos`, function(err, rows, fields){
+			function(callback) { db.query(`SELECT * FROM puestos`, function(err, rows, fields){
 							if(err) throw err
 							consulta5 = rows
 							callback()
 			      })
 			},
-			function(callback) { db.query(`SELECT * FROM inventario_digitex.campaign
+			function(callback) { db.query(`SELECT * FROM campaign
 																		ORDER BY CECO`, function(err, rows, fields){
 								if(err) throw err
 								consulta6 = rows
