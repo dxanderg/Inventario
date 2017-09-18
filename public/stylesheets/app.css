@@ -395,6 +395,12 @@ select.form-control:not([size]):not([multiple]){
   transition: all .3s ease;
 }
 
+@media (min-width: 544px){
+	.modal-dialog{
+		max-width: 1000px;
+	}	
+}
+
 
 @media screen and (max-width: 500px) {   
     #title2{

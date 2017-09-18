@@ -121,6 +121,56 @@ function renderSelects(ev){
 	}) }, 10);
 }
 
-$('#prueba').click(function(){
+$('#confirmTraslado').on('show.bs.modal', function(e) {
+		//Titulo
+    var tck = document.getElementById('ticket').value
+    $('#modalTitle').html( "Movimientos Ticket " + tck);
+
+    $('#tableModal').append(`<thead class="table-head thead-inverse">
+														  <tr>
+														    <th class="text-center">N°</th>
+														    <th class="text-center">Bodega</th>
+														    <th class="text-center">Puesto</th>
+														    <th class="text-center">Activo</th>
+														    <th class="text-center"><i class="fa fa-arrows-h"></i></th>
+														    <th class="text-center">Bodega</th>
+														    <th class="text-center">Puesto</th>
+														    <th class="text-center">Activo</th>
+														  </tr>`);
+
+    //Cuerpo
+    var indexRow = document.getElementsByName('indice').length
+    for (i=1; i<=indexRow; i++){
+    	$('#tableModal').append(`<tr class="addr" id="addr` + i + `">
+                      <td class="table_number">` + i + `</td>
+                      <input type="hidden" name="indice" id="indexRow`+ i + `" value="`+ i + `" />
+                        <td>
+                        	<label>` + i + `</label>
+                        </td>
+                        <td>
+                        	<label>` + i + `</label>
+                        </td>
+                        <td>
+                        	<label>` + i + `</label>
+                        </td>
+                        <td><i class="fa fa-arrows-h"></i></td>
+                        <td>
+                        	<label>` + i + `</label>
+                        </td>
+                        <td>
+                        	<label>` + i + `</label>
+                        </td>
+                        <td>
+                        	<label>` + i + `</label>
+                        </td>
+                        </tr>`);
+    }
+});
+
+$('#cancel').click(function(){
+	$('#tableModal').empty()
+})
+
+$('#traslado').click(function(){
 	$("#confirmTraslado").modal()
 })

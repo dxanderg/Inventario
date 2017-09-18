@@ -11,8 +11,7 @@ block content
         .row
           .input-group
             span#sizing-addon1.input-group-addon.col-md-1 Ticket
-            input.form-control.col-md-3(type='text', placeholder='Ingrese el numero de la peticion', aria-describedby='sizing-addon1', name='ticket')
-            button#prueba PRUEBA
+            input#ticket.form-control.col-md-3(type='text', placeholder='Ingrese el numero de la peticion', aria-describedby='sizing-addon1', name='ticket')
       // Tabla de Registro de Movimientos
       .loader
       #tabla_traslados.container.tablas
@@ -50,22 +49,23 @@ block content
       // Tabla de Registro de Movimientos
       .button-container.form-group.row
         .col-md-2
-          button(type='submit')#traslado.div-button.btn.btn-primary.btn-block Registrar
+          button(type='button')#traslado.div-button.btn.btn-primary.btn-block Registrar
         .col-md-2
           a(href='../Traslados', style='text-decoration: none;')
             button(type='button').div-button-danger.btn.btn-primary.btn-block Limpiar
-  #confirmTraslado.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
-    .modal-dialog(role='document')
-      .modal-content
-        .modal-header
-          h5#exampleModalLabel.modal-title Modal title
-          button.close(type='button', data-dismiss='modal', aria-label='Close')
-            span(aria-hidden='true') ×
-        .modal-body
-          | ...
-        .modal-footer
-          button#cancel.btn.btn-danger(type='button', data-dismiss='modal') Cancelar
-          button#confirm.btn.btn-success(type='button') Confirmar
+      #confirmTraslado.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true', data-backdrop='static', data-keyboard='false')
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-header
+              h5#modalTitle.modal-title 
+              //- button.close(type='button', data-dismiss='modal', aria-label='Close')
+              //-   span(aria-hidden='true') ×
+            .modal-body
+              table#tableModal.table.table-bordered.table-sm
+                thead.table-head.thead-inverse
+            .modal-footer
+              button#cancel.btn.btn-danger(type='button', data-dismiss='modal') Cancelar
+              button#confirm.btn.btn-success(type='submit') Confirmar
   // Contenido Derecha
 
 append footer

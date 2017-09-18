@@ -1,5 +1,5 @@
 $('#ingreso-form').submit(function(e) {
-  e.preventDefault();
+  // e.preventDefault();
 	var indice = document.getElementsByName('indice')
   $('#contenido').append(`<div class="modal fade" id="confirmTraslado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">

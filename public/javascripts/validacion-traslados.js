@@ -15,15 +15,6 @@ $(document).ready(function () {
             }
           }
       }
-    },
-    submitHandler: function(form){
-      $("#confirmTraslado").modal()
-      $("#cancel").click(function(){
-        document.getElementById("traslado").disabled = false
-      })
-      $('#confirm').click(function(){
-        form.submit()
-      })
     }
 	})
 })
