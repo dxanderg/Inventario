@@ -29,7 +29,7 @@ $(document).ready(function(){
                             </div>
                           </div>
                         </td>
-                        <td><i class="fa fa-arrows-h"></i></td>
+                        <td><i class="fa fa-arrow-right"></i></td>
                         <td>
                           <section>
                             <select name="ubicacionF-` + i + `" id="itembodegaF-` + i + `" class="form-control-sm selectUbicacion">

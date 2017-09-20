@@ -132,7 +132,7 @@ $('#confirmTraslado').on('show.bs.modal', function(e) {
 														    <th class="text-center">Bodega</th>
 														    <th class="text-center">Puesto</th>
 														    <th class="text-center">Activo</th>
-														    <th class="text-center"><i class="fa fa-arrows-h"></i></th>
+														    <th class="text-center"><i class="fa fa-arrow-right"></i></th>
 														    <th class="text-center">Bodega</th>
 														    <th class="text-center">Puesto</th>
 														    <th class="text-center">Activo</th>
@@ -141,27 +141,38 @@ $('#confirmTraslado').on('show.bs.modal', function(e) {
     //Cuerpo
     var indexRow = document.getElementsByName('indice').length
     for (i=1; i<=indexRow; i++){
+      var itembodegaI = document.getElementById('itembodegaI-'+i)
+      var puestoI = document.getElementById('puestoI-'+i)
+      var itemIAll = $('select[name=articuloI-'+i+'] + .btn-group > .multiselect')
+      var itemI = itemIAll[0].title
+      var itembodegaF = document.getElementById('itembodegaF-'+i)
+      var puestoF = document.getElementById('puestoF-'+i)
+      var itemFAll = $('select[name=articuloF-'+i+'] + .btn-group > .multiselect')
+      var itemF = itemFAll[0].title
+      console.log(itemI)
+      console.log(itemF)
+      // console.log(itemI.options[ itemI.selectedIndex ].text)
     	$('#tableModal').append(`<tr class="addr" id="addr` + i + `">
                       <td class="table_number">` + i + `</td>
                       <input type="hidden" name="indice" id="indexRow`+ i + `" value="`+ i + `" />
                         <td>
-                        	<label>` + i + `</label>
+                        	<label>` + itembodegaI.options[ itembodegaI.selectedIndex ].text + `</label>
                         </td>
                         <td>
-                        	<label>` + i + `</label>
+                        	<label>` + puestoI.options[ puestoI.selectedIndex ].text + `</label>
                         </td>
                         <td>
-                        	<label>` + i + `</label>
+                        	<label>` + itemI + `</label>
                         </td>
-                        <td><i class="fa fa-arrows-h"></i></td>
+                        <td><i class="fa fa-arrow-right"></i></td>
                         <td>
-                        	<label>` + i + `</label>
-                        </td>
-                        <td>
-                        	<label>` + i + `</label>
+                        	<label>` + itembodegaF.options[ itembodegaF.selectedIndex ].text + `</label>
                         </td>
                         <td>
-                        	<label>` + i + `</label>
+                        	<label>` + puestoF.options[ puestoF.selectedIndex ].text + `</label>
+                        </td>
+                        <td>
+                        	<label>` + itemF + `</label>
                         </td>
                         </tr>`);
     }

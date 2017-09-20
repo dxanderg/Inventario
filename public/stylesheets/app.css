@@ -454,3 +454,19 @@ select.form-control:not([size]):not([multiple]){
 	margin-bottom: .3em;
 }
 /*Estilos para los mensages de Verificacion de Datos */
+
+
+/*Estilos para el modal de traslados*/
+#confirmTraslado .modal-body{
+	font-size: 14px;
+}
+
+#confirmTraslado .modal-footer{
+	text-align: center;
+	border-top: 0px solid white;
+}
+
+#confirmTraslado .modal-footer button{
+	margin: 0px 30px;
+}
+/*Estilos para el modal de traslados*/

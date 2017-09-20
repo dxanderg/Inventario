@@ -55,7 +55,10 @@ module.exports = {
 							callback()
 			      })
 			},
-			function(callback) { db.query(`SELECT * FROM puestos`, function(err, rows, fields){
+			function(callback) { db.query(`SELECT p.id_puesto, p.posicion, p.fk_sede, s.nombre_sede, p.fk_bodega, b.nombre_bodega, p.fk_campaign FROM puestos p
+																			JOIN sedes s ON s.id_sede = p.fk_sede
+																			JOIN bodegas b ON b.id_bodega = p.fk_bodega
+																			ORDER BY s.nombre_sede, b.nombre_bodega, p.posicion`, function(err, rows, fields){
 							if(err) throw err
 							consulta5 = rows
 							callback()

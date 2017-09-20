@@ -259,13 +259,15 @@ block content
                   th # ID
                   th Sede
                   th Bodega
+                  th Puesto
                   th Editar
               tbody
                 for val in consulta5
                   tr
                     td=val.id_puesto
+                    td=val.nombre_sede
+                    td=val.nombre_bodega
                     td=val.posicion
-                    td=val.fk_bodega
                     td
                       div
                         a(href='../ModificarArt/'+val.id_fabricante data-tooltip='Modificar' data-inverted data-position='top center')
