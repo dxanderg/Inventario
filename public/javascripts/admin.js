@@ -192,9 +192,9 @@ $('#btn-items').on('click', function(){
     if ($('#item_c1').val().length == 0) { var caracteristica_1 = '-' }
     else{ var caracteristica_1 = $('#item_c1').val() }
     if ($('#item_c2').val().length == 0) { var caracteristica_2 = '-' }
-    else{ var caracteristica_2 = $('#item_c1').val() }
+    else{ var caracteristica_2 = $('#item_c2').val() }
     if ($('#item_c3').val().length == 0) { var caracteristica_3 = '-' }
-    else{ var caracteristica_3 = $('#item_c1').val() }
+    else{ var caracteristica_3 = $('#item_c3').val() }
 
     if (modelo_item.length == 0 || modelo_item_2.length == 0){
       alert('Item no puede estar vacio.')

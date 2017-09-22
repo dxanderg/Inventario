@@ -33,9 +33,9 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT f.nombre_fabricante, id_item, nombre_item, modelo_item, modelo_item_2 FROM items i, fabricante f
+  		function(callback) { db.query(`SELECT f.nombre_fabricante, id_item, nombre_item, modelo_item, modelo_item_2, i.caracteristica_1, i.caracteristica_2, i.caracteristica_3 FROM items i, fabricante f
 																		where f.id_fabricante = i.fk_fabricante
-																		order by nombre_fabricante, nombre_item, modelo_item, modelo_item_2;`, function(err, rows, fields){
+																		order by nombre_fabricante, nombre_item, modelo_item, modelo_item_2`, function(err, rows, fields){
 					if(err) throw err
 					consulta2 = rows
 					callback()

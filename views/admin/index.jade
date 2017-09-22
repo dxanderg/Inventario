@@ -129,6 +129,9 @@ block content
                   th Nombre Item
                   th Modelo Item
                   th Modelo Item 2
+                  th Procesador
+                  th Disco Duro
+                  th Memoria RAM
                   th Editar
               tbody
                 for val in consulta2
@@ -138,6 +141,9 @@ block content
                     td=val.nombre_item
                     td=val.modelo_item
                     td=val.modelo_item_2
+                    td=val.caracteristica_1
+                    td=val.caracteristica_2
+                    td=val.caracteristica_3
                     td
                       div
                         a(href='../ModificarArt/'+val.id_fabricante data-tooltip='Modificar' data-inverted data-position='top center')
