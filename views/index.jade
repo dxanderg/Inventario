@@ -6,35 +6,28 @@ block content
     script.
       ocupacionSede="#{datos}"
       ocupacionSitio="#{datos2}"
-    .row#selectSede.offset-md-4
+      datosUser="#{user.sede}"
+    .row.offset-md-3
       h5 DataSet Actual :    
-      select.h5
-        optgroup(label='Colombia')
-          option DXCO - Ibagué
-          option DXCO - Manizales
-          option DXCO - Bogotá
-          option DXCO - Armenia
-          option DXCO - Cali
-          option DXCO - Medellin
-        optgroup(label='Perú')
-          option DXPE - Lima
-        optgroup(label='Chile')
-          option DXCH - Santiago
-        optgroup(label='Mexico')
-          option DXMX - Mexico DF
+      select#selectSede(name='sedes').h6
+        for val in consulta1
+          if val.id_sede == user.sede
+            option(value=val.id_sede selected='selected')=val.nombre_sede + ' - ' + val.ciudad_sede
+          else
+            option(value=val.id_sede)=val.nombre_sede + ' - ' + val.ciudad_sede
     .col-lg-10.offset-lg-1.col-md-12
         .card
           .card-block
             #regions_div
-    .col-lg-8.col-md-6.offset-lg-2
+    .col-lg-10.col-md-6.offset-lg-1
       .card
         .card-block
-          h4 OCUPACION DXCO SEDE
+          h4#titleChart1= 'OCUPACION ' + user.nsede
           canvas#myDonutChart
     .col-lg-8.col-md-6.offset-lg-2
       .card
         .card-block
-          h4 OCUPACION DXCO SEDE
+          h4#titleChart2= 'OCUPACION ' + user.nsede
           canvas#myBarChart
       //- .col-md-4
       //-   .card
