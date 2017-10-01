@@ -1,0 +1,75 @@
+extends layout
+
+block content
+  #contenido.cont-ingreso.container.col-lg-10.col-md-12
+      form#ingreso-form.form-horizontal(method='post', action='../ActualizarArt')
+        .form-title
+          h2 Formulario de Actualizacion de Articulos
+        .form-group.row.hidden-xs-up
+          for val in consulta7
+            input.form-control(type='text-uppercase', placeholder='ID Articulo', name='id_articulos', value=val.id_articulos)
+        .form-group.row
+          label.col-md-2.col-form-label(for='form-ing-articulo') Articulo
+          .col-md-6
+            select(name='articulo')#select-articulo.form-control
+              for val in consulta7
+                option(value= val.fk_items)= val.nombre_item+" - "+val.nombre_fabricante+" "+val.modelo_item
+              for val in consulta1
+                option(value= val.id_item)= val.nombre_item+" - "+val.nombre_fabricante+" "+val.modelo_item
+        .form-group.row
+          label.col-md-2.col-form-label(for='form-ing-serial') Serial
+          .col-md-6
+            for val in consulta7
+              input.form-control(type='text-uppercase', placeholder='Serial Fabricante', name='serial', value=val.serial_art)
+        .form-group.row
+          label.col-md-2.col-form-label(for='form-ing-plaqueta') Plaqueta
+          .col-md-6
+            for val in consulta7
+              input.form-control(type='text-uppercase', placeholder='Serial Digitex', name='plaqueta', value=val.plaqueta_art)
+        .form-group.row
+          label.col-md-2.col-form-label(for='form-ing-estado') Estado
+          .col-md-6
+            select(name='estado')#select-estado.form-control
+              for val in consulta7
+                option(value=val.id_estados)= val.nombre_estado
+              for val in consulta2
+                option(value=val.id_estados)= val.nombre_estado
+        .form-group.row
+          label.col-md-2.col-form-label(for='form-ing-sede') Sede
+          .col-md-6
+            select(name='sede')#select-sede.form-control
+              for val in consulta7
+                option(value=val.fk_sede)= val.nombre_sede
+                option(value=' ', disabled='') -------------------
+              for val in consulta4
+                option(value=val.id_sede)= val.nombre_sede
+        .form-group.row
+          label.col-md-2.col-form-label(for='form-ing-ubicacion') Ubicacion
+          .col-md-6
+            select.form-control(name='bodega')#select-bodegas
+              for val in consulta7
+                option(value=val.fk_bodega)= val.nombre_bodega
+                option(value=' ', disabled='') -------------------
+              for val in consulta3
+                if sedeUsuario == val.fk_sede
+                  option(value=val.id_bodega)= val.nombre_bodega
+        .form-group.row
+          label.col-md-2.col-form-label(for='form-ing-numpuesto') N° Puesto
+          .col-md-6
+            select.form-control(name='posicion')#select-posiciones
+              for val in consulta7
+                option(value=val.id_puesto)= 'Puesto '+val.posicion
+        .button-container.form-group.row
+          .col-md-2
+            button(type='submit')#btn-registrar.div-button.btn.btn-primary.btn-block Actualizar
+          .col-md-2
+            a(href='../Actualizar', style='text-decoration: none;')
+              button(type='button')#btn-cancelar.div-button-danger.btn.btn-primary.btn-block Cancelar
+      //- if info != undefined
+      //-   p= info
+    // Contenido Derecha
+
+append footer
+  script(src='/javascripts/api-ingresos.js')
+  script(src='/javascripts/validacion.js')
+  script(src='/javascripts/bootstrapvalidator.js')

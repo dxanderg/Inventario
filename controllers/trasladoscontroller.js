@@ -47,7 +47,8 @@ module.exports = {
 		var db = mysql.createConnection(config)
 		db.connect()
 
-		var id = req.user.sede
+		// var id = req.user.sede
+		var id = req.params.id_sede
 		var consulta3 = null
 
 		db.query(`SELECT id_bodega, nombre_bodega, fk_sede FROM bodegas

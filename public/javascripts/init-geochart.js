@@ -21,7 +21,7 @@
         ]);
 
         var options = {
-          colorAxis: {colors: ['#0098D8','#0098D8','#0098D8','#0098D8']},
+          colorAxis: {colors: ['#0098D8','#0098D8','#0098D8','red']},
           datalessRegionColor: '#949494',
           height: 350
         };

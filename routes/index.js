@@ -17,20 +17,23 @@ router.post('/auth/signin', passport.authenticate('local', {
 
 /* Modulos */
 router.get('/', isAuthenticated, controllers.homecontroller.index);
-router.get('/Ingresos', isAuthenticated, isAdmin, controllers.ingresoscontroller.ingresos);
+router.get('/api-chart/:id_sede', isAuthenticated, controllers.homecontroller.apiChart);
+router.get('/Ingresos', isAuthenticated, isSedeAdmin, controllers.ingresoscontroller.ingresos);
 router.post('/CrearArticulo', isAuthenticated, controllers.ingresoscontroller.postNuevoArticulo);
 router.post('/CrearTraslado', isAuthenticated, controllers.trasladoscontroller.postNuevoTraslado);
 router.get('/Traslados', isAuthenticated, controllers.trasladoscontroller.traslados);
 router.get('/Consultas', isAuthenticated, controllers.consultascontroller.consultas);
-router.get('/Actualizar', isAdmin, controllers.consultascontroller.actualizar);
+router.get('/Actualizar', isSedeAdmin, isSedeAdmin, controllers.consultascontroller.actualizar);
 router.get('/ModificarArt/:id', isAuthenticated, controllers.consultascontroller.getModificarArticulo);
+router.get('/ModificarArtGlobal/:id', isAuthenticated, controllers.consultascontroller.getModificarArticulo);
 router.post('/ActualizarArt', isAuthenticated, controllers.consultascontroller.postActualizaArticulo);
 router.get('/Notificaciones', isAuthenticated, controllers.homecontroller.notificaciones);
+router.get('/Actualizar-Global', isAdmin, controllers.consultascontroller.globalinv);
 
 
 router.get('/api-articulos/:id_posicion', isAuthenticated, controllers.trasladoscontroller.apiArticulos);
 router.get('/api-puestos/:id_puesto', isAuthenticated, controllers.trasladoscontroller.apiPuestos);
-router.get('/api-bodegas', isAuthenticated, controllers.trasladoscontroller.apiBodegas);
+router.get('/api-bodegas/:id_sede', isAuthenticated, controllers.trasladoscontroller.apiBodegas);
 router.get('/api-items/:id_item', isAuthenticated, controllers.ingresoscontroller.apiItems);
 
 
@@ -58,6 +61,14 @@ function isAuthenticated(req, res, next) {
 
 function isAdmin(req, res, next) {
   if (req.user.perfil == 1){
+    res.locals.currentuser = req.user
+    return next();
+  }
+  res.redirect('/');
+}
+
+function isSedeAdmin(req, res, next) {
+  if (req.user.perfil == 2 || req.user.perfil == 1){
     res.locals.currentuser = req.user
     return next();
   }

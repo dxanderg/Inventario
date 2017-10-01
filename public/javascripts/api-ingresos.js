@@ -1,4 +1,5 @@
 $(function(){
+  // $('#select-bodegas').prop('disabled', 'disabled')
 
 	$('#select-articulo').on('change', function(){
 	  var val = this.value;
@@ -20,8 +21,9 @@ $(function(){
 
 	$('#select-sede').on('change', function(){
 	  var val = this.value;
+    $('#select-bodegas').prop('disabled', false)
 	  $.ajax({
-      url: '/api-bodegas',
+      url: '/api-bodegas/' + val,
       contentType: 'application/json',
       success: function(response) {
         var selectBodegas = $('#select-bodegas');
