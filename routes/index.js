@@ -1,25 +1,29 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('passport')
+// var passport = require('passport')
 var controllers = require('.././controllers')
+var mysql = require('mysql')
+
 
 /* Autenticacion */
-router.get('/auth/signup', isAdmin, controllers.usercontroller.getSignUp)
-router.post('/auth/signup', controllers.usercontroller.postSignUp)
-router.get('/auth/signin', controllers.usercontroller.getSignIn)
-router.get('/auth/logout', controllers.usercontroller.logout)
-router.post('/auth/signin', passport.authenticate('local', {
-	successRedirect : '/',
-	failureRedirect: '/auth/signin',
-	failureFlash: true
-}))
+// router.get('/auth/signup', isAdmin, controllers.usercontroller.getSignUp)
+// router.post('/auth/signup', controllers.usercontroller.postSignUp)
+// router.get('/auth/signin', controllers.usercontroller.getSignIn)
+// router.get('/auth/logout', controllers.usercontroller.logout)
+// router.post('/auth/signin', auth0, custom_auth, controllers.homecontroller.index)
+
+// router.post('/auth/signin', auth0, passport.authenticate('local', {
+//   successRedirect : '/',
+//   failureRedirect: '/auth/signin',
+//   failureFlash: true
+// }))
 
 
 /* Modulos */
-router.get('/', isAuthenticated, controllers.homecontroller.index);
-router.get('/api-chart/:id_sede', isAuthenticated, controllers.homecontroller.apiChart);
+router.get('/', controllers.homecontroller.index);
+router.get('/api-chart/:id_sede', controllers.homecontroller.apiChart);
 router.get('/Ingresos', isAuthenticated, isSedeAdmin, controllers.ingresoscontroller.ingresos);
-router.post('/CrearArticulo', isAuthenticated, controllers.ingresoscontroller.postNuevoArticulo);
+router.post('/CrearArticulo', isAuthenticated, isSedeAdmin, controllers.ingresoscontroller.postNuevoArticulo);
 router.post('/CrearTraslado', isAuthenticated, controllers.trasladoscontroller.postNuevoTraslado);
 router.get('/Traslados', isAuthenticated, controllers.trasladoscontroller.traslados);
 router.get('/Consultas', isAuthenticated, controllers.consultascontroller.consultas);
@@ -37,7 +41,7 @@ router.get('/api-bodegas/:id_sede', isAuthenticated, controllers.trasladoscontro
 router.get('/api-items/:id_item', isAuthenticated, controllers.ingresoscontroller.apiItems);
 
 
-router.get('/admin/Index', isAuthenticated, isAdmin, controllers.admincontroller.index);
+router.get('/admin/Index', isAdmin, controllers.admincontroller.index);
 router.get('/admin/fabricante/:nombre_fabricante', isAuthenticated, isAdmin, controllers.admincontroller.postFabricante);
 router.get('/admin/tipoitem/:tipoitem', isAuthenticated, isAdmin, controllers.admincontroller.postTipoItem);
 router.get('/admin/items/:val1/:val2/:val3/:val4/:val5/:val6/:val7?/:val8?/:val9?', isAuthenticated, isAdmin, controllers.admincontroller.postItems);
@@ -54,9 +58,9 @@ router.get('*', function(req, res, next){
 function isAuthenticated(req, res, next) {
   if (req.user){
     res.locals.currentuser = req.user
-  	return next();
+    return next();
   }
-  res.redirect('/auth/signin');
+  res.redirect('/');
 }
 
 function isAdmin(req, res, next) {
@@ -74,5 +78,6 @@ function isSedeAdmin(req, res, next) {
   }
   res.redirect('/');
 }
+
 
 module.exports = router;

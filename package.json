@@ -24,7 +24,8 @@
     "mysql-insert-multiple": "^1.0.4",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "serve-favicon": "~2.3.2"
+    "serve-favicon": "~2.3.2",
+    "username": "^3.0.0"
   },
   "devDependencies": {
     "dateformat": "^2.0.0"

@@ -8,6 +8,7 @@ module.exports = {
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)
 		db.connect()
+		console.log(req.user)
 
 		var sedes = null
 		var data = null
@@ -15,7 +16,7 @@ module.exports = {
 		var consulta1 = null
 		var consulta2 = null
 		var userSede = res.locals.currentuser.sede
-		var userCampana = res.locals.currentuser.campaña
+		var userCampana = res.locals.currentuser.campana
 
 		async.parallel([
   		function(callback) { db.query('select c.nombre_campaign, count(puestos.id_puesto) as puestos from puestos join campaign c ON puestos.fk_campaign = c.id_campaign  where puestos.fk_sede = ? group by fk_campaign order by puestos DESC', userSede, function(err, rows, fields){
@@ -45,7 +46,7 @@ module.exports = {
 			res.render('index', {
 				datos : data,
 				datos2 : data2,
-				isAuthenticated: req.isAuthenticated(),
+				// isAuthenticated: req.isAuthenticated(),
 				user: req.user,
 				consulta1 : consulta1,
 				consulta2 : consulta2

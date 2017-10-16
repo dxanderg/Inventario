@@ -13,11 +13,13 @@ html(lang='en')
       .panel-body
         a=' '
         form(action='/auth/signin' method='post' autocomplete='off')
-          .form-group
-            input(type='text' name='username' id='nombre' placeholder='Usuario').form-control
-          .form-group
-            input(type='password' name='password' id='password' placeholder='Password').form-control
+          //- .form-group
+          //-   input(type='text' name='username' id='nombre' placeholder='Usuario').form-control
+          //- .form-group
+          //-   input(type='password' name='password' id='password' placeholder='Password').form-control
           button(type='submit').btn-outline-info.btn-lg.btn-block= 'INGRESAR'
+          //- a ------------------
+          //- button(type='submit', name='dominio').btn-outline-info.btn-lg.btn-block= 'DOMINIO'
       #image.col-lg-3.col-md-4
         img(src='/images/logo-azul_1.png')
 

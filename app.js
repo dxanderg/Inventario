@@ -6,8 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var flash = require('connect-flash')
 var session = require('express-session')
-var passport = require('passport')
-require('./passport/passport')(passport)
+var mysql = require('mysql')
+// var passport = require('passport')
+// require('./passport/passport')(passport)
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -15,6 +16,63 @@ var users = require('./routes/users');
 var app = express();
 
 app.locals.currentuser = {}
+
+app.use(function auth0(req, res, next) {
+    var nodeSSPI = require('node-sspi')
+    var nodeSSPIObj = new nodeSSPI({
+      retrieveGroups: true
+    })
+    nodeSSPIObj.authenticate(req, res, function(err){
+      res.finished || next()
+    })
+  })
+
+app.use(function custom_auth(req, res, next) {
+    var str = req.connection.user
+    var resto = str.split('\\')
+    var usuarioIn = resto[1]
+
+    var config = require('./database/config')
+    var db = mysql.createConnection(config)
+    db.connect()
+
+    var consulta0 = null
+
+    db.query(`SELECT u.id_usuario, u.nombre_usuario, u.pass_usuario, u.nombre_mostrar, u.cargo_usuario, u.fk_sede, s.nombre_sede, u.fk_campaign, c.nombre_campaign, u.perfil_usuario FROM usuarios u 
+            JOIN campaign c ON c.id_campaign = u.fk_campaign
+            JOIN sedes s ON s.id_sede = u.fk_sede
+            WHERE nombre_usuario = ?`, usuarioIn, function(err, rows, fields){
+      if(err) throw err
+
+      db.end()
+
+      if(rows.length > 0){
+        var user = rows[0]
+        var userD = {
+          id: user.id_usuario,
+          usuario: user.nombre_usuario,
+          nombre: user.nombre_mostrar,
+          cargo: user.cargo_usuario,
+          sede: user.fk_sede,
+          nsede: user.nombre_sede,
+          campana: user.fk_campaign,
+          ncampana: user.nombre_campaign,
+          perfil: user.perfil_usuario
+        }
+      
+      res.locals.currentuser = userD
+      req.user = userD
+      return next()
+      }
+      else {
+        // res.status(401).send({message: 'Acceso Denegado!'})
+        res.render('acceso')
+      }
+    })
+  })
+
+
+
 app.use(cookieParser());
 app.use(session({
 	secret: 'Sh3ld0n.2017',
@@ -35,8 +93,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(passport.initialize())
-app.use(passport.session())
+// app.use(passport.initialize())
+// app.use(passport.session())
 
 app.use('/', index);
 app.use('/users', users);

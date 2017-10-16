@@ -38,9 +38,12 @@ html(lang='en')
                   .row.datos
                     a.userd.text-uppercase.hidden-xs-down= currentuser.nombre
                     a.campad.text-uppercase.hidden-xs-down= currentuser.ncampana
+                    a.campad.text-uppercase.hidden-xs-down= currentuser.nsede
                   ul#logout.collapse
                     li
-                      a(href='/auth/logout') Salir
+                      h6= '|  User: ' + currentuser.usuario
+                      h6= '|  Cargo: ' + currentuser.cargo
+                      //- a(href='/auth/logout') Salir
                   b.text-uppercase.hidden-xs-down.fa.fa-fw.fa-caret-right
       // HEADER
       // Menu Escondido
@@ -82,10 +85,10 @@ html(lang='en')
             a(href='../Actualizar-Global')
               i.fa.fa-fw.fa-key
               |  Global Inv
-          li.active
-            a(href='../auth/logout')
-              i.fa.fa-fw.fa-sign-out
-              |  Salir
+          //- li.active
+          //-   a(href='../auth/logout')
+          //-     i.fa.fa-fw.fa-sign-out
+          //-     |  Salir
       // Menu Escondido
       section#detalle
         .container-fluid.delgado
@@ -131,10 +134,10 @@ html(lang='en')
                     a(href='../Actualizar-Global')
                       i.fa.fa-fw.fa-key
                       |  Global Inv
-                  li.active
-                    a(href='../auth/logout')
-                      i.fa.fa-fw.fa-sign-out
-                      |  Salir
+                  //- li.active
+                  //-   a(href='../auth/logout')
+                  //-     i.fa.fa-fw.fa-sign-out
+                  //-     |  Salir
             // Lista Menu Izquierda
             block content
     script(src='/javascripts/jquery.min.js')

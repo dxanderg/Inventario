@@ -6,7 +6,7 @@ block content
     script.
       ocupacionSede="#{datos}"
       ocupacionSitio="#{datos2}"
-      datosUser="#{user.sede}"
+      datosUser="#{locals.user.sede}"
     .row.offset-md-3
       h5 DataSet Actual :    
       select#selectSede(name='sedes').h6

@@ -15,6 +15,9 @@ module.exports = function(passport){
 		passReqToCallback : true
 	}, function(req, username, password, done){
 
+		var str = req.connection.user
+		console.log(str)
+
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)
 		db.connect()
@@ -28,9 +31,7 @@ module.exports = function(passport){
 			db.end()
 
 			if(rows.length > 0){
-				var user = rows[0]
-				if(bcrypt.compareSync(password, user.pass_usuario)){
-					return done(null, {
+				var user = {
 						id: user.id_usuario,
 						usuario: user.nombre_usuario,
 						nombre: user.nombre_mostrar,
@@ -40,11 +41,26 @@ module.exports = function(passport){
 						campana: user.fk_campaign,
 						ncampana: user.nombre_campaign,
 						perfil: user.perfil_usuario
-					})	
 				}
 			}
+
+			// if(rows.length > 0){
+			// 	var user = rows[0]
+			// 	if(bcrypt.compareSync(password, user.pass_usuario)){
+			// 		return done(null, {
+			// 			id: user.id_usuario,
+			// 			usuario: user.nombre_usuario,
+			// 			nombre: user.nombre_mostrar,
+			// 			cargo: user.cargo_usuario,
+			// 			sede: user.fk_sede,
+			// 			nsede: user.nombre_sede,
+			// 			campana: user.fk_campaign,
+			// 			ncampana: user.nombre_campaign,
+			// 			perfil: user.perfil_usuario
+			// 		})	
+			// 	}
+			// }
 			return done(null, false, req.flash('authmessage', 'Usuario o Password Incorrectos'))
 		})
-
 	}))
 }
