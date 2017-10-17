@@ -8,7 +8,6 @@ module.exports = {
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)
 		db.connect()
-		console.log(req.user)
 
 		var sedes = null
 		var data = null

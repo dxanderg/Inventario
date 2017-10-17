@@ -10,7 +10,7 @@ block content
         form(action='/auth/signup' method='post' autocomplete='off')#ingreso-form
           .row.form-group
             .col-md-2
-              label.col-2.col-form-label(for='usuario')= 'USUARO'
+              label.col-2.col-form-label(for='usuario')= 'USUARIO'
             .col-md-6
               input(type='text' name='usuario' id='usuario' placeholder='Usuario').form-control
           .row.form-group
@@ -47,11 +47,6 @@ block content
                 option(value=2)= 'Responsable Sede'
                 option(value=3)= 'Responsable Campaña'
                 option(value=4)= 'Consultas'
-          .row.form-group
-            .col-md-2
-              label.col-2.col-form-label(for='password')= 'PASSWORD'
-            .col-md-6
-              input(type='password' name='password' id='password' placeholder='password').form-control
           .row.form-group
             .col-md-3
               button(type='submit').btn.btn-primary= 'Registrese'

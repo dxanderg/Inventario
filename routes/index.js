@@ -6,8 +6,8 @@ var mysql = require('mysql')
 
 
 /* Autenticacion */
-// router.get('/auth/signup', isAdmin, controllers.usercontroller.getSignUp)
-// router.post('/auth/signup', controllers.usercontroller.postSignUp)
+router.get('/auth/signup', isAdmin, controllers.usercontroller.getSignUp)
+router.post('/auth/signup', isAdmin, controllers.usercontroller.postSignUp)
 // router.get('/auth/signin', controllers.usercontroller.getSignIn)
 // router.get('/auth/logout', controllers.usercontroller.logout)
 // router.post('/auth/signin', auth0, custom_auth, controllers.homecontroller.index)

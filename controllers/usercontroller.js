@@ -32,13 +32,10 @@ module.exports = {
 	},
 
 	postSignUp: function(req, res, next){
-		var salt = bcrypt.genSaltSync(10)
-		var password = bcrypt.hashSync(req.body.password, salt)
 
 		var user = {
 			nombre_usuario: req.body.usuario,
 			cargo_usuario: req.body.cargo,
-			pass_usuario: password,
 			fk_sede: req.body.sede,
 			fk_campaign: req.body.campaign,
 			nombre_mostrar: req.body.nombre,
@@ -54,7 +51,7 @@ module.exports = {
 			db.end()
 		})
 		req.flash('info', 'Se ha registrado correctamente, ya puede ingresar') ///{message: req.flash('info')}
-		return res.redirect('/auth/signin')
+		return res.redirect('/')
 	},
 
 	getSignIn: function(req, res, next){
