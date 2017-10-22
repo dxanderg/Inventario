@@ -25,9 +25,32 @@ app.use(function auth0(req, res, next) {
     nodeSSPIObj.authenticate(req, res, function(err){
       res.finished || next()
     })
-  })
+})
 
-app.use(function custom_auth(req, res, next) {
+app.use(cookieParser());
+app.use(session({
+	secret: 'Sh3ld0n.2017',
+	resave: false,
+	saveUninitialized: false
+}))
+app.use(flash())
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// app.use(passport.initialize())
+// app.use(passport.session())
+
+app.use(function(req, res, next) {
     var str = req.connection.user
     var resto = str.split('\\')
     var usuarioIn = resto[1]
@@ -37,7 +60,7 @@ app.use(function custom_auth(req, res, next) {
     db.connect()
 
     var consulta0 = null
-
+    
     db.query(`SELECT u.id_usuario, u.nombre_usuario, u.nombre_mostrar, u.cargo_usuario, u.fk_sede, s.nombre_sede, u.fk_campaign, c.nombre_campaign, u.perfil_usuario FROM usuarios u 
             JOIN campaign c ON c.id_campaign = u.fk_campaign
             JOIN sedes s ON s.id_sede = u.fk_sede
@@ -71,33 +94,9 @@ app.use(function custom_auth(req, res, next) {
     })
   })
 
-
-
-app.use(cookieParser());
-app.use(session({
-	secret: 'Sh3ld0n.2017',
-	resave: false,
-	saveUninitialized: false
-}))
-app.use(flash())
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use(passport.initialize())
-// app.use(passport.session())
-
 app.use('/', index);
 app.use('/users', users);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -116,5 +115,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

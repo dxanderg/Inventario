@@ -84,7 +84,7 @@ function consultarPuestos(val, id, pos){
 //API request para consultar las bodegas de la sede X
 function consultaBodegas(i){
 	$.ajax({
-    url: '/api-bodegas',
+    url: '/api-bodegas/' + datosUser,
     contentType: 'application/json',
     success: function(response) {
       var selectItems = $('#itembodegaI-' + i);
