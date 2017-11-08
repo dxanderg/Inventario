@@ -4,7 +4,7 @@ block content
   // Contenido Derecha
   #contenido.cont-ingreso.container.col-lg-10.col-md-12
     .form-title
-      h2 Consulta  y Modificación de Activos
+      h2 Ocupación de Puestos por Campaña
     // Formulario de busqueda de registros
     #tabla_consultas.container.tablas.tabla-consulta
       .row.clearfix
@@ -19,25 +19,13 @@ block content
                 th.text-center
                   | Puesto
                 th.text-center
+                  | CECO
+                th.text-center
                   | Campaña
-                th.text-center
-                  | Fabricante
-                th.text-center
-                  | Producto
-                th.text-center
-                  | Modelo
-                th.text-center
-                  | Serial
-                th.text-center
-                  | Plaqueta
                 th.text-center
                   | Editar
             tfoot.table-footer
               tr
-                th
-                th
-                th
-                th
                 th
                 th
                 th
@@ -54,33 +42,36 @@ block content
                   td
                     div=item.posicion
                   td
+                    div=item.CECO
+                  td
                     div=item.nombre_campaign
                   td
-                    div=item.nombre_fabricante
-                  td
-                    div=item.nombre_item
-                  td
-                    div=item.modelo_item
-                  td
-                    div=item.serial_art
-                  td
-                    div=item.plaqueta_art
-                  td
-                    div
-                      a(href='../ModificarArt/'+item.id_articulos data-tooltip='Modificar' data-inverted data-position='top center')
+                    div.editar
+                      a(href='#' data-tooltip='Modificar' data-inverted data-position='top center')
                         i.fa.fa-fw.fa-edit
+          #confirmCampaign.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true', data-backdrop='static', data-keyboard='false')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h5#modalTitle.modal-title Actualizar Campaña de Puesto
+                .modal-body
+                  
+                .modal-footer
+                  button#cancel.btn.btn-danger(type='button', data-dismiss='modal') Cancelar
+                  button#confirm.btn.btn-success(type='submit') Confirmar
     // Formulario de busqueda de registros
   // Contenido Derecha
 
 append footer
   link(rel='stylesheet', href='/stylesheets/pagination.css')
   link(rel='stylesheet', href='/stylesheets/Buttons/buttons.dataTables.min.css')
+  script(src='/javascripts/scriptocupacion.js')  
   script(src='/javascripts/pagination.js')
   script(src='/javascripts/consultas.js')
   script(src='/javascripts/Buttons/dataTables.buttons.min.js')
-  //- script(src='/javascripts/Buttons/buttons.flash.min.js')
-  //- script(src='/javascripts/Buttons/jszip.min.js')
-  //- script(src='/javascripts/Buttons/pdfmake.min.js')
-  //- script(src='/javascripts/Buttons/vfs_fonts.js')
-  //- script(src='/javascripts/Buttons/buttons.html5.min.js')
+  script(src='/javascripts/Buttons/buttons.flash.min.js')
+  script(src='/javascripts/Buttons/jszip.min.js')
+  script(src='/javascripts/Buttons/pdfmake.min.js')
+  script(src='/javascripts/Buttons/vfs_fonts.js')
+  script(src='/javascripts/Buttons/buttons.html5.min.js')
   script(src='/javascripts/Buttons/buttons.print.min.js')

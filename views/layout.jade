@@ -2,7 +2,7 @@ doctype html
 html(lang='en')
   head
     meta(charset='UTF-8')
-    title Sistema Gestion Inventarios
+    title Sistema Gestión Inventarios
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
     link(rel='shorcut icon', href='/images/favicon.ico')
@@ -23,7 +23,7 @@ html(lang='en')
                   h1.display-6
                     | Sistema
                     br
-                    | Gestion
+                    | Gestión
                     br
                     | Inventario
                 #title2
@@ -52,7 +52,7 @@ html(lang='en')
           li
             a(href='/')
               i.fa.fa-fw.fa-dashboard
-              | dashboard
+              | Dashboard
           li
             a(href='../Ingresos')
               i.fa.fa-fw.fa-edit
@@ -64,7 +64,7 @@ html(lang='en')
           li
             a(href='../Consultas')
               i.fa.fa-fw.fa-search
-              |  Colsultas
+              |  Consultas
           li
             a(href='../Actualizar')
               i.fa.fa-fw.fa-pencil
@@ -83,12 +83,12 @@ html(lang='en')
               |  Admin
           li.active
             a(href='../Actualizar-Global')
-              i.fa.fa-fw.fa-key
+              i.fa.fa-fw.fa-globe
               |  Global Inv
-          //- li.active
-          //-   a(href='../auth/logout')
-          //-     i.fa.fa-fw.fa-sign-out
-          //-     |  Salir
+          li.active
+            a(href='../Ocupacion')
+              i.fa.fa-fw.fa-th
+              |  Ocupación
       // Menu Escondido
       section#detalle
         .container-fluid.delgado
@@ -100,7 +100,7 @@ html(lang='en')
                   li
                     a(href='../')
                       i.fa.fa-fw.fa-dashboard
-                      |  dashboard
+                      |  Dashboard
                   li
                     a(href='../Ingresos')
                       i.fa.fa-fw.fa-edit
@@ -112,7 +112,7 @@ html(lang='en')
                   li
                     a(href='../Consultas')
                       i.fa.fa-fw.fa-search
-                      |  Colsultas
+                      |  Consultas
                   li
                     a(href='../Actualizar')
                       i.fa.fa-fw.fa-pencil
@@ -132,12 +132,12 @@ html(lang='en')
                       |  Admin
                   li.active
                     a(href='../Actualizar-Global')
-                      i.fa.fa-fw.fa-key
+                      i.fa.fa-fw.fa-globe
                       |  Global Inv
-                  //- li.active
-                  //-   a(href='../auth/logout')
-                  //-     i.fa.fa-fw.fa-sign-out
-                  //-     |  Salir
+                  li.active
+                    a(href='../Ocupacion')
+                      i.fa.fa-fw.fa-th
+                      |  Ocupación
             // Lista Menu Izquierda
             block content
     script(src='/javascripts/jquery.min.js')

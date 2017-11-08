@@ -33,6 +33,7 @@ router.get('/ModificarArtGlobal/:id', isAuthenticated, controllers.consultascont
 router.post('/ActualizarArt', isAuthenticated, controllers.consultascontroller.postActualizaArticulo);
 router.get('/Notificaciones', isAuthenticated, controllers.homecontroller.notificaciones);
 router.get('/Actualizar-Global', isAdmin, controllers.consultascontroller.globalinv);
+router.get('/Ocupacion', isAuthenticated, controllers.ocupacioncontroller.ocupacion);
 
 
 router.get('/api-articulos/:id_posicion', isAuthenticated, controllers.trasladoscontroller.apiArticulos);
