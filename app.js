@@ -54,6 +54,7 @@ app.use(function(req, res, next) {
     var str = req.connection.user
     var resto = str.split('\\')
     var usuarioIn = resto[1]
+    console.log(str)
 
     var config = require('./database/config')
     var db = mysql.createConnection(config)
