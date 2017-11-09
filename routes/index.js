@@ -40,6 +40,7 @@ router.get('/api-articulos/:id_posicion', isAuthenticated, controllers.traslados
 router.get('/api-puestos/:id_puesto', isAuthenticated, controllers.trasladoscontroller.apiPuestos);
 router.get('/api-bodegas/:id_sede', isAuthenticated, controllers.trasladoscontroller.apiBodegas);
 router.get('/api-items/:id_item', isAuthenticated, controllers.ingresoscontroller.apiItems);
+router.get('/api-ocupacion/:id_puesto', isAuthenticated, controllers.ocupacioncontroller.apiOcupacion);
 
 
 router.get('/admin/Index', isAdmin, controllers.admincontroller.index);

@@ -24,5 +24,25 @@ module.exports = {
 			db.end()
 		res.render('Ocupacion', {consulta1 : consulta1})
 		})
+	},
+	apiOcupacion : function(req, res, next){
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		var id = req.params.id_puesto
+		var consulta1 = null
+
+		db.query(`SELECT p.fk_sede, s.nombre_sede, p.fk_bodega, b.nombre_bodega, p.id_puesto, p.posicion, p.fk_campaign, c.CECO, c.nombre_campaign FROM puestos as p
+							join sedes as s on p.fk_sede = s.id_sede
+							join bodegas as b on p.fk_bodega = b.id_bodega
+							join campaign as c on p.fk_campaign = c.id_campaign
+							where p.id_puesto = ?
+							order by b.nombre_bodega, p.posicion`, id, function(err, rows, fields){
+			if(err) throw err
+			consulta1 = rows
+			db.end()
+		res.send({ data : consulta1})
+		})
 	}
 }

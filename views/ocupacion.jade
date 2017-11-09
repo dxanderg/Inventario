@@ -47,7 +47,7 @@ block content
                     div=item.nombre_campaign
                   td
                     div.editar
-                      a(href='#' data-tooltip='Modificar' data-inverted data-position='top center')
+                      a(href='#' id=item.id_puesto data-tooltip='Modificar' data-inverted data-position='top center')
                         i.fa.fa-fw.fa-edit
           #confirmCampaign.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true', data-backdrop='static', data-keyboard='false')
             .modal-dialog(role='document')
@@ -55,7 +55,9 @@ block content
                 .modal-header
                   h5#modalTitle.modal-title Actualizar Campaña de Puesto
                 .modal-body
-                  
+                  table#tableModal.table.table-bordered.table-hover
+                    tbody
+                      tr
                 .modal-footer
                   button#cancel.btn.btn-danger(type='button', data-dismiss='modal') Cancelar
                   button#confirm.btn.btn-success(type='submit') Confirmar
