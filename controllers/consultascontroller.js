@@ -222,7 +222,24 @@ module.exports = {
 						res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al asignar la ocupacion! (Articulo OK)', error: err})
 					}
 					else{
-						res.render('actuaartmodal', {title: 'Exito!', info: 'Articulo Actualizado Correctamente!'})	
+						var historicoMod = {
+							ori_puestoId : 1,
+							ori_campana :  2,
+							dest_puestoId : 3,
+							dest_campana : 4,
+							ticket : 5,
+							fecha_mov : 6,
+							fk_usuario : 7,
+							fk_articulos : 8
+						}
+						db.query('INSERT INTO movimientos SET ?', historicoMod, function(err, rows, fields){
+							if (err){
+								res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al guardar Historico! (Articulo OK | Ocupacion OK)', error: err})
+							}
+							else{
+								res.render('actuaartmodal', {title: 'Exito!', info: 'Articulo Actualizado Correctamente!'})	
+							}
+						})
 					}
 				})
 			}
