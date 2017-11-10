@@ -102,6 +102,9 @@ $(document).ready(function () {
             },
             notEmpty: {
               message: 'Ingrese el Numero de Ticket '
+            },
+            digits: {
+              message: 'Solo puede contener numeros'
             }
           }
       },

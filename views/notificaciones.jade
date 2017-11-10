@@ -9,56 +9,108 @@ block content
     #buscar_campo.container
       .row.clearfix
         // input-group-lg
-        .input-group
-          span#sizing-addon1.input-group-addon Buscar
-          input.form-control(type='text', placeholder='Ingrese el registro a buscar', aria-describedby='sizing-addon1')
-          span#sizing-addon1.input-group-addon Limpiar
+        .input-group.col-md-10.col-sm-6
+          span.input-group-addon Fecha Inicial
+          input.form-control(type='date', value='2017-01-01')
+          span.input-group-addon Fecha Final
+          input.form-control(type='date', value='2017-12-01')
+          button#btnBuscarH.btn.btn-primary(type='button') Buscar!
+          //- span#sizing-addon1.input-group-addon Buscar
+          //- input.form-control(type='text', placeholder='Ingrese el registro a buscar', aria-describedby='sizing-addon1')
+          //- span#sizing-addon1.input-group-addon Limpiar
     .container
-      .alert.alert-info(role='alert')
-        h4.alert-heading Traslado de Activos
-        p Ticket: 441092
-        p Fecha Realizacion:  22/02/2017
-        p
-          | Se realiza movimiento de Torre puesto 15 de la bodega 4 al puesto 30 de la bodega 3
-        p
-          | Se realiza movimiento de Torre puesto 30 de la bodega 3 al puesto 15 de la bodega 4
-        p.mb-0 Solicitado por el Usuario Carlos Aragon de la campaña Cobranzas BCSC
-      .alert.alert-info(role='alert')
-        h4.alert-heading Ingreso de Activos
-        p Ticket: 451020
-        p Fecha Realizacion:  19/02/2017
-        p Se realiza la creacion en el inventario de 1 Monitor con Plaqueta 012014
-        p El articulo se asigna a la bodega 4 puesto 16 campaña Retencion BCSC
-        p.mb-0 Realizado por el usuario Diego Rodriguez de ServiceDesk
-      .alert.alert-info(role='alert')
-        h4.alert-heading Actualizacion de Activos
-        p Ticket: 451014
-        p Fecha Realizacion:  18/02/2017
-        p se realiza baja del activo Monitor con plaqueta 011201
-        p El monitor tiene la pantalla rota y no da imagen, se cambia estado a Inactivo
-        p.mb-0 Realizado por el usuario Julio Sanchez de ServiceDesk
-      .alert.alert-info(role='alert')
-        h4.alert-heading Traslado de Activos
-        p Ticket: 441092
-        p Fecha Realizacion:  22/02/2017
-        p
-          | Se realiza movimiento de Torre puesto 15 de la bodega 4 al puesto 30 de la bodega 3
-        p
-          | Se realiza movimiento de Torre puesto 30 de la bodega 3 al puesto 15 de la bodega 4
-        p.mb-0 Solicitado por el Usuario Carlos Aragon de la campaña Cobranzas BCSC
-      .card
-        .card-block
-          h4.card-title Traslado de Activos
-          h6.card-subtitle.mb-2.text-muted Ticket: 441058
-          p.card-text Traslado de 4 activos de la bodega 3 a la bodega 4
-          a.card-link(href='#') Card link
-          a.card-link(href='#') Another link
-      .card
-        .card-header
-          | Ticket 445458
-        .card-block
-          h4.card-title Solicitud de Traslado
-          p.card-text With supporting text below as a natural lead-in to additional content.
-          a.btn.btn-primary(href='#') Go somewhere
+      #tabla_consultas.container.tablas.tabla-consulta
+        .row.clearfix
+          .col-md-12.column
+            table#tab_logic.table.table-bordered.table-hover
+              thead.table-head.thead-inverse
+                tr
+                  th.text-center
+                    | ID
+                  th.text-center
+                    | Origen
+                  th.text-center
+                    | Campaña
+                  th.text-center
+                    | Destino
+                  th.text-center
+                    | Ticket
+                  th.text-center
+                    | Fecha
+                  th.text-center
+                    | Usuario
+                  th.text-center
+                    | Estado
+                  th.text-center
+                    | Articulo
+              tfoot.table-footer
+                tr
+                  th
+                  th
+                  th
+                  th
+                  th
+                  th
+                  th
+                  th
+                  th
+              tbody
+                tr#addr0
+                  td
+                    div 1
+                  td
+                    div DXCO IBAGUE / ADMINISTRACION / PUESTO 6
+                  td
+                    div LABORAL
+                  td
+                    div DXCO IBAGUE / LABORAL / PUESTO 1
+                  td
+                    div 449750
+                  td
+                    div 10/11/2017
+                  td
+                    div DAROD01
+                  td
+                    div ACTIVO
+                  td
+                    div CPU 101547
+                tr#addr0
+                  td
+                    div 1
+                  td
+                    div DXCO IBAGUE / BODEGA 2 / PUESTO 3
+                  td
+                    div BCS SAC
+                  td
+                    div DXCO IBAGUE / BODEGA 4 / PUESTO 97
+                  td
+                    div 449750
+                  td
+                    div 10/11/2017
+                  td
+                    div DAROD01
+                  td
+                    div ACTIVO
+                  td
+                    div MONITOR 101547
+                tr#addr0
+                  td
+                    div 1
+                  td
+                    div DXCO IBAGUE / ALMACEN / PUESTO 99
+                  td
+                    div BCS SAC
+                  td
+                    div DXCO IBAGUE / BODEGA 1 /PUESTO 205
+                  td
+                    div 449750
+                  td
+                    div 10/11/2017
+                  td
+                    div DAROD01
+                  td
+                    div ACTIVO
+                  td
+                    div IMPRESORA 101547
     // Formulario de busqueda de registros
   // Contenido Derecha

@@ -2,7 +2,8 @@ extends layout
 
 block content
   // Contenido Derecha
-  // Contenido Derecha
+  script.
+    datosUser="#{user.sede}"
   #contenido.container.col-lg-10.col-md-12
     form#ingreso-form.form-horizontal(method='post', action='../CrearTraslado')
       .form-title

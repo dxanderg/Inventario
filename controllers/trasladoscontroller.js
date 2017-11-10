@@ -64,6 +64,7 @@ module.exports = {
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)
 		db.connect()
+		console.log(req.user)
 
 		async.parallel([
   		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item FROM items
@@ -102,7 +103,7 @@ module.exports = {
 	      })
   		}
 		], function(err, results) {
-  		res.render('Traslados', {consulta1 : consulta1, consulta2 : consulta2, consulta3 : consulta3, consulta4: consulta4, consulta5 : consulta5})
+  		res.render('Traslados', {consulta1 : consulta1, consulta2 : consulta2, consulta3 : consulta3, consulta4: consulta4, consulta5 : consulta5, user: req.user})
 		})
 	},
 	postNuevoTraslado : function(req, res, next){

@@ -210,7 +210,7 @@ module.exports = {
 		db.query('UPDATE articulos SET ? WHERE ? ', [articuloEdit, {id_articulos : req.body.id_articulos}], function(err, rows, fields){
 			if(err) {
 				res.render('actuaartmodal', {title: 'Error!', info: 'Se produjo un error al ingresar el articulo!', error: err})
-				console.log(err)//throw err
+				db.end()
 			}
 			else{
 				var ocupacionMod = {
@@ -220,13 +220,35 @@ module.exports = {
 				db.query('UPDATE ocupacion SET ? WHERE ?', [ocupacionMod, {fk_id_articulos : req.body.id_articulos}], function(err, rows, fields){
 					if (err){
 						res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al asignar la ocupacion! (Articulo OK)', error: err})
+						db.end()
 					}
 					else{
-						res.render('actuaartmodal', {title: 'Exito!', info: 'Articulo Actualizado Correctamente!'})	
+						var historicoMod = {
+							ori_puestoId : req.body.idPosInicial,
+							ori_campana :  req.body.idCampaignInicial,
+							dest_puestoId : req.body.posicion,
+							dest_campana : '0',
+							ticket : req.body.ticket,
+							fecha_mov : fechaA,
+							fk_usuario : res.locals.currentuser.id,
+							fk_articulos : req.body.id_articulos,
+							fk_estados : req.body.estado,
+							plaqueta : req.body.plaqueta,
+							serial : req.body.serial
+						}
+						db.query('INSERT INTO movimientos SET ?', historicoMod, function(err, rows, fields){
+							if (err){
+								res.render('newartmodal', {title: 'Error!', info: 'Se produjo un error al guardar Historico! (Articulo OK | Ocupacion OK)', error: err})
+								db.end()
+							}
+							else{
+								res.render('actuaartmodal', {title: 'Exito!', info: 'Articulo Actualizado Correctamente!'})
+								db.end()
+							}
+						})
 					}
 				})
 			}
-			db.end()
 		})
 	}
 }

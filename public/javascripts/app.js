@@ -76,6 +76,11 @@ $(document).ready(function(){
     }
   });
 
+  $(".form-check-input").change(function(){
+    var f = this
+    alert(f.name)
+  })
+
 
 
 });
