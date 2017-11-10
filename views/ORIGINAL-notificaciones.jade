@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  // Contenido Derecha
+  #contenido.cont-ingreso.container.col-lg-10.col-md-12
+    .form-title
+      h2 Notificaciones
+    // Formulario de busqueda de registros
+    #buscar_campo.container
+      .row.clearfix
+        // input-group-lg
+        .input-group
+          span#sizing-addon1.input-group-addon Buscar
+          input.form-control(type='text', placeholder='Ingrese el registro a buscar', aria-describedby='sizing-addon1')
+          span#sizing-addon1.input-group-addon Limpiar
+    .container
+      .alert.alert-info(role='alert')
+        h4.alert-heading Traslado de Activos
+        p Ticket: 441092
+        p Fecha Realizacion:  22/02/2017
+        p
+          | Se realiza movimiento de Torre puesto 15 de la bodega 4 al puesto 30 de la bodega 3
+        p
+          | Se realiza movimiento de Torre puesto 30 de la bodega 3 al puesto 15 de la bodega 4
+        p.mb-0 Solicitado por el Usuario Carlos Aragon de la campaña Cobranzas BCSC
+      .alert.alert-info(role='alert')
+        h4.alert-heading Ingreso de Activos
+        p Ticket: 451020
+        p Fecha Realizacion:  19/02/2017
+        p Se realiza la creacion en el inventario de 1 Monitor con Plaqueta 012014
+        p El articulo se asigna a la bodega 4 puesto 16 campaña Retencion BCSC
+        p.mb-0 Realizado por el usuario Diego Rodriguez de ServiceDesk
+      .alert.alert-info(role='alert')
+        h4.alert-heading Actualizacion de Activos
+        p Ticket: 451014
+        p Fecha Realizacion:  18/02/2017
+        p se realiza baja del activo Monitor con plaqueta 011201
+        p El monitor tiene la pantalla rota y no da imagen, se cambia estado a Inactivo
+        p.mb-0 Realizado por el usuario Julio Sanchez de ServiceDesk
+      .alert.alert-info(role='alert')
+        h4.alert-heading Traslado de Activos
+        p Ticket: 441092
+        p Fecha Realizacion:  22/02/2017
+        p
+          | Se realiza movimiento de Torre puesto 15 de la bodega 4 al puesto 30 de la bodega 3
+        p
+          | Se realiza movimiento de Torre puesto 30 de la bodega 3 al puesto 15 de la bodega 4
+        p.mb-0 Solicitado por el Usuario Carlos Aragon de la campaña Cobranzas BCSC
+      .card
+        .card-block
+          h4.card-title Traslado de Activos
+          h6.card-subtitle.mb-2.text-muted Ticket: 441058
+          p.card-text Traslado de 4 activos de la bodega 3 a la bodega 4
+          a.card-link(href='#') Card link
+          a.card-link(href='#') Another link
+      .card
+        .card-header
+          | Ticket 445458
+        .card-block
+          h4.card-title Solicitud de Traslado
+          p.card-text With supporting text below as a natural lead-in to additional content.
+          a.btn.btn-primary(href='#') Go somewhere
+    // Formulario de busqueda de registros
+  // Contenido Derecha
