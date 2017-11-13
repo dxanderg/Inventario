@@ -11,10 +11,10 @@ block content
         // input-group-lg
         .input-group.col-md-10.col-sm-6
           span.input-group-addon Fecha Inicial
-          input.form-control(type='date', value='2017-01-01')
+          input#date1.form-control(type='date', value='2017-01-01')
           span.input-group-addon Fecha Final
-          input.form-control(type='date', value='2017-12-01')
-          button#btnBuscarH.btn.btn-primary(type='button') Buscar!
+          input#date2.form-control(type='date', value='2017-12-01')
+          button(type='submit')#btnBuscarH.btn.btn-primary Buscar!
           //- span#sizing-addon1.input-group-addon Buscar
           //- input.form-control(type='text', placeholder='Ingrese el registro a buscar', aria-describedby='sizing-addon1')
           //- span#sizing-addon1.input-group-addon Limpiar
@@ -114,3 +114,5 @@ block content
                     div IMPRESORA 101547
     // Formulario de busqueda de registros
   // Contenido Derecha
+append footer
+  script(src='/javascripts/api-notificaciones.js')
