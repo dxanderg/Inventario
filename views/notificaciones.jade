@@ -2,11 +2,11 @@ extends layout
 
 block content
   // Contenido Derecha
-  #contenido.cont-ingreso.container.col-lg-10.col-md-12
+  #contenido.cont-notificacion.container.col-lg-10.col-md-12
     .form-title
       h2 Notificaciones
     // Formulario de busqueda de registros
-    #buscar_campo.container
+    #buscar_campoNotifica.container
       .row.clearfix
         // input-group-lg
         .input-group.col-md-10.col-sm-6
@@ -15,11 +15,9 @@ block content
           span.input-group-addon Fecha Final
           input#date2.form-control(type='date', value='2017-12-01')
           button(type='submit')#btnBuscarH.btn.btn-primary Buscar!
-          //- span#sizing-addon1.input-group-addon Buscar
-          //- input.form-control(type='text', placeholder='Ingrese el registro a buscar', aria-describedby='sizing-addon1')
-          //- span#sizing-addon1.input-group-addon Limpiar
-    .container
-      #tabla_consultas.container.tablas.tabla-consulta
+          button(type='button')#btnLimpiar.btn.btn-secondary Limpiar!
+    .container.notificaContainer
+      #tabla_notifica.container.tablas.tabla-consulta
         .row.clearfix
           .col-md-12.column
             table#tab_logic.table.table-bordered.table-hover
@@ -28,11 +26,17 @@ block content
                   th.text-center
                     | ID
                   th.text-center
-                    | Origen
+                    | Sede Origen
                   th.text-center
-                    | Campaña
+                    | Ubicacion Origen
                   th.text-center
-                    | Destino
+                    | Puesto Origen
+                  th.text-center
+                    | Sede Destino
+                  th.text-center
+                    | Ubicacion Destino
+                  th.text-center
+                    | Puesto Destino
                   th.text-center
                     | Ticket
                   th.text-center
@@ -43,18 +47,25 @@ block content
                     | Estado
                   th.text-center
                     | Articulo
+                  th.text-center
+                    | Modelo
+                  th.text-center
+                    | Plaqueta
+                  th.text-center
+                    | Serial
+              tbody
     // Formulario de busqueda de registros
   // Contenido Derecha
 append footer
   link(rel='stylesheet', href='/stylesheets/pagination.css')
   link(rel='stylesheet', href='/stylesheets/Buttons/buttons.dataTables.min.css')
+  script(src='/javascripts/pagination.js')
   script(src='/javascripts/api-notificaciones.js')
   //- script(src='/javascripts/notificacionesbusqueda.js')
-  script(src='/javascripts/pagination.js')
-  script(src='/javascripts/Buttons/dataTables.buttons.min.js')
-  script(src='/javascripts/Buttons/buttons.flash.min.js')
-  script(src='/javascripts/Buttons/jszip.min.js')
-  script(src='/javascripts/Buttons/pdfmake.min.js')
-  script(src='/javascripts/Buttons/vfs_fonts.js')
-  script(src='/javascripts/Buttons/buttons.html5.min.js')
-  script(src='/javascripts/Buttons/buttons.print.min.js')
+  //- script(src='/javascripts/Buttons/dataTables.buttons.min.js')
+  //- script(src='/javascripts/Buttons/buttons.flash.min.js')
+  //- script(src='/javascripts/Buttons/jszip.min.js')
+  //- script(src='/javascripts/Buttons/pdfmake.min.js')
+  //- script(src='/javascripts/Buttons/vfs_fonts.js')
+  //- script(src='/javascripts/Buttons/buttons.html5.min.js')
+  //- script(src='/javascripts/Buttons/buttons.print.min.js')
