@@ -50,7 +50,7 @@ module.exports = {
 		if(res.locals.currentuser.perfil == 1){
 			async.parallel([
 	  		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo FROM items
-							JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY b.nombre_fabricante, nombre_item `, function(err, rows, fields){
+							JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY nombre_item, b.nombre_fabricante `, function(err, rows, fields){
 						if(err) throw err
 						consulta1 = rows
 						callback()
@@ -97,7 +97,7 @@ module.exports = {
 		else{
 			async.parallel([
 	  		function(callback) { db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo FROM items
-							JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY b.nombre_fabricante, nombre_item `, function(err, rows, fields){
+							JOIN fabricante b ON fk_fabricante = b.id_fabricante WHERE activo = 1 ORDER BY nombre_item, b.nombre_fabricante`, function(err, rows, fields){
 						if(err) throw err
 						consulta1 = rows
 						callback()

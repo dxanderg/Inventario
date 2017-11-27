@@ -30,11 +30,11 @@ $('#confirmCampaign').on('show.bs.modal', function(e) {
 				var cell5 = row.insertCell(4)
 
       	
-      	cell1.innerHTML = response.data[0].id_puesto
+      	cell1.innerHTML = `<input name="idPuesto" type="hidden" value="`+response.data[0].id_puesto+`"></input>`+response.data[0].id_puesto
       	cell2.innerHTML = response.data[0].nombre_sede
       	cell3.innerHTML = response.data[0].nombre_bodega
       	cell4.innerHTML = response.data[0].posicion
-      	cell5.innerHTML = `<select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="selectCampaign">
+      	cell5.innerHTML = `<select name="selectCampa" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="selectCampaign">
                               <option selected>Campaña</option>
                           </select>`
 
@@ -42,21 +42,10 @@ $('#confirmCampaign').on('show.bs.modal', function(e) {
         for(i=0; i<response.data2.length; i++){
           var opt = document.createElement('option')
           opt.value = response.data2[i].id_campaign
+          opt.name = 'optionCampa'+i
           opt.innerHTML = response.data2[i].CECO + ' - ' + response.data2[i].nombre_campaign
           listCampaign.append(opt)
         }
-
-
-      	// tablaModal.append(opt)
-        // var selectItems = $(pos + id);
-        // selectItems.html('');
-        // for(i=0; i<response.data.length; i++){
-        // 	var opt = document.createElement('option');
-        // 	opt.value = response.data[i].id_articulos;
-        // 	opt.innerHTML = response.data[i].nombre_item + ': ' + response.data[i].plaqueta_art;
-        // 	selectItems.append(opt);
-        // }
-        // renderSelects(selectItems)
       }
     })
 })

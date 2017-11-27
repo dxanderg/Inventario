@@ -57,7 +57,7 @@ $(document).ready(function() {
                     {
                       alignment: 'right',
                       fontSize: 14,
-                      text: 'Inventario de Activos GrupoDigitex'
+                      text: 'Ocupacion Puestos GrupoDigitex'
                     }
                   ],
                   margin: 20
@@ -131,29 +131,3 @@ $(function(){
        location.reload();
       });
 });
-
-// PARA LA CONSULTA CON SELECTS EN VEZ DE TEXTO
-// $(document).ready(function() {
-//     $('#example').DataTable( {
-//         initComplete: function () {
-//             this.api().columns().every( function () {
-//                 var column = this;
-//                 var select = $('<select><option value=""></option></select>')
-//                     .appendTo( $(column.footer()).empty() )
-//                     .on( 'change', function () {
-//                         var val = $.fn.dataTable.util.escapeRegex(
-//                             $(this).val()
-//                         );
- 
-//                         column
-//                             .search( val ? '^'+val+'$' : '', true, false )
-//                             .draw();
-//                     } );
- 
-//                 column.data().unique().sort().each( function ( d, j ) {
-//                     select.append( '<option value="'+d+'">'+d+'</option>' )
-//                 } );
-//             } );
-//         }
-//     } );
-// } );
