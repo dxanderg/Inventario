@@ -30,8 +30,8 @@ app.use(function auth0(req, res, next) {
 app.use(cookieParser());
 app.use(session({
 	secret: 'Sh3ld0n.2017',
-	resave: false,
-	saveUninitialized: false
+	resave: true,
+	saveUninitialized: true
 }))
 app.use(flash())
 

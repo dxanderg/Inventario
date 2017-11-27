@@ -4,19 +4,9 @@ var router = express.Router();
 var controllers = require('.././controllers')
 var mysql = require('mysql')
 
-
 /* Autenticacion */
 router.get('/auth/signup', isAdmin, controllers.usercontroller.getSignUp)
 router.post('/auth/signup', isAdmin, controllers.usercontroller.postSignUp)
-// router.get('/auth/signin', controllers.usercontroller.getSignIn)
-// router.get('/auth/logout', controllers.usercontroller.logout)
-// router.post('/auth/signin', auth0, custom_auth, controllers.homecontroller.index)
-
-// router.post('/auth/signin', auth0, passport.authenticate('local', {
-//   successRedirect : '/',
-//   failureRedirect: '/auth/signin',
-//   failureFlash: true
-// }))
 
 
 /* Modulos */
@@ -34,6 +24,7 @@ router.post('/ActualizarArt', isAuthenticated, controllers.consultascontroller.p
 router.get('/Notificaciones', isAuthenticated, controllers.homecontroller.notificaciones);
 router.get('/Actualizar-Global', isAdmin, controllers.consultascontroller.globalinv);
 router.get('/Ocupacion', isAuthenticated, controllers.ocupacioncontroller.ocupacion);
+router.post('/ActuaOcupacion', isAuthenticated, isSedeAdmin, controllers.ocupacioncontroller.postActuaOcupacion);
 
 
 router.get('/api-articulos/:id_posicion', isAuthenticated, controllers.trasladoscontroller.apiArticulos);

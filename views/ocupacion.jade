@@ -3,7 +3,12 @@ extends layout
 block content
   // Contenido Derecha
   #contenido.cont-ingreso.container.col-lg-10.col-md-12
-    form#ocupacion-form.form-horizontal(method='post', action='../ActuaOcupacion')
+    form#ocupacion-form.form-horizontal(method='post', action='../ActuaOcupacion')      
+      if msg != undefined
+        .alert.alert-success.alert-dismissible.show(role='alert')
+          button.close(type='button', data-dismiss='alert', aria-label='Close')
+            span(aria-hidden='true') ×
+          strong=msg.info
       .form-title
         h2 Ocupación de Puestos por Campaña
       // Formulario de busqueda de registros
