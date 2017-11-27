@@ -14,6 +14,11 @@ module.exports = {
 		var userSede = res.locals.currentuser.sede
 		var userCampana = res.locals.currentuser.campaña
 
+		var mensaje = null
+		if (req.session.flash != undefined){
+			mensaje = req.session.flash
+		}
+
 		db.query(`SELECT p.fk_sede, s.nombre_sede, p.fk_bodega, b.nombre_bodega, p.id_puesto, p.posicion, p.fk_campaign, c.CECO, c.nombre_campaign FROM puestos as p
 							join sedes as s on p.fk_sede = s.id_sede
 							join bodegas as b on p.fk_bodega = b.id_bodega
@@ -23,7 +28,7 @@ module.exports = {
 			if(err) throw err
 			consulta1 = rows
 			db.end()
-		res.render('Ocupacion', {consulta1 : consulta1})
+		res.render('Ocupacion', {consulta1 : consulta1, msg : mensaje})
 		})
 	},
 	apiOcupacion : function(req, res, next){
@@ -55,6 +60,33 @@ module.exports = {
   		}], function(err, results) {
   			db.end()
   			res.send({ data : consulta1, data2 : consulta2})
+		})
+	},
+	postActuaOcupacion : function(req, res, next){
+		var fechaActual = new Date()
+		var fechaA = dateFormat(fechaActual, 'yyyy-mm-dd')
+
+		var ocupacionEdit = {
+			fk_campaign : req.body.selectCampa,
+			fecha_puestos : fechaA
+		}
+
+		
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		var respuesta = {res: false}
+		db.connect()
+
+		db.query('UPDATE puestos SET ? WHERE ? ', [ocupacionEdit, {id_puesto : req.body.idPuesto}], function(err, rows, fields){
+			if(err) {
+				req.flash('info', 'Error! Se produjo un error al modificar la ocupacion!')
+				res.redirect('/Ocupacion')
+			}
+			else{
+				req.flash('info', 'Exito! Se modificó la ocupacion correctamente!')
+				res.redirect('/Ocupacion')
+			}
+			db.end()
 		})
 	}
 }
