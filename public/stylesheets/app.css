@@ -395,6 +395,17 @@ select.form-control:not([size]):not([multiple]){
   transition: all .3s ease;
 }
 
+#buscar_campoNotifica{
+	padding: 1em;
+	margin-bottom: .5em;
+	border: 1px groove #58738A;
+	display: table;
+}
+
+.notificaContainer{
+	padding: 0
+}
+
 @media (min-width: 544px){
 	.modal-dialog{
 		max-width: 1000px;

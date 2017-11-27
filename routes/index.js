@@ -41,6 +41,7 @@ router.get('/api-puestos/:id_puesto', isAuthenticated, controllers.trasladoscont
 router.get('/api-bodegas/:id_sede', isAuthenticated, controllers.trasladoscontroller.apiBodegas);
 router.get('/api-items/:id_item', isAuthenticated, controllers.ingresoscontroller.apiItems);
 router.get('/api-ocupacion/:id_puesto', isAuthenticated, controllers.ocupacioncontroller.apiOcupacion);
+router.get('/api-notificaciones/:id_fechaI/:id_fechaF', isAuthenticated, controllers.notificacionescontroller.apiMovimientos);
 
 
 router.get('/admin/Index', isAdmin, controllers.admincontroller.index);
