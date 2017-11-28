@@ -53,14 +53,20 @@ block content
         .col-md-6
           select(name='posicion')#select-posiciones.form-control
             option(value=' ') Seleccione el Puesto
+      .form-group.row
+        label.col-md-2.col-form-label(for='form-ing-plaqueta') Propietario
+        .col-md-6
+          input.form-control(type='text-uppercase', placeholder='Nombre Propietario', name='propietario')
+      .form-group.row
+        label.col-md-2.col-form-label(for='form-ing-plaqueta') Responsable
+        .col-md-6
+          input.form-control(type='text-uppercase', placeholder='Nombre Responsable', name='responsable')
       .button-container.form-group.row
         .col-md-2
           button(type='submit')#btn-registrar.div-button.btn.btn-primary.btn-block Registrar
         .col-md-2
           a(href='../Ingresos', style='text-decoration: none;')
             button(type='button').div-button-danger.btn.btn-primary.btn-block Limpiar
-    //- if info != undefined
-    //-   p= info
   // Contenido Derecha
 
 append footer

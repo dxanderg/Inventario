@@ -59,6 +59,16 @@ block content
               for val in consulta7
                 option(value=val.id_puesto)= 'Puesto '+val.posicion
         .form-group.row
+          label.col-md-2.col-form-label(for='form-ing-plaqueta') Propietario
+          .col-md-6
+            for val in consulta 7
+              input.form-control(type='text-uppercase', placeholder='Nombre Propietario', name='propietario', value=val.propietario)
+        .form-group.row
+          label.col-md-2.col-form-label(for='form-ing-plaqueta') Responsable
+          .col-md-6
+            for val in consulta7
+              input.form-control(type='text-uppercase', placeholder='Nombre Responsable', name='responsable', value=val.responsable)
+        .form-group.row
           label.col-md-2.col-form-label(for='form-ing-numpuesto') N° Ticket
           .col-md-6
             input.form-control(type='text-uppercase', placeholder='Numero de Ticket', name='ticket', value='999999')
