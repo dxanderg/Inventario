@@ -4,7 +4,7 @@ $(document).ready(function () {
       serial: {
         validators: {
           stringLength: {
-          	min: 6,
+          	min: 4,
         	},
           notEmpty: {
           	message: 'Por favor digite el serial'
@@ -14,14 +14,11 @@ $(document).ready(function () {
       plaqueta: {
         validators: {
           stringLength: {
-          	min: 6,
+          	min: 4,
         	},
           notEmpty: {
           	message: 'Por favor digite el numero de plaqueta'
-        	},
-          digits: {
-            message: 'Solo puede contener numeros'
-          }
+        	}
         }
       },
       articulo: {
