@@ -1,0 +1,58 @@
+extends ../layout
+
+block content
+  // Contenido Derecha
+  #contenido.cont-ingreso.container.col-lg-10.col-md-12
+    .form-title
+      h2 Edicion de Usuarios APP
+    // Formulario de busqueda de registros
+    #tabla_consultas.container.tablas.tabla-consulta
+      .row.clearfix
+        .col-md-12.column
+          table#tab_logic.table.table-bordered.table-hover
+            thead.table-head.thead-inverse
+              tr
+                th.text-center
+                  | ID
+                th.text-center
+                  | Nombre
+                th.text-center
+                  | Usuario
+                th.text-center
+                  | Cargo
+                th.text-center
+                  | Campaña
+                th.text-center
+                  | Sede
+                th.text-center
+                  | Perfil APP
+                th.text-center
+                  | Editar
+            tbody
+              each item in consulta1
+                tr#addr0
+                  td
+                    div=item.id_usuario
+                  td
+                    div=item.nombre_mostrar
+                  td
+                    div=item.nombre_usuario
+                  td
+                    div=item.cargo_usuario
+                  td
+                    div=item.nombre_campaign
+                  td
+                    div=item.nombre_sede
+                  td
+                    div=item.nombre_perfil
+                  td
+                    div
+                      a(href='../ModUser/'+item.id_usuario data-tooltip='Modificar' data-inverted data-position='top center')
+                        i.fa.fa-fw.fa-edit
+    // Formulario de busqueda de registros
+  // Contenido Derecha
+
+append footer
+  link(rel='stylesheet', href='/stylesheets/pagination.css')
+  script(src='/javascripts/pagination.js')
+  script(src='/javascripts/consultas.js')

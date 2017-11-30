@@ -3,7 +3,7 @@ extends ../layout
 block content
   // Contenido Derecha
   #contenido.cont-ingreso.container.col-lg-10.col-md-12
-    form#reportes-form.form-horizontal(method='post', action='../ReportQuery')
+    form#reportes-form.form-horizontal(method='post', action='')
       .form-title
         h2 Reportes
       .form-group.row
@@ -82,7 +82,14 @@ block content
               option(value=val.id_sede)= val.nombre_sede
       .button-container.form-group.row
         .col-md-2
-          button(type='submit')#btn-reporte.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQuerySerial')#btn-reporte1.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryPlaqueta')#btn-reporte2.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryResponsable')#btn-reporte3.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryPropietario')#btn-reporte4.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryArticulo')#btn-reporte5.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryItem')#btn-reporte6.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryEstado')#btn-reporte7.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQuerySede')#btn-reporte8.div-button.btn.btn-primary.btn-block Buscar
         .col-md-2
           a(href='', style='text-decoration: none;')
             button(type='button').div-button-danger.btn.btn-primary.btn-block Limpiar
