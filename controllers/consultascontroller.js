@@ -74,7 +74,7 @@ module.exports = {
 						callback()
 		      })
 	  		},
-	  		function(callback) { db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
+	  		function(callback) { db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign, a.propietario, a.responsable
 																			FROM articulos a, fabricante f, items i, estados e, sedes s, bodegas b, puestos p, campaign c, ocupacion o
 																			WHERE o.fk_id_articulos = a.id_articulos
 																			AND o.fk_id_puesto = p.id_puesto 
@@ -199,7 +199,9 @@ module.exports = {
 			serial_art : req.body.serial,
 			plaqueta_art : req.body.plaqueta,
 			fecha_creacion : fechaA,
-			fk_items : req.body.articulo
+			fk_items : req.body.articulo,
+			propietario : req.body.propietario,
+			responsable : req.body.responsable
 		}
 		
 		var config = require('.././database/config')
@@ -234,7 +236,9 @@ module.exports = {
 							fk_articulos : req.body.id_articulos,
 							fk_estados : req.body.estado,
 							plaqueta : req.body.plaqueta,
-							serial : req.body.serial
+							serial : req.body.serial,
+							propietario : req.body.propietario,
+							responsable : req.body.responsable
 						}
 						db.query('INSERT INTO movimientos SET ?', historicoMod, function(err, rows, fields){
 							if (err){

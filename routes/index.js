@@ -45,6 +45,9 @@ router.get('/admin/puestos/:val1/:val2/:val3/:val4', isAuthenticated, isAdmin, c
 router.get('/admin/campana/:val1/:val2/:val3', isAuthenticated, isAdmin, controllers.admincontroller.postCampana);
 router.get('/bodega/:id_sede', isAuthenticated, controllers.admincontroller.apiBodega);
 
+router.get('/Reportes', isAuthenticated, controllers.reportescontroller.index);
+router.post('/ReportQuery', isAuthenticated, controllers.reportescontroller.query);
+
 router.get('*', function(req, res, next){
   return res.render('404')
 });
