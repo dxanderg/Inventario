@@ -108,7 +108,7 @@ $(document).ready(function () {
       usuario: {
           validators: {
             stringLength: {
-              min: 4,
+              min: 5,
             },
             notEmpty: {
               message: 'Ingrese el Usuario '
@@ -127,12 +127,15 @@ $(document).ready(function () {
       },
       cargo: {
           validators: {
+            stringLength: {
+              min: 6,
+            },
             notEmpty: {
               message: 'Ingrese el Cargo '
             }
           }
       },
-      campaña: {
+      campaign: {
           validators: {
             notEmpty: {
               message: 'Ingrese la Campaña '

@@ -57,7 +57,7 @@ $(document).ready(function() {
                     {
                       alignment: 'right',
                       fontSize: 14,
-                      text: 'Ocupacion Puestos GrupoDigitex'
+                      text: 'Reporte Artículos GrupoDigitex'
                     }
                   ],
                   margin: 20
