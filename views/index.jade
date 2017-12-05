@@ -24,115 +24,51 @@ block content
         .card-block
           h4#titleChart1= 'OCUPACION ' + user.nsede
           canvas#myDonutChart
-    .col-lg-8.col-md-6.offset-lg-2
-      .card
-        .card-block
-          h4#titleChart2= 'OCUPACION ' + user.nsede
-          canvas#myBarChart
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 TOTAL CPU's
-      //-       h2 216
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 TOTAL HARDPHONES
-      //-       h2 216
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 TOTAL MONITORES
-      //-       h2 216
-      //- .col-md-12
-      //-   hr
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Colmena Seguros
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 167/167
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 BCSC
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 214/214
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Cobranzas BCSC
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 235/235
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Retencion BCSC
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 23/23
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Televentas
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 89/89
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Movistar
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 37/37
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Chile Fija
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 12/12
-      //- .col-md-12
-      //-   hr
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Sala Formacion 1
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 21/21
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Sala Formacion 2
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 21/21
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Sala Formacion 3
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 21/21
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Sala Formacion 4
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 21/21
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Sala Formacion 5
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 21/21
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Administracion
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 10/10
-      //- .col-md-4
-      //-   .card
-      //-     .card-block
-      //-       h6 Laboral
-      //-       .card-blockquote Equipo / Monitor
-      //-       h2 6/6
-    // Contenido Derecha
+    //- .col-lg-8.col-md-6.offset-lg-2
+    //-   .card
+    //-     .card-block
+    //-       h4#titleChart2= 'OCUPACION ' + user.nsede
+    //-       canvas#myBarChart
+    .col-lg-10.col-md-6.offset-lg-1
+      .form-group.row
+        ul#tabs.nav.nav-tabs.nav-pills.nav-justified(role='tablist')
+          li.nav-item
+            a.nav-link.active(data-toggle='tab', href='#fabricantes', role='tab') Campañas
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#tipoitems', role='tab') Articulos
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#items', role='tab') Estado
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#sedes', role='tab') SEDES
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#bodegas', role='tab') BODEGAS
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#puestos', role='tab') PUESTOS
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#campanas', role='tab') CAMPAÑAS
+      .form-group.row
+        .tab-content.col-md-12
+          #fabricantes.tab-pane.active(role='tabpanel')
+            .col-md-4
+              .card.text-center
+                .card-block
+                  h5.card-title Special title treatment
+                  p.card-text With supporting text below as a natural lead-in to additional content.
+                  a.btn.btn-primary(href='#') Go somewhere
+          #tipoitems.tab-pane(role='tabpanel')
+            .col-md-4
+              .card.text-center
+                .card-block
+                  h5.card-title Special title treatment
+                  p.card-text With supporting text below as a natural lead-in to additional content.
+                  a.btn.btn-primary(href='#') Go somewhere
+          #items.tab-pane(role='tabpanel')
+            .col-md-4
+              .card
+                .card-block
+                  h6 TOTAL CPU's
+                  h2 216
+            // Contenido Derecha
 
 append footer
   //- script(src='/javascripts/Chart.bundle.min.js')

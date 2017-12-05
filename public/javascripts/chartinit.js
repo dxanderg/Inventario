@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 
             var ctx = $("#myDonutChart");
-            var ctx2 = $("#myBarChart");
+            // var ctx2 = $("#myBarChart");
 
             barGraph1 = new Chart(ctx, {
                 type: 'horizontalBar',
@@ -57,20 +57,20 @@ $(document).ready(function(){
                 }
             })
 
-            barGraph2 = new Chart(ctx2, {
-                type: 'pie',
-                data: chartdata,
-                options: {
-                    legend: {
-                            display: true,
-                            position: 'bottom',
-                        labels: {
-                            // This more specific font property overrides the global property
-                            fontFamily: 'Ubuntu',
-                        }
-                    }
-                }
-            })
+            // barGraph2 = new Chart(ctx2, {
+            //     type: 'pie',
+            //     data: chartdata,
+            //     options: {
+            //         legend: {
+            //                 display: true,
+            //                 position: 'bottom',
+            //             labels: {
+            //                 // This more specific font property overrides the global property
+            //                 fontFamily: 'Ubuntu',
+            //             }
+            //         }
+            //     }
+            // })
         },
         error: function(data) {
             console.log(data);
@@ -83,7 +83,7 @@ document.getElementById('selectSede').addEventListener('change', function(){
     //CAMBIAR TITULO DE LAS GRAPHICS
     var actual = $("#selectSede option:selected").html()
     $('#titleChart1').html('OCUPACION ' + actual)
-    $('#titleChart2').html('OCUPACION ' + actual)
+    // $('#titleChart2').html('OCUPACION ' + actual)
     //****************************
 
     var val = this.value
@@ -116,10 +116,10 @@ document.getElementById('selectSede').addEventListener('change', function(){
             }
 
             var ctx = $("#myDonutChart");
-            var ctx2 = $("#myBarChart");
+            // var ctx2 = $("#myBarChart");
 
             if (barGraph1) barGraph1.destroy();
-            if (barGraph2) barGraph2.destroy();
+            // if (barGraph2) barGraph2.destroy();
 
             barGraph1 = new Chart(ctx, {
                 type: 'horizontalBar',
@@ -142,20 +142,20 @@ document.getElementById('selectSede').addEventListener('change', function(){
                 }
             })
 
-            barGraph2 = new Chart(ctx2, {
-                type: 'pie',
-                data: chartdata,
-                options: {
-                    legend: {
-                            display: true,
-                            position: 'bottom',
-                        labels: {
-                            // This more specific font property overrides the global property
-                            fontFamily: 'Ubuntu',
-                        }
-                    }
-                }
-            })
+            // barGraph2 = new Chart(ctx2, {
+            //     type: 'pie',
+            //     data: chartdata,
+            //     options: {
+            //         legend: {
+            //                 display: true,
+            //                 position: 'bottom',
+            //             labels: {
+            //                 // This more specific font property overrides the global property
+            //                 fontFamily: 'Ubuntu',
+            //             }
+            //         }
+            //     }
+            // })
         },
         error: function(data) {
             console.log(data);
