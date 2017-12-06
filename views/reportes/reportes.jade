@@ -1,0 +1,100 @@
+extends ../layout
+
+block content
+  // Contenido Derecha
+  #contenido.cont-ingreso.container.col-lg-10.col-md-12
+    form#reportes-form.form-horizontal(method='post', action='')
+      .form-title
+        h2 Reportes
+      .form-group.row
+        .col-md-2
+          label.custom-control.custom-radio
+            input.custom-control-input(type='radio' name='radio-stacked')#chk-serial
+            span.custom-control-indicator
+            span.custom-control-description Serial :
+        .col-md-6
+           input.form-control(type='text-uppercase', placeholder='Serial', name='serial')#opt-serial
+      .form-group.row
+        .col-md-2
+          label.custom-control.custom-radio
+            input.custom-control-input(type='radio' name='radio-stacked')#chk-plaqueta
+            span.custom-control-indicator
+            span.custom-control-description Plaqueta :
+        .col-md-6
+           input.form-control(type='text-uppercase', placeholder='Plaqueta', name='plaqueta')#opt-plaqueta
+      .form-group.row
+        .col-md-2
+          label.custom-control.custom-radio
+            input.custom-control-input(type='radio' name='radio-stacked')#chk-responsable
+            span.custom-control-indicator
+            span.custom-control-description Responsable :
+        .col-md-6
+           input.form-control(type='text-uppercase', placeholder='Responsable', name='responsable')#opt-responsable
+      .form-group.row
+        .col-md-2
+          label.custom-control.custom-radio
+            input.custom-control-input(type='radio' name='radio-stacked')#chk-propietario
+            span.custom-control-indicator
+            span.custom-control-description Propietario :
+        .col-md-6
+           input.form-control(type='text-uppercase', placeholder='Propietario', name='propietario')#opt-propietario
+      .form-group.row
+        .col-md-2
+          label.custom-control.custom-radio
+            input.custom-control-input(type='radio' name='radio-stacked')#chk-articulo
+            span.custom-control-indicator
+            span.custom-control-description Articulo :
+        .col-md-6
+          select(name='articulo')#select-articulo.form-control
+            option(value=' ') Seleccione un Articulo
+              for values in consulta0
+                option(value= values.idtipo_item)= values.nombre_item
+      .form-group.row
+        .col-md-2
+          label.custom-control.custom-radio
+            input.custom-control-input(type='radio' name='radio-stacked')#chk-item
+            span.custom-control-indicator
+            span.custom-control-description Item :
+        .col-md-6
+          select(name='tipoarticulo')#select-tipoarticulo.form-control
+            option(value=' ') Seleccione Tipo Articulo
+      .form-group.row
+        .col-md-2
+          label.custom-control.custom-radio
+            input.custom-control-input(type='radio' name='radio-stacked')#chk-estado
+            span.custom-control-indicator
+            span.custom-control-description Estado :
+        .col-md-6
+          select(name='estado').form-control#opt-estado
+            option(value=' ') Seleccione un Estado
+            for val in consulta1
+              option(value=val.id_estados)= val.nombre_estado
+      .form-group.row
+        .col-md-2
+          label.custom-control.custom-radio
+            input.custom-control-input(type='radio' name='radio-stacked')#chk-sede
+            span.custom-control-indicator
+            span.custom-control-description Sede :
+        .col-md-6
+          select(name='sede').form-control#opt-sede
+            option(value=' ') Seleccione la Sede
+            for val in consulta2
+              option(value=val.id_sede)= val.nombre_sede
+      .button-container.form-group.row
+        .col-md-2
+          button(type='submit' formaction='../ReportQuerySerial')#btn-reporte1.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryPlaqueta')#btn-reporte2.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryResponsable')#btn-reporte3.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryPropietario')#btn-reporte4.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryArticulo')#btn-reporte5.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryItem')#btn-reporte6.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQueryEstado')#btn-reporte7.div-button.btn.btn-primary.btn-block Buscar
+          button(type='submit' formaction='../ReportQuerySede')#btn-reporte8.div-button.btn.btn-primary.btn-block Buscar
+        .col-md-2
+          a(href='', style='text-decoration: none;')
+            button(type='button').div-button-danger.btn.btn-primary.btn-block Limpiar
+  // Contenido Derecha
+
+append footer
+  script(src='/javascripts/api-ingresos.js')
+  script(src='/javascripts/reportes.js')

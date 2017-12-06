@@ -48,7 +48,9 @@ module.exports = {
 			plaqueta_art : req.body.plaqueta,
 			fecha_creacion : fechaA,
 			fk_items : req.body.tipoarticulo,
-			fk_tipo : req.body.articulo
+			fk_tipo : req.body.articulo,
+			propietario : req.body.propietario,
+			responsable : req.body.responsable
 		}
 
 		var config = require('.././database/config')
@@ -87,7 +89,7 @@ module.exports = {
 		var id = req.params.id_item
 		var consulta1 = null
 
-		db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo 
+		db.query(`SELECT id_item, nombre_item, b.nombre_fabricante, modelo_item, tipo,  caracteristica_1, caracteristica_2, caracteristica_3
 						FROM items
 						JOIN fabricante b ON fk_fabricante = b.id_fabricante 
 						WHERE activo = 1 AND tipo = ?

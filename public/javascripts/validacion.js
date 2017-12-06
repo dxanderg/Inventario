@@ -108,7 +108,7 @@ $(document).ready(function () {
       usuario: {
           validators: {
             stringLength: {
-              min: 4,
+              min: 5,
             },
             notEmpty: {
               message: 'Ingrese el Usuario '
@@ -127,12 +127,15 @@ $(document).ready(function () {
       },
       cargo: {
           validators: {
+            stringLength: {
+              min: 6,
+            },
             notEmpty: {
               message: 'Ingrese el Cargo '
             }
           }
       },
-      campaña: {
+      campaign: {
           validators: {
             notEmpty: {
               message: 'Ingrese la Campaña '
@@ -158,31 +161,28 @@ $(document).ready(function () {
               message: 'Ingrese la Contraseña'
             }
           }
+      },
+      propietario: {
+          validators: {
+            stringLength: {
+              min: 5,
+            },
+            notEmpty: {
+              message: 'Ingrese el Propietario'
+            }
+          }
+      },
+      responsable: {
+          validators: {
+            stringLength: {
+              min: 5,
+            },
+            notEmpty: {
+              message: 'Ingrese el Responsable'
+            }
+          }
       }
     }
 	})
-
-	// .on('success.form.bv', function(e) {
- //    $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
- //        $('#reg_form').data('bootstrapValidator').resetForm();
-
- //    // Prevent form submission
- //    e.preventDefault();
-
- //    // Get the form instance
- //    var $form = $(e.target);
-
- //    // Get the BootstrapValidator instance
- //    var bv = $form.data('bootstrapValidator');
-
- //    // Use Ajax to submit form data
- //    $.post($form.attr('action'), $form.serialize(), function(result) {
- //        console.log(result);
- //    }, 'json');
-	// });
-
-
-
-
 })
 	

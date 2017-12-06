@@ -7,6 +7,9 @@ var mysql = require('mysql')
 /* Autenticacion */
 router.get('/auth/signup', isAdmin, controllers.usercontroller.getSignUp)
 router.post('/auth/signup', isAdmin, controllers.usercontroller.postSignUp)
+router.get('/EditUsers', isAdmin, controllers.usercontroller.editUsuarios)
+router.get('/ModUser/:id_usuario', isAdmin, controllers.usercontroller.modificarUser)
+router.post('/ActualizaUser', isAdmin, controllers.usercontroller.postEdit)
 
 
 /* Modulos */
@@ -44,6 +47,16 @@ router.get('/admin/bodegas/:val1/:val2', isAuthenticated, isAdmin, controllers.a
 router.get('/admin/puestos/:val1/:val2/:val3/:val4', isAuthenticated, isAdmin, controllers.admincontroller.postPuestos);
 router.get('/admin/campana/:val1/:val2/:val3', isAuthenticated, isAdmin, controllers.admincontroller.postCampana);
 router.get('/bodega/:id_sede', isAuthenticated, controllers.admincontroller.apiBodega);
+
+router.get('/Reportes', isAuthenticated, controllers.reportescontroller.index);
+router.post('/ReportQuerySerial', isAuthenticated, controllers.reportescontroller.querySerial);
+router.post('/ReportQueryPlaqueta', isAuthenticated, controllers.reportescontroller.queryPlaqueta);
+router.post('/ReportQueryResponsable', isAuthenticated, controllers.reportescontroller.queryResponsable);
+router.post('/ReportQueryPropietario', isAuthenticated, controllers.reportescontroller.queryPropietario);
+router.post('/ReportQueryArticulo', isAuthenticated, controllers.reportescontroller.queryArticulo);
+router.post('/ReportQueryItem', isAuthenticated, controllers.reportescontroller.queryItem);
+router.post('/ReportQueryEstado', isAuthenticated, controllers.reportescontroller.queryEstado);
+router.post('/ReportQuerySede', isAuthenticated, controllers.reportescontroller.querySede);
 
 router.get('*', function(req, res, next){
   return res.render('404')
