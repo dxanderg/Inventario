@@ -406,6 +406,16 @@ select.form-control:not([size]):not([multiple]){
 	padding: 0
 }
 
+#preconsulta-form label{
+	padding-left: 2em;
+	transition: all .2s ease;
+}
+#preconsulta-form label:hover{
+	background: rgba(0, 0, 0, 0.5);
+	/*background-color: #19A2DB;*/
+	color: white;
+}
+
 @media (min-width: 544px){
 	.modal-dialog{
 		max-width: 1000px;

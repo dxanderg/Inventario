@@ -19,13 +19,16 @@ router.get('/Ingresos', isAuthenticated, isSedeAdmin, controllers.ingresoscontro
 router.post('/CrearArticulo', isAuthenticated, isSedeAdmin, controllers.ingresoscontroller.postNuevoArticulo);
 router.post('/CrearTraslado', isAuthenticated, controllers.trasladoscontroller.postNuevoTraslado);
 router.get('/Traslados', isAuthenticated, controllers.trasladoscontroller.traslados);
-router.get('/Consultas', isAuthenticated, controllers.consultascontroller.consultas);
-router.get('/Actualizar', isSedeAdmin, isSedeAdmin, controllers.consultascontroller.actualizar);
+router.get('/Consultas', isAuthenticated, controllers.consultascontroller.preconsultas);
+router.post('/ConsultasSede', isAuthenticated, controllers.consultascontroller.consultas);
+router.get('/Actualizar', isSedeAdmin, isSedeAdmin, controllers.consultascontroller.preactualizar);
+router.post('/ActualizarSede', isAuthenticated, isSedeAdmin, controllers.consultascontroller.actualizar);
 router.get('/ModificarArt/:id', isAuthenticated, controllers.consultascontroller.getModificarArticulo);
 router.get('/ModificarArtGlobal/:id', isAuthenticated, controllers.consultascontroller.getModificarArticulo);
 router.post('/ActualizarArt', isAuthenticated, controllers.consultascontroller.postActualizaArticulo);
 router.get('/Notificaciones', isAuthenticated, controllers.homecontroller.notificaciones);
-router.get('/Actualizar-Global', isAdmin, controllers.consultascontroller.globalinv);
+router.get('/Actualizar-Global', isAdmin, controllers.consultascontroller.preglobalinv);
+router.post('/Actualizar-Global-Sedes', isAdmin, controllers.consultascontroller.globalinv);
 router.get('/Ocupacion', isAuthenticated, controllers.ocupacioncontroller.ocupacion);
 router.post('/ActuaOcupacion', isAuthenticated, isSedeAdmin, controllers.ocupacioncontroller.postActuaOcupacion);
 

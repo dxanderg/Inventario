@@ -37,12 +37,12 @@ html(lang='en')
                     i.fa.fa-user-circle-o
                   .row.datos
                     a.userd.text-uppercase.hidden-xs-down= currentuser.nombre
-                    a.campad.text-uppercase.hidden-xs-down= currentuser.ncampana
-                    a.campad.text-uppercase.hidden-xs-down= currentuser.nsede
+                    a.campad.text-uppercase.hidden-xs-down= currentuser.cargo
+                    a.campad.text-uppercase.hidden-xs-down= currentuser.ciudad
                   ul#logout.collapse
                     li
-                      h6= '|  User: ' + currentuser.usuario
-                      h6= '|  Cargo: ' + currentuser.cargo
+                      h6= '❯  User: ' + currentuser.usuario
+                      h6= '❯  Campaña: ' + currentuser.ncampana
                       //- a(href='/auth/logout') Salir
                   b.text-uppercase.hidden-xs-down.fa.fa-fw.fa-caret-right
       // HEADER
