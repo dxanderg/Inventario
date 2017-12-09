@@ -34,8 +34,8 @@ block content
               select(name='campaign')#select-campaign.form-control
                 for val in consulta1
                   option(value=val.fk_campaign)= val.nombre_campaign
-                //- for val in consulta2
-                //-   option(value=val.id_campaign)= val.nombre_campaign
+                for val in consulta2
+                  option(value=val.id_campaign)= val.nombre_campaign
           .row.form-group
             .col-md-2
               label.col-2.col-form-label(for='sede')= 'Sede'
@@ -43,8 +43,8 @@ block content
               select(name='sede')#select-sede.form-control
                 for val in consulta1
                   option(value=val.fk_sede)= val.nombre_sede
-                //- for val in consulta3
-                //-   option(value=val.id_sede)= val.nombre_sede
+                for val in consulta3
+                  option(value=val.id_sede)= val.nombre_sede
           .row.form-group
             .col-md-2
               label.col-2.col-form-label(for='perfil')= 'Perfil'
@@ -52,8 +52,8 @@ block content
               select(name='perfil')#select-cargo.form-control
                 for val in consulta1
                   option(value=val.perfil_usuario)= val.nombre_perfil
-                //- for val in consulta4
-                //-   option(value=val.perfil_usuario)= val.nombre_perfil
+                for val in consulta4
+                  option(value=val.perfil_usuario)= val.nombre_perfil
           .row.form-group
             .col-md-3
               button(type='submit').btn.btn-primary= 'Actualizar'

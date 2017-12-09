@@ -61,7 +61,7 @@ app.use(function(req, res, next) {
 
     var consulta0 = null
     
-    db.query(`SELECT u.id_usuario, u.nombre_usuario, u.nombre_mostrar, u.cargo_usuario, u.fk_sede, s.nombre_sede, u.fk_campaign, c.nombre_campaign, u.perfil_usuario FROM usuarios u 
+    db.query(`SELECT u.id_usuario, u.nombre_usuario, u.nombre_mostrar, u.cargo_usuario, u.fk_sede, s.nombre_sede, s.ciudad_sede, u.fk_campaign, c.nombre_campaign, u.perfil_usuario FROM usuarios u 
             JOIN campaign c ON c.id_campaign = u.fk_campaign
             JOIN sedes s ON s.id_sede = u.fk_sede
             WHERE nombre_usuario = ?`, usuarioIn, function(err, rows, fields){
@@ -78,6 +78,7 @@ app.use(function(req, res, next) {
           cargo: user.cargo_usuario,
           sede: user.fk_sede,
           nsede: user.nombre_sede,
+          ciudad: user.ciudad_sede,
           campana: user.fk_campaign,
           ncampana: user.nombre_campaign,
           perfil: user.perfil_usuario

@@ -87,17 +87,44 @@ module.exports = {
 		var db = mysql.createConnection(config)
 		db.connect()
 		var consulta1 = null
+		var consulta2 = null
+		var consulta3 = null
+		var consulta4 = null
 
-		db.query(`SELECT u.id_usuario, u.nombre_usuario, u.cargo_usuario, u.fk_sede, s.nombre_sede, u.fk_campaign, c.nombre_campaign, u.nombre_mostrar, u.perfil_usuario, u.nombre_perfil 
+		async.parallel([
+			function(callback) { db.query(`SELECT u.id_usuario, u.nombre_usuario, u.cargo_usuario, u.fk_sede, s.nombre_sede, u.fk_campaign, c.nombre_campaign, u.nombre_mostrar, u.perfil_usuario, u.nombre_perfil 
 							FROM usuarios u
 							JOIN sedes s ON s.id_sede = u.fk_sede
 							JOIN campaign c ON c.id_campaign = u.fk_campaign
 							WHERE u.id_usuario = ?`, req.params.id_usuario, function(err, rows, fields){
-			if(err) throw err
-			consulta1 = rows
+					if(err) throw err
+					consulta1 = rows
+					callback()
+	      })
+  		},
+  		function(callback) { db.query(`SELECT * FROM campaign ORDER BY nombre_campaign`, function(err, rows, fields){
+					if(err) throw err
+					consulta2 = rows
+					callback()
+	      })
+  		},
+  		function(callback) { db.query(`SELECT * FROM sedes ORDER BY nombre_sede`, function(err, rows, fields){
+					if(err) throw err
+					consulta3 = rows
+					callback()
+	      })
+  		},
+  		function(callback) { db.query(`SELECT perfil_usuario, nombre_perfil FROM inventario_digitex.usuarios
+									GROUP BY nombre_perfil
+									ORDER BY nombre_perfil`, function(err, rows, fields){
+					if(err) throw err
+					consulta4 = rows
+					callback()
+	      })
+		}], function(err, results) {
 			db.end()
-		res.render('users/modificarUsuario', {consulta1 : consulta1})
-		})
+			res.render('users/modificarUsuario', {consulta1 : consulta1, consulta2 : consulta2, consulta3 : consulta3, consulta4 : consulta4})
+		})	
 	},
 
 	postEdit: function(req, res, next){

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  // Contenido Derecha
+  #contenido.cont-ingreso.container.col-lg-10.col-md-12
+    form#preconsulta-form.form-horizontal(method='post', action='../Actualizar-Global-Sedes')
+      .form-title
+        h2 Consulta Global de Activos
+      .form-title
+        h4 Seleccionar las sedes a consultar :
+        h6  
+      ul.list-group
+        for val in consulta1
+          .form-check
+            label.list-group-item.form-check-label
+              input.form-check-input(type='checkbox', name='sede', value=val.id_sede)
+              h5=val.nombre_sede + ' - ' + val.ciudad_sede
+      .button-container.form-group.row
+        .col-md-2
+          button(type='submit')#btn-consultar.div-button.btn.btn-primary.btn-block Buscar
+        .col-md-2
+          a(href='../Consultas', style='text-decoration: none;')
+            button(type='button').div-button-danger.btn.btn-primary.btn-block Limpiar
+    // Formulario de busqueda de registros
+  // Contenido Derecha

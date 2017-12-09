@@ -75,10 +75,6 @@ module.exports = {
 		})
 	},
 
-	ingresos : function(req, res, next){
-		res.render('ingresos')
-	},
-
 	notificaciones : function(req, res, next){
 		res.render('notificaciones')
 	}

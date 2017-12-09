@@ -4,16 +4,33 @@ var dateFormat = require('dateFormat')
 
 module.exports = {
 
+	preconsultas : function(req, res, next){
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		var userCiudad = res.locals.currentuser.ciudad
+		var consulta1 = null
+
+		db.query(`SELECT * FROM sedes WHERE ciudad_sede = ?`, userCiudad, function(err, rows, fields){
+			if(err) throw err
+			consulta1 = rows
+			db.end()
+		res.render('pre-consultas', {consulta1 : consulta1})
+		})
+	},
 	consultas : function(req, res, next){
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)
 		db.connect()
 
 		var consulta1 = null
-		var userSede = res.locals.currentuser.sede
-		var userCampana = res.locals.currentuser.campaña
-
-		db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
+		var params = []
+		var userCiudad = req.body.sede
+		for (i = 0; i < userCiudad.length; i++) { 
+    	params.push(userCiudad[i])
+		}
+		var consulta = `SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
 							FROM articulos a, fabricante f, items i, estados e, sedes s, bodegas b, puestos p, campaign c, ocupacion o
 							WHERE o.fk_id_articulos = a.id_articulos
 							AND o.fk_id_puesto = p.id_puesto 
@@ -23,8 +40,8 @@ module.exports = {
 							AND p.fk_bodega = b.id_bodega
 							AND p.fk_sede = s.id_sede
 							AND a.activo = e.id_estados
-							AND id_sede = ?
-							ORDER BY b.nombre_bodega, p.posicion, i.nombre_item, f.nombre_fabricante ASC`, userSede, function(err, rows, fields){
+							AND id_sede IN (` + db.escape(params) + `) ORDER BY s.nombre_sede, b.nombre_bodega, p.posicion, i.nombre_item, f.nombre_fabricante ASC`
+		db.query(consulta, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()
@@ -39,7 +56,8 @@ module.exports = {
 		var id = req.params.id
 		var userSede = res.locals.currentuser.sede
 		var userCampana = res.locals.currentuser.campaña
-		var params = [id, userSede]
+		var userCiudad = res.locals.currentuser.ciudad
+		var params = [id, userCiudad]
 
 		var consulta1 = null
 		var consulta2 = null
@@ -115,7 +133,7 @@ module.exports = {
 						callback()
 		      })
 	  		},
-	  		function(callback) { db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
+	  		function(callback) { db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign,  a.propietario, a.responsable
 																			FROM articulos a, fabricante f, items i, estados e, sedes s, bodegas b, puestos p, campaign c, ocupacion o
 																			WHERE o.fk_id_articulos = a.id_articulos
 																			AND o.fk_id_puesto = p.id_puesto 
@@ -126,7 +144,7 @@ module.exports = {
 																			AND p.fk_sede = s.id_sede
 																			AND a.activo = e.id_estados
 																			AND a.id_articulos = ?
-																			AND s.id_sede = ?`, params, function(err, rows, fields){
+																			AND s.ciudad_sede = ?`, params, function(err, rows, fields){
 						if(err) throw err
 						consulta7 = rows
 						db.end()
@@ -137,16 +155,33 @@ module.exports = {
 			})
 		}
 	},
+	preactualizar : function(req, res, next){
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		var userCiudad = res.locals.currentuser.ciudad
+		var consulta1 = null
+
+		db.query(`SELECT * FROM sedes WHERE ciudad_sede = ?`, userCiudad, function(err, rows, fields){
+			if(err) throw err
+			consulta1 = rows
+			db.end()
+		res.render('pre-actualizar', {consulta1 : consulta1})
+		})
+	},
 	actualizar : function(req, res, next){
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)
 		db.connect()
 
 		var consulta1 = null
-		var userSede = res.locals.currentuser.sede
-		var userCampana = res.locals.currentuser.campaña
-
-		db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
+		var params = []
+		var userCiudad = req.body.sede
+		for (i = 0; i < userCiudad.length; i++) { 
+    	params.push(userCiudad[i])
+		}
+		var consulta = `SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
 							FROM articulos a, fabricante f, items i, estados e, sedes s, bodegas b, puestos p, campaign c, ocupacion o
 							WHERE o.fk_id_articulos = a.id_articulos
 							AND o.fk_id_puesto = p.id_puesto 
@@ -156,12 +191,26 @@ module.exports = {
 							AND p.fk_bodega = b.id_bodega
 							AND p.fk_sede = s.id_sede
 							AND a.activo = e.id_estados
-							AND id_sede = ?
-							ORDER BY b.nombre_bodega, p.posicion, i.nombre_item ASC`, userSede, function(err, rows, fields){
+							AND id_sede IN (` + db.escape(params) + `) ORDER BY s.nombre_sede, b.nombre_bodega, p.posicion, i.nombre_item, f.nombre_fabricante ASC`
+		db.query(consulta, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()
 		res.render('Actualizar', {consulta1 : consulta1})
+		})
+	},
+	preglobalinv : function(req, res, next){
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		var consulta1 = null
+
+		db.query(`SELECT * FROM sedes ORDER BY ciudad_sede, nombre_sede`, function(err, rows, fields){
+			if(err) throw err
+			consulta1 = rows
+			db.end()
+		res.render('pre-globalinv', {consulta1 : consulta1})
 		})
 	},
 	globalinv : function(req, res, next){
@@ -170,10 +219,12 @@ module.exports = {
 		db.connect()
 
 		var consulta1 = null
-		var userSede = res.locals.currentuser.sede
-		var userCampana = res.locals.currentuser.campaña
-
-		db.query(`SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
+		var params = []
+		var userCiudad = req.body.sede
+		for (i = 0; i < userCiudad.length; i++) { 
+    	params.push(userCiudad[i])
+		}
+		var consulta = `SELECT a.id_articulos, a.fk_items, f.nombre_fabricante, i.nombre_item, i.modelo_item, a.serial_art, a.plaqueta_art, e.id_estados, e.nombre_estado, s.id_sede, s.nombre_sede, b.id_bodega, b.nombre_bodega, p.id_puesto, p.posicion, c.id_campaign, c.nombre_campaign
 							FROM articulos a, fabricante f, items i, estados e, sedes s, bodegas b, puestos p, campaign c, ocupacion o
 							WHERE o.fk_id_articulos = a.id_articulos
 							AND o.fk_id_puesto = p.id_puesto 
@@ -183,7 +234,8 @@ module.exports = {
 							AND p.fk_bodega = b.id_bodega
 							AND p.fk_sede = s.id_sede
 							AND a.activo = e.id_estados
-							ORDER BY b.nombre_bodega, p.posicion, i.nombre_item ASC`, function(err, rows, fields){
+							AND id_sede IN (` + db.escape(params) + `) ORDER BY s.nombre_sede, b.nombre_bodega, p.posicion, i.nombre_item, f.nombre_fabricante ASC`
+		db.query(consulta, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()
