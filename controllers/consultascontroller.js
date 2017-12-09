@@ -236,7 +236,6 @@ module.exports = {
 							AND a.activo = e.id_estados
 							AND id_sede IN (` + db.escape(params) + `) ORDER BY s.nombre_sede, b.nombre_bodega, p.posicion, i.nombre_item, f.nombre_fabricante ASC`
 		db.query(consulta, function(err, rows, fields){
-			console.log(this.sql)
 			if(err) throw err
 			consulta1 = rows
 			db.end()
