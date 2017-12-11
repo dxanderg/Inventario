@@ -5,7 +5,6 @@ block content
   #contenido.container.row.col-lg-10.col-md-12
     script.
       ocupacionSede="#{datos}"
-      ocupacionSitio="#{datos2}"
       datosUser="#{locals.user.sede}"
     .row.offset-md-3
       h5 DataSet Actual :    
@@ -24,11 +23,6 @@ block content
         .card-block
           h4#titleChart1= 'OCUPACION ' + user.nsede
           canvas#myDonutChart
-    //- .col-lg-8.col-md-6.offset-lg-2
-    //-   .card
-    //-     .card-block
-    //-       h4#titleChart2= 'OCUPACION ' + user.nsede
-    //-       canvas#myBarChart
     .col-lg-10.col-md-6.offset-lg-1
       .form-group.row
         ul#tabs.nav.nav-tabs.nav-pills.nav-justified(role='tablist')
@@ -49,12 +43,14 @@ block content
       .form-group.row
         .tab-content.col-md-12
           #fabricantes.tab-pane.active(role='tabpanel')
-            .col-md-4
-              .card.text-center
-                .card-block
-                  h5.card-title Special title treatment
-                  p.card-text With supporting text below as a natural lead-in to additional content.
-                  a.btn.btn-primary(href='#') Go somewhere
+            .row
+              for val in dataCard1
+                .col-md-3
+                  a(href='#')
+                    .card
+                      .card-block
+                        h6=val.nombre_campaign
+                        h2=val.puestos
           #tipoitems.tab-pane(role='tabpanel')
             .col-md-4
               .card.text-center
