@@ -1,6 +1,6 @@
 body{
 	font-family: 'Ubuntu', sans-serif;
-	background-color: #2A3948;
+	background-color: #19A2DB;
 	color: white;
 	font-size: 16px;
 }
@@ -34,6 +34,7 @@ body{
 	border-right: solid white 1px;
 	padding-right: .3em;
 	text-align: right;
+	font-size: 1.8rem;
 }
 
 #header-container #usuario-login{
@@ -98,10 +99,14 @@ body{
 }
 
 #side-menu{
-	height: 100vh;
+	height: 100%;
 	padding: 0;
 	box-shadow: inset 0px 0px 2px 0px rgba(0,0,0,0.75);
-	border-top: 5px solid #E8E8E8;
+	border-top: 2px solid #E8E8E8;
+	background-color: #373737;
+	line-height: 1.5;
+	padding-top: 1em;
+	font-size: 13px;	
 }
 
 #side-menu li i{
@@ -112,7 +117,7 @@ body{
 	transition: all .3s ease;
 	padding: .5em 0 .5em .5em;
   cursor: pointer;
-	color: #67809A;
+	color: #D6D6D6;
 	text-decoration: none;
 	display: block;
 	border-left: .3rem solid transparent;
@@ -121,19 +126,21 @@ body{
 
 #side-menu ul li a:hover{
 	color: white;
-	background-color: #23303D;
-	border-left: .3rem solid #2DBD8D;
+	background-color: #5a5a5a;
+	font-weight: 900;
+	border-left: .3rem solid #19A2DB;
 	transform: translateX(5px);
 }
 
 #contenido{
 	padding-top: 1em;
-	background-color: #F0F4F7;
+	background-color: white;
 	width: 100%;
-	color: #58738A;
-	box-shadow: inset 0px 0px 2px 0px rgba(0,0,0,0.75);
+	color: #444;
+	box-shadow: inset 0px 1px 1px 0px rgba(0,0,0,0.30);
 	margin: 0 auto;
-	border-top: 5px solid #E8E8E8;
+	border-top: 2px solid #E8E8E8;
+	min-height: 100vh;
 }
 
 
@@ -174,6 +181,7 @@ body{
 #contenido .card h2{
 	padding-top: .3em;
 	font-size: 3em;
+	text-decoration: none;
 }
 
 #menu-escondido{
@@ -214,33 +222,38 @@ body{
 }
 
 .div-button{
-	border: 1px solid #2DBD8D;
-	background-color: #2DBD8D;
+	border: 1px solid #19A2DB;
+	background-color: white;
 	font-size: 1.1em;
-    text-decoration: none;
-    padding: .7em 0;
-    border-radius: 5px;
-    transition: all .3s ease;
+  text-decoration: none;
+  padding-top: .7em;
+  padding-bottom: .7em;
+  border-radius: 5px;
+  transition: all .3s ease;
+  color: #19A2DB;
 }
 .div-button:hover{
-	background-color: white;
-	border: 1px solid #2DBD8D;
-	color: #2DBD8D;
+	background-color: #19A2DB;
+	border: 1px solid white;
+	color: white;
 }
 
 .div-button-danger{
 	border: 1px solid #C9302C;
-	background-color: #C9302C;
+	background-color: white;
 	font-size: 1.1em;
-    text-decoration: none;
-    padding: .7em 0;
-    border-radius: 5px;
-    transition: all .3s ease;
+  text-decoration: none;
+  padding-top: .7em;
+  padding-bottom: .7em;
+  border-radius: 5px;
+  transition: all .3s ease;
+  color: #C9302C;
 }
 .div-button-danger:hover{
-	background-color: white;
-	border: 1px solid #C9302C;
-	color: #C9302C;
+	background-color: #C9302C;
+	border: 1px solid white;
+	color: white;
+	
 }
 
 .tablas{

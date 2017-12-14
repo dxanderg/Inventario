@@ -23,47 +23,47 @@ block content
         .card-block
           h4#titleChart1= 'OCUPACION ' + user.nsede
           canvas#myDonutChart
-    .col-lg-10.col-md-6.offset-lg-1
-      .form-group.row
-        ul#tabs.nav.nav-tabs.nav-pills.nav-justified(role='tablist')
-          li.nav-item
-            a.nav-link.active(data-toggle='tab', href='#fabricantes', role='tab') Campañas
-          li.nav-item
-            a.nav-link(data-toggle='tab', href='#tipoitems', role='tab') Articulos
-          li.nav-item
-            a.nav-link(data-toggle='tab', href='#items', role='tab') Estado
-          li.nav-item
-            a.nav-link(data-toggle='tab', href='#sedes', role='tab') SEDES
-          li.nav-item
-            a.nav-link(data-toggle='tab', href='#bodegas', role='tab') BODEGAS
-          li.nav-item
-            a.nav-link(data-toggle='tab', href='#puestos', role='tab') PUESTOS
-          li.nav-item
-            a.nav-link(data-toggle='tab', href='#campanas', role='tab') CAMPAÑAS
-      .form-group.row
-        .tab-content.col-md-12
-          #fabricantes.tab-pane.active(role='tabpanel')
-            .row
-              for val in dataCard1
-                .col-md-3
-                  a(href='#')
-                    .card
-                      .card-block
-                        h6=val.nombre_campaign
-                        h2=val.puestos
-          #tipoitems.tab-pane(role='tabpanel')
-            .col-md-4
-              .card.text-center
-                .card-block
-                  h5.card-title Special title treatment
-                  p.card-text With supporting text below as a natural lead-in to additional content.
-                  a.btn.btn-primary(href='#') Go somewhere
-          #items.tab-pane(role='tabpanel')
-            .col-md-4
-              .card
-                .card-block
-                  h6 TOTAL CPU's
-                  h2 216
+    //- .col-lg-10.col-md-6.offset-lg-1
+    //-   .form-group.row
+    //-     ul#tabs.nav.nav-tabs.nav-pills.nav-justified(role='tablist')
+    //-       li.nav-item
+    //-         a.nav-link.active(data-toggle='tab', href='#fabricantes', role='tab') Campañas
+    //-       li.nav-item
+    //-         a.nav-link(data-toggle='tab', href='#tipoitems', role='tab') Articulos
+    //-       li.nav-item
+    //-         a.nav-link(data-toggle='tab', href='#items', role='tab') Estado
+    //-       li.nav-item
+    //-         a.nav-link(data-toggle='tab', href='#sedes', role='tab') SEDES
+    //-       li.nav-item
+    //-         a.nav-link(data-toggle='tab', href='#bodegas', role='tab') BODEGAS
+    //-       li.nav-item
+    //-         a.nav-link(data-toggle='tab', href='#puestos', role='tab') PUESTOS
+    //-       li.nav-item
+    //-         a.nav-link(data-toggle='tab', href='#campanas', role='tab') CAMPAÑAS
+    //-   .form-group.row
+    //-     .tab-content.col-md-12
+    //-       #fabricantes.tab-pane.active(role='tabpanel')
+    //-         .row
+    //-           for val in dataCard1
+    //-             .col-md-3
+    //-               a(href='#')
+    //-                 .card
+    //-                   .card-block
+    //-                     h6=val.nombre_campaign
+    //-                     h2=val.puestos
+    //-       #tipoitems.tab-pane(role='tabpanel')
+    //-         .col-md-4
+    //-           .card.text-center
+    //-             .card-block
+    //-               h5.card-title Special title treatment
+    //-               p.card-text With supporting text below as a natural lead-in to additional content.
+    //-               a.btn.btn-primary(href='#') Go somewhere
+    //-       #items.tab-pane(role='tabpanel')
+    //-         .col-md-4
+    //-           .card
+    //-             .card-block
+    //-               h6 TOTAL CPU's
+    //-               h2 216
             // Contenido Derecha
 
 append footer
