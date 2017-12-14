@@ -9,9 +9,8 @@ module.exports = {
 		var db = mysql.createConnection(config)
 		db.connect()
 
-		var sedes = null
+		var dataCard1 = null
 		var data = null
-		var data2 = null
 		var consulta1 = null
 		var consulta2 = null
 		var userSede = res.locals.currentuser.sede
@@ -20,12 +19,11 @@ module.exports = {
 		async.parallel([
   		function(callback) { db.query('select c.nombre_campaign, count(puestos.id_puesto) as puestos from puestos join campaign c ON puestos.fk_campaign = c.id_campaign  where puestos.fk_sede = ? group by fk_campaign order by puestos DESC', userSede, function(err, rows, fields){
 					if(err) throw err
-					sedes = rows
+					dataCard1 = rows
 
 					data = _.map(rows, function(n) { //here using lodash
 						return [`'` + n.nombre_campaign + `': ` + n.puestos];
 			    })
-			    data2 = data
 					callback()
 	      })
   		},
@@ -44,8 +42,7 @@ module.exports = {
 		}], function(err, results) {
 			res.render('index', {
 				datos : data,
-				datos2 : data2,
-				// isAuthenticated: req.isAuthenticated(),
+				dataCard1 : dataCard1,
 				user: req.user,
 				consulta1 : consulta1,
 				consulta2 : consulta2
