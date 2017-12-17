@@ -33,6 +33,7 @@ router.get('/Ocupacion', isAuthenticated, controllers.ocupacioncontroller.ocupac
 router.post('/ActuaOcupacion', isAuthenticated, isSedeAdmin, controllers.ocupacioncontroller.postActuaOcupacion);
 
 
+router.get('/api-sedes/:ciudad_user', isAuthenticated, controllers.trasladoscontroller.apiSedes)
 router.get('/api-articulos/:id_posicion', isAuthenticated, controllers.trasladoscontroller.apiArticulos);
 router.get('/api-puestos/:id_puesto', isAuthenticated, controllers.trasladoscontroller.apiPuestos);
 router.get('/api-bodegas/:id_sede', isAuthenticated, controllers.trasladoscontroller.apiBodegas);

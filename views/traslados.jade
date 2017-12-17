@@ -4,6 +4,7 @@ block content
   // Contenido Derecha
   script.
     datosUser="#{user.sede}"
+    ciudadUser="#{user.ciudad}"
   #contenido.container.col-lg-10.col-md-12
     form#ingreso-form.form-horizontal(method='post', action='../CrearTraslado')
       .form-title
@@ -24,6 +25,8 @@ block content
                   th.text-center
                     | N°
                   th.text-center
+                    | Sede
+                  th.text-center
                     | Bodega
                   th.text-center
                     | Puesto
@@ -32,13 +35,11 @@ block content
                   th.text-center
                     i.fa.fa-arrow-right
                   th.text-center
+                    | Sede
+                  th.text-center
                     | Bodega
                   th.text-center
                     | Puesto
-                  th.text-center
-                    | Activo
-                  th.text-center
-                    i.fa.fa-refresh
               tbody
         .row.add-container
           .col-md-6.row
@@ -65,8 +66,8 @@ block content
               table#tableModal.table.table-bordered.table-sm
                 thead.table-head.thead-inverse
             .modal-footer
-              button#cancel.btn.btn-danger(type='button', data-dismiss='modal') Cancelar
               button#confirm.btn.btn-success(type='submit') Confirmar
+              button#cancel.btn.btn-danger(type='button', data-dismiss='modal') Cancelar
   // Contenido Derecha
 
 append footer
