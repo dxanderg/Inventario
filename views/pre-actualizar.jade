@@ -10,6 +10,10 @@ block content
         h4 Seleccionar las sedes a consultar :
         h6  
       ul.list-group
+        .form-check.hidden-xs-up
+          label.list-group-item.form-check-label
+            input.form-check-input(type='checkbox', name='sede', value=99, checked)
+            h5 temp
         for val in consulta1
           .form-check
             label.list-group-item.form-check-label
