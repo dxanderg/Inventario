@@ -4,7 +4,6 @@ block content
   // Contenido Derecha
   #contenido.container.row.col-lg-10.col-md-12
     script.
-      ocupacionSede="#{datos}"
       datosUser="#{locals.user.sede}"
     .row.offset-md-3
       h5 DataSet Actual :    
@@ -23,6 +22,11 @@ block content
         .card-block
           h4#titleChart1= 'OCUPACION ' + user.nsede
           canvas#myDonutChart
+    .col-lg-10.col-md-6.offset-lg-1
+      .card
+        .card-block
+          h4#titleChart2= 'SUMARIO ' + user.nsede
+          canvas#myPolarChart
     //- .col-lg-10.col-md-6.offset-lg-1
     //-   .form-group.row
     //-     ul#tabs.nav.nav-tabs.nav-pills.nav-justified(role='tablist')

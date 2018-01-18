@@ -26,7 +26,7 @@ router.post('/ActualizarSede', isAuthenticated, isSedeAdmin, controllers.consult
 router.get('/ModificarArt/:id', isAuthenticated, controllers.consultascontroller.getModificarArticulo);
 router.get('/ModificarArtGlobal/:id', isAuthenticated, controllers.consultascontroller.getModificarArticulo);
 router.post('/ActualizarArt', isAuthenticated, controllers.consultascontroller.postActualizaArticulo);
-router.get('/Notificaciones', isAuthenticated, controllers.homecontroller.notificaciones);
+router.get('/Notificaciones', isAuthenticated, controllers.notificacionescontroller.notificaciones);
 router.get('/Actualizar-Global', isAdmin, controllers.consultascontroller.preglobalinv);
 router.post('/Actualizar-Global-Sedes', isAdmin, controllers.consultascontroller.globalinv);
 router.get('/Ocupacion', isAuthenticated, controllers.ocupacioncontroller.ocupacion);
