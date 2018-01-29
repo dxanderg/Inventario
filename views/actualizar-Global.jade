@@ -31,9 +31,12 @@ block content
                 th.text-center
                   | Plaqueta
                 th.text-center
+                  | Responsable
+                th.text-center
                   | Editar
             tfoot.table-footer
               tr
+                th
                 th
                 th
                 th
@@ -65,6 +68,8 @@ block content
                     div=item.serial_art
                   td
                     div=item.plaqueta_art
+                  td
+                    div=item.responsable
                   td
                     div
                       a(href='../ModificarArtGlobal/'+item.id_articulos data-tooltip='Modificar' data-inverted data-position='top center')
