@@ -13,6 +13,7 @@ module.exports = {
 		var consulta2 = null
 		var userSede = res.locals.currentuser.sede
 		var userCampana = res.locals.currentuser.campaña
+		var userCiudad = res.locals.currentuser.ciudad
 
 		async.parallel([
 			function(callback) { db.query(`SELECT * FROM tipo_item
@@ -28,7 +29,7 @@ module.exports = {
 					callback()
 	      })
   		},
-  		function(callback) { db.query(`SELECT * FROM sedes WHERE id_sede = ?`, userSede, function(err, rows, fields){
+  		function(callback) { db.query(`SELECT * FROM sedes WHERE ciudad_sede = ?`, userCiudad, function(err, rows, fields){
 					if(err) throw err
 					consulta2 = rows
 					callback()

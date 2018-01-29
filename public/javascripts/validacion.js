@@ -85,7 +85,7 @@ $(document).ready(function () {
       posicion: {
           validators: {
             // stringLength: {
-            //   min: 3,
+            //   min: 1,
             // },
             notEmpty: {
               message: 'Seleccione Puesto '

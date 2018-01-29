@@ -13,18 +13,18 @@ module.exports = {
 		var consulta2 = null
 		var userSede = res.locals.currentuser.sede
 		var userCampana = res.locals.currentuser.campaña
-
+		var userCiudad = res.locals.currentuser.ciudad
 		var mensaje = null
 		if (req.session.flash != undefined){
 			mensaje = req.session.flash
 		}
-
+		
 		db.query(`SELECT p.fk_sede, s.nombre_sede, p.fk_bodega, b.nombre_bodega, p.id_puesto, p.posicion, p.fk_campaign, c.CECO, c.nombre_campaign FROM puestos as p
 							join sedes as s on p.fk_sede = s.id_sede
 							join bodegas as b on p.fk_bodega = b.id_bodega
 							join campaign as c on p.fk_campaign = c.id_campaign
-							where s.id_sede = ?
-							order by b.nombre_bodega, p.posicion`, userSede, function(err, rows, fields){
+							where s.ciudad_sede = ?
+							order by b.nombre_bodega, p.posicion`, userCiudad, function(err, rows, fields){
 			if(err) throw err
 			consulta1 = rows
 			db.end()

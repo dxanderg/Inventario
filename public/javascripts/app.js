@@ -1,11 +1,18 @@
-//Script para añadir registros al formulario de traslados
+//Script para añadir registros al formulario de traslados  
 //-----------------------------------------------------------------------------
 $(document).ready(function(){
   var i=1;
   $("#add_row").click(function(){
     $('#tab_logic').append(`<tr id="addr` + i + `">
                       <td class="table_number">` + i + `</td>
-                      <input type="hidden" name="indice" id="indexRow`+ i + `" value="`+ i + `" />
+                      <input type="hidden" name="indice" id="indexRow`+ i + `" value="`+ i + `"/></label>
+                        <td>
+                          <section>
+                            <select name="sedeI-` + i + `" id="itemsedeI-` + i + `" class="form-control-sm selectSede">
+                              <option value=" ">Sede Inicio</option>
+                            </select>
+                          </section>
+                        </td>
                         <td>
                           <section>
                             <select name="ubicacionI-` + i + `" id="itembodegaI-` + i + `" class="form-control-sm selectUbicacion">
@@ -32,6 +39,13 @@ $(document).ready(function(){
                         <td><i class="fa fa-arrow-right"></i></td>
                         <td>
                           <section>
+                            <select name="sedeF-` + i + `" id="itemsedeF-` + i + `" class="form-control-sm selectSede">
+                              <option value=" ">Sede Destino</option>
+                            </select>
+                          </section>
+                        </td>
+                        <td>
+                          <section>
                             <select name="ubicacionF-` + i + `" id="itembodegaF-` + i + `" class="form-control-sm selectUbicacion">
                               <option value=" ">Bodega Destino</option>
                             </select>
@@ -44,21 +58,10 @@ $(document).ready(function(){
                             </select>
                           </section>
                         </td>
-                        <td>
-                          <div id="select-list">
-                            <div>
-                              <select size="1" name="articuloF-` + i + `" id="itemF-` + i + `" class="form-control-sm selectItem multiples" multiple="multiple">
-                                <option value=" ">Item a Cambiar</option>
-                              </select>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <input type="checkbox" name="inversa-` + i + `" class="form-check-input big-checkbox"/>
-                        </td>
                         </tr>`);
     bloquearSelect(i)
-    consultaBodegas(i)
+    // consultaBodegas(i)
+    consultaSedes(i)
     i++;
   });
 
@@ -75,14 +78,6 @@ $(document).ready(function(){
         i--
     }
   });
-
-  $(".form-check-input").change(function(){
-    var f = this
-    alert(f.name)
-  })
-
-
-
 });
 //-----------------------------------------------------------------------------
 

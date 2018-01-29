@@ -1,14 +1,30 @@
 $(function(){
 
 	$( document ).ready(function(e){
-		consultaBodegas()
-		bloquearSelect()
+		// consultaBodegas()
+		// bloquearSelect()
 	})
 
 	//Devuelve el numero del Id de bodega seleccionado para consultar los puestos
 	$('#tab_logic').on('change', 'select', function(){
 	  var selectEnUso = this;
-	  if (selectEnUso.id.match(/^itembodegaI.*$/)){
+    if (selectEnUso.id.match(/^itemsedeI.*$/)){
+      // uso de la ciudad de usuario para llamar las bodegas I
+      id = selectEnUso.id.match(/(\d+)/)[0]
+      val = selectEnUso.value
+      pos = '#itembodegaI-'
+      $(pos + id).removeAttr('disabled', '')
+      consultaBodegas(val, id, pos)
+    }
+    else if (selectEnUso.id.match(/^itemsedeF.*$/)){
+      // uso de la ciudad de usuario para llamar las bodegas F
+      id = selectEnUso.id.match(/(\d+)/)[0]
+      val = selectEnUso.value
+      pos = '#itembodegaF-'
+      $(pos + id).removeAttr('disabled', '')
+      consultaBodegas(val, id, pos)
+    }
+	  else if (selectEnUso.id.match(/^itembodegaI.*$/)){
 	  	// uso de bodega inicial para llamar a puestos I
 	  	id = selectEnUso.id.match(/(\d+)/)[0]
 	  	val = selectEnUso.value
@@ -53,7 +69,8 @@ function consultarArticulos(val, id, pos){
         selectItems.html('');
         for(i=0; i<response.data.length; i++){
         	var opt = document.createElement('option');
-        	opt.value = response.data[i].id_articulos;
+        	// opt.value = response.data[i].id_articulos;
+          opt.value = "{ id:"+response.data[i].id_articulos+", plaqueta:"+response.data[i].plaqueta_art+", serial:"+response.data[i].serial_art+"}"
         	opt.innerHTML = response.data[i].nombre_item + ': ' + response.data[i].plaqueta_art;
         	selectItems.append(opt);
         }
@@ -82,23 +99,41 @@ function consultarPuestos(val, id, pos){
 }
 
 //API request para consultar las bodegas de la sede X
-function consultaBodegas(i){
+function consultaBodegas(val, id, pos){
 	$.ajax({
-    url: '/api-bodegas/' + datosUser,
+    url: '/api-bodegas/' + val,
     contentType: 'application/json',
     success: function(response) {
-      var selectItems = $('#itembodegaI-' + i);
-      var selectItems2 = $('#itembodegaF-' + i);
-        selectItems.html('');
+      var selectBodegas = $(pos + id);
+        selectBodegas.html('');
         for(i=0; i<response.data.length; i++){
         	var opt = document.createElement('option');
-        	var opt2 = document.createElement('option');
         	opt.value = response.data[i].id_bodega;
-        	opt2.value = response.data[i].id_bodega;
         	opt.innerHTML = response.data[i].nombre_bodega;
-        	opt2.innerHTML = response.data[i].nombre_bodega;
-        	selectItems.append(opt);
-        	selectItems2.append(opt2);
+        	selectBodegas.append(opt);
+        }
+    }
+  })
+}
+
+//API request para consultar las sedes de usuario x
+function consultaSedes(i){
+  $.ajax({
+    url: '/api-sedes/' + ciudadUser,
+    contentType: 'application/json',
+    success: function(response) {
+      var selectItems = $('#itemsedeI-' + i);
+      var selectItems2 = $('#itemsedeF-' + i);
+        selectItems.html('');
+        for(i=0; i<response.data.length; i++){
+          var opt = document.createElement('option');
+          var opt2 = document.createElement('option');
+          opt.value = response.data[i].id_sede;
+          opt2.value = response.data[i].id_sede;
+          opt.innerHTML = response.data[i].nombre_sede;
+          opt2.innerHTML = response.data[i].nombre_sede;
+          selectItems.append(opt);
+          selectItems2.append(opt2);
         }
     }
   })
@@ -110,6 +145,8 @@ function bloquearSelect(i){
 	$('#itemI-' + i).attr('disabled', '')
 	$('#puestoF-' + i).attr('disabled', '')
 	$('#itemF-' + i).attr('disabled', '')
+  $('#itembodegaI-' + i).attr('disabled', '')
+  $('#itembodegaF-' + i).attr('disabled', '')
 }
 
 
@@ -129,32 +166,34 @@ $('#confirmTraslado').on('show.bs.modal', function(e) {
     $('#tableModal').append(`<thead class="table-head thead-inverse">
 														  <tr>
 														    <th class="text-center">N°</th>
+                                <th class="text-center">Sede</th>
 														    <th class="text-center">Bodega</th>
 														    <th class="text-center">Puesto</th>
 														    <th class="text-center">Activo</th>
 														    <th class="text-center"><i class="fa fa-arrow-right"></i></th>
-														    <th class="text-center">Bodega</th>
+														    <th class="text-center">Sede</th>
+                                <th class="text-center">Bodega</th>
 														    <th class="text-center">Puesto</th>
-														    <th class="text-center">Activo</th>
 														  </tr>`);
 
     //Cuerpo
     var indexRow = document.getElementsByName('indice').length
     for (i=1; i<=indexRow; i++){
+      var itemsedeI = document.getElementById('itemsedeI-'+i)
       var itembodegaI = document.getElementById('itembodegaI-'+i)
       var puestoI = document.getElementById('puestoI-'+i)
       var itemIAll = $('select[name=articuloI-'+i+'] + .btn-group > .multiselect')
       var itemI = itemIAll[0].title
+      var itemsedeF = document.getElementById('itemsedeF-'+i)
       var itembodegaF = document.getElementById('itembodegaF-'+i)
       var puestoF = document.getElementById('puestoF-'+i)
-      var itemFAll = $('select[name=articuloF-'+i+'] + .btn-group > .multiselect')
-      var itemF = itemFAll[0].title
-      console.log(itemI)
-      console.log(itemF)
-      // console.log(itemI.options[ itemI.selectedIndex ].text)
+      // var itemFAll = $('select[name=articuloF-'+i+'] + .btn-group > .multiselect')
+      // var itemF = itemFAll[0].title
     	$('#tableModal').append(`<tr class="addr" id="addr` + i + `">
                       <td class="table_number">` + i + `</td>
-                      <input type="hidden" name="indice" id="indexRow`+ i + `" value="`+ i + `" />
+                        <td>
+                          <label>` + itemsedeI.options[ itemsedeI.selectedIndex ].text + `</label>
+                        </td>
                         <td>
                         	<label>` + itembodegaI.options[ itembodegaI.selectedIndex ].text + `</label>
                         </td>
@@ -166,13 +205,13 @@ $('#confirmTraslado').on('show.bs.modal', function(e) {
                         </td>
                         <td><i class="fa fa-arrow-right"></i></td>
                         <td>
+                          <label>` + itemsedeF.options[ itemsedeF.selectedIndex ].text + `</label>
+                        </td>
+                        <td>
                         	<label>` + itembodegaF.options[ itembodegaF.selectedIndex ].text + `</label>
                         </td>
                         <td>
                         	<label>` + puestoF.options[ puestoF.selectedIndex ].text + `</label>
-                        </td>
-                        <td>
-                        	<label>` + itemF + `</label>
                         </td>
                         </tr>`);
     }

@@ -4,6 +4,10 @@ var dateFormat = require('dateFormat')
 
 module.exports = {
 
+	notificaciones : function(req, res, next){
+		res.render('notificaciones')
+	},
+
 	apiMovimientos : function(req, res, next){
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)

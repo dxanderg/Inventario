@@ -60,6 +60,23 @@ module.exports = {
 		res.send({ data : consulta3})
 		})
 	},
+	apiSedes : function(req, res, next){
+		var config = require('.././database/config')
+		var db = mysql.createConnection(config)
+		db.connect()
+
+		var id = req.params.ciudad_user
+		var consulta = null
+
+		db.query(`SELECT * FROM sedes
+							WHERE ciudad_sede = ?
+							ORDER BY nombre_sede`, id, function(err, rows, fields){
+			if(err) throw err
+			consulta = rows
+			db.end()
+		res.send({ data : consulta})
+		})
+	},
 	traslados : function(req, res, next){
 		var config = require('.././database/config')
 		var db = mysql.createConnection(config)

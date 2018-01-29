@@ -55,8 +55,8 @@ body{
 }
 
 #header-container #usuario-login:hover{
-	background-color: #23303D;
-	border-left: .3rem solid #2DBD8D;
+	background-color: #373737;
+	border-left: .3rem solid white;
 }
 
 #header-container #usuario-login b{
