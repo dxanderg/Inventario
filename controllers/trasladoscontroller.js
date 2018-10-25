@@ -35,7 +35,7 @@ module.exports = {
 		var consulta2 = null
 
 		db.query(`SELECT id_puesto, posicion, fk_bodega FROM puestos
-							WHERE fk_bodega = ?`, id, function(err, rows, fields){
+							WHERE fk_bodega = ? AND fk_estado = 1`, id, function(err, rows, fields){
 			if(err) throw err
 			consulta2 = rows
 			db.end()
